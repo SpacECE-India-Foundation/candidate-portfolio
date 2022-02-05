@@ -19,14 +19,32 @@
 <div class="col">
     <a class="btn btn-primary" href="Resume/index.php">Sudent Resume</a></div>
 <div class="col">
-    <a class="btn btn-primary" href="Task-Management-master/index.php">online note sharing</a></div>
+    <a class="btn btn-primary" href="Task-Management-master/index.php">Task Management System</a></div>
 </div>
 
 <div class="row ml-3 mt-5">
 <div class="col ml-3">
     <a class="btn btn-primary" href="student_result/srms/index.php">student result</a></div>
+
+</div>
+<div class="col">
+    <a class="btn btn-primary" href="Student Report Card/index.php">Student Report Card</a></div>
 </div>
 </div>
+<div>
+    <div>
+    <div class="row ml-3 mt-3">
+    <div class="col">
+<a class="btn btn-primary" href=""> 
+    <button type="Submit" name="submit" value=""> Submit </button></a></div>
+    <div class="col">
+<a class="btn btn-primary" href=""> 
+<button type="Registratioin" name="registration" value=""> Registration </button></a></div>
+<div class="col">   
+<a class="btn btn-primary" href=""> 
+<button type="Admin" name="admin" value=""> Admin </button></a></div>
+</div>
+    
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
