@@ -31,6 +31,9 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['email']  = $email;
       //$_SESSION['role'] = $role;
      // $_SESSION['course'] = $course;
+      $_SESSION['SESS_MEMBER_ID']=$id;
+      $_SESSION['SESS_FIRST_NAME']=$row['uname'];
+	    $_SESSION['SESS_LAST_NAME']=$row['name'];
       header('location: ../index.php');
     }
     else {

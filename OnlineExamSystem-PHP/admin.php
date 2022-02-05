@@ -8,7 +8,7 @@ $email = stripslashes($email);
 $email = addslashes($email);
 $password = stripslashes($password); 
 $password = addslashes($password);
-$result = mysqli_query($con,"SELECT email FROM admin WHERE email = '$email' and password = '$password'") or die('Error');
+$result = mysqli_query($con,"SELECT user FROM admin WHERE user = '$email' and pass = '$password'") or die('Error');
 $count=mysqli_num_rows($result);
 if($count==1){
 session_start();

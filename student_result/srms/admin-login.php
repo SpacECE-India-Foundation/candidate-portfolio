@@ -8,9 +8,10 @@ $_SESSION['alogin']='';
 if(isset($_POST['login']))
 {
 $uname=$_POST['username'];
-$password=md5($_POST['password']);
+//$password=md5($_POST['password']);
+$password=$_POST['password'];
 $sql ="SELECT user,pass FROM admin WHERE user=:uname and pass=:password";
-echo $sql;
+
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':uname', $uname, PDO::PARAM_STR);
 $query-> bindParam(':password', $password, PDO::PARAM_STR);

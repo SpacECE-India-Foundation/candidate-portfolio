@@ -32,6 +32,7 @@ Model :: Student Information System
 	require_once('auth.php');
 ?>
 <?php
+$position='admin';
 function createRandomPassword() {
 	$chars = "003232303232023232023456789";
 	srand((double)microtime()*1000000);

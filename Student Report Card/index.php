@@ -1,11 +1,13 @@
 <?php
 	//Start session
 	session_start();
-	
+	if(isset($_SESSION['SESS_MEMBER_ID'])){
+		header('location:./main/index.php');
+	}
 	//Unset the variables stored in session
-	unset($_SESSION['SESS_MEMBER_ID']);
-	unset($_SESSION['SESS_FIRST_NAME']);
-	unset($_SESSION['SESS_LAST_NAME']);
+	//unset($_SESSION['SESS_MEMBER_ID']);
+	//unset($_SESSION['SESS_FIRST_NAME']);
+	//unset($_SESSION['SESS_LAST_NAME']);
 ?>
 <html>
 <head>
@@ -21,7 +23,7 @@ Model :: Students Records Management System
   <link rel="stylesheet" href="main/css/font-awesome.min.css">
     <style type="text/css">
       body {
-		background-color = #D6ACE6;
+		background-color:#D6ACE6;
         padding-top: 60px;
         padding-bottom: 40px;
       }
