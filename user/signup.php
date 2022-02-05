@@ -49,6 +49,7 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 }
 
   else {
+    print_r($_POST);
       $name = $validated_data['name'];
       $email = $validated_data['email'];
       $pass = $validated_data['password'];
@@ -56,8 +57,8 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
       $role = $_POST['role'];
       $course = $_POST['course'];
       $gender = $_POST['gender'];   
-      $joindate = date("F j, Y");
-      $query = "INSERT INTO user(name,uname,upass,role,course,gender,joindate,token) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' , '$joindate' , '' )";
+     // $joindate = date("F j, Y");
+      $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )";
       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
       if (mysqli_affected_rows($conn) > 0) { 
         echo "<script>alert('SUCCESSFULLY REGISTERED');

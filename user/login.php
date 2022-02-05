@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['email']  = $email;
       //$_SESSION['role'] = $role;
      // $_SESSION['course'] = $course;
-      header('location: dashboard.php');
+      header('location: ../index.php');
     }
     else {
       echo "<script>alert('invalid username/password');

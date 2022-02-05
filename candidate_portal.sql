@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2022 at 06:09 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Feb 05, 2022 at 09:39 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -681,31 +681,34 @@ CREATE TABLE `user` (
   `image` varchar(50) DEFAULT NULL,
   `dob` datetime DEFAULT NULL,
   `regid` int(11) DEFAULT NULL,
-  `college` varchar(30) NOT NULL
+  `college` varchar(30) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  `course` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uid`, `uname`, `upass`, `name`, `mobile`, `gender`, `hobbise`, `image`, `dob`, `regid`, `college`) VALUES
-(1, 'admin@gmail.com', '$2y$10$JEMq0AXzJh4rEYMO7TpuouTAKWwTtxoBC8CJxmotlJkF6krHtoGve', NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
-(2, 'bikash1@gmail.com', 'bikash@123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
-(3, 'KAHNU CHARAN SAHOO', 'kanhu1@gmai.com', '5d6cf44d8e83dafabaf2', 6370319676, 'm', 'singin', '27.01.2022_07.52.14_REC.png', '0000-00-00 00:00:00', 234556, ''),
-(4, 'Binapani pradhan', 'Binapani', '5d96b8e45c1c20d3fb40', 89765432, 'm', 'reading', '27.01.2022_07.52.14_REC.png', '1967-10-18 00:00:00', 1234567, ''),
-(5, 'Lipa@gmail.com', 'ea20c67b31b324d79829', 'ea20c67b31b324d79829', 890765463, 'f', 'singin', '27.01.2022_07.52.14_REC.png', '1966-09-18 00:00:00', 4427, ''),
-(6, 'soumya sahoo', 'soumya', 'c46e7e19f91fa88ee049', 90879078, 'f', 'reading', '27.01.2022_07.52.14_REC.png', '1964-10-18 00:00:00', 3718, ''),
-(7, 'Babuna', 'babuna1@gmail.com', '706e9244bbaa23d18495', 657897643, 'f', 'reading', '27.01.2022_07.52.14_REC.png', '1966-10-18 00:00:00', 2379, ''),
-(8, 'gyana@gmail.com', '351cc357216a32314c6600ef825d8e60', 'gyana', 90786534, 'm', 'reading', '27.01.2022_07.52.14_REC.png', '1985-11-19 00:00:00', 1764, ''),
-(9, 'gada@gmail.com', 'caf3f58e61644dbc2c61bf8cbcf04541', 'gadadhar pradhan', 67896754, 'm', 'singin', '27.01.2022_07.52.14_REC.png', '1966-11-20 00:00:00', 2472, '');
+INSERT INTO `user` (`uid`, `uname`, `upass`, `name`, `mobile`, `gender`, `hobbise`, `image`, `dob`, `regid`, `college`, `role`, `course`) VALUES
+(1, 'admin@gmail.com', ' 3e9fd42e162f89f36b1f424168be8cc9', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(2, 'bikash1@gmail.com', 'bikash@123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', ''),
+(3, 'KAHNU CHARAN SAHOO', 'kanhu1@gmai.com', '5d6cf44d8e83dafabaf2', 6370319676, 'm', 'singin', '27.01.2022_07.52.14_REC.png', '0000-00-00 00:00:00', 234556, '', '', ''),
+(4, 'Binapani pradhan', 'Binapani', '5d96b8e45c1c20d3fb40', 89765432, 'm', 'reading', '27.01.2022_07.52.14_REC.png', '1967-10-18 00:00:00', 1234567, '', '', ''),
+(5, 'Lipa@gmail.com', 'ea20c67b31b324d79829', 'ea20c67b31b324d79829', 890765463, 'f', 'singin', '27.01.2022_07.52.14_REC.png', '1966-09-18 00:00:00', 4427, '', '', ''),
+(6, 'soumya sahoo', 'soumya', 'c46e7e19f91fa88ee049', 90879078, 'f', 'reading', '27.01.2022_07.52.14_REC.png', '1964-10-18 00:00:00', 3718, '', '', ''),
+(7, 'Babuna', 'babuna1@gmail.com', '706e9244bbaa23d18495', 657897643, 'f', 'reading', '27.01.2022_07.52.14_REC.png', '1966-10-18 00:00:00', 2379, '', '', ''),
+(8, 'gyana@gmail.com', '351cc357216a32314c6600ef825d8e60', 'gyana', 90786534, 'm', 'reading', '27.01.2022_07.52.14_REC.png', '1985-11-19 00:00:00', 1764, '', '', ''),
+(9, 'gada@gmail.com', ' 202cb962ac59075b964b07152d234b70', 'gadadhar pradhan', 67896754, 'm', 'singin', '27.01.2022_07.52.14_REC.png', '1966-11-20 00:00:00', 2472, '', '', ''),
+(10, 'khandareumesh12@gmail.com', '3e9fd42e162f89f36b1f424168be8cc9', 'Umesh', NULL, 'Male', NULL, NULL, NULL, NULL, '', 'teacher', 'Computer Science');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `users_todelete`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `users_todelete` (
   `id` int(30) NOT NULL,
   `firstname` varchar(200) NOT NULL,
   `lastname` varchar(200) NOT NULL,
@@ -713,19 +716,20 @@ CREATE TABLE `users` (
   `password` text NOT NULL,
   `type` tinyint(1) NOT NULL DEFAULT 2 COMMENT '1 = admin, 2 = staff',
   `avatar` text NOT NULL DEFAULT 'no-image-available.png',
-  `date_created` datetime NOT NULL DEFAULT current_timestamp()
+  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
+  `role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `users_todelete`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `type`, `avatar`, `date_created`) VALUES
-(1, 'Administrator', '', 'admin@admin.com', '0192023a7bbd73250516f069df18b500', 1, 'no-image-available.png', '2020-11-26 10:57:04'),
-(2, 'John', 'Smith', 'jsmith@sample.com', '1254737c076cf867dc53d60a0364f38e', 2, '1606978560_avatar.jpg', '2020-12-03 09:26:03'),
-(3, 'Claire', 'Blake', 'cblake@sample.com', '4744ddea876b11dcb1d169fadf494418', 3, '1606958760_47446233-clean-noir-et-gradient-sombre-image-de-fond-abstrait-.jpg', '2020-12-03 09:26:42'),
-(4, 'George', 'Wilson', 'gwilson@sample.com', 'd40242fb23c45206fadee4e2418f274f', 3, '1606963560_avatar.jpg', '2020-12-03 10:46:41'),
-(5, 'Mike', 'Williams', 'mwilliams@sample.com', '3cc93e9a6741d8b40460457139cf8ced', 3, '1606963620_47446233-clean-noir-et-gradient-sombre-image-de-fond-abstrait-.jpg', '2020-12-03 10:47:06');
+INSERT INTO `users_todelete` (`id`, `firstname`, `lastname`, `email`, `password`, `type`, `avatar`, `date_created`, `role`) VALUES
+(1, 'Administrator', '', 'admin@admin.com', '0192023a7bbd73250516f069df18b500', 1, 'no-image-available.png', '2020-11-26 10:57:04', ''),
+(2, 'John', 'Smith', 'jsmith@sample.com', '1254737c076cf867dc53d60a0364f38e', 2, '1606978560_avatar.jpg', '2020-12-03 09:26:03', ''),
+(3, 'Claire', 'Blake', 'cblake@sample.com', '4744ddea876b11dcb1d169fadf494418', 3, '1606958760_47446233-clean-noir-et-gradient-sombre-image-de-fond-abstrait-.jpg', '2020-12-03 09:26:42', ''),
+(4, 'George', 'Wilson', 'gwilson@sample.com', 'd40242fb23c45206fadee4e2418f274f', 3, '1606963560_avatar.jpg', '2020-12-03 10:46:41', ''),
+(5, 'Mike', 'Williams', 'mwilliams@sample.com', '3cc93e9a6741d8b40460457139cf8ced', 3, '1606963620_47446233-clean-noir-et-gradient-sombre-image-de-fond-abstrait-.jpg', '2020-12-03 10:47:06', '');
 
 -- --------------------------------------------------------
 
@@ -858,9 +862,9 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `users_todelete`
 --
-ALTER TABLE `users`
+ALTER TABLE `users_todelete`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -949,12 +953,12 @@ ALTER TABLE `task_list`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `users_todelete`
 --
-ALTER TABLE `users`
+ALTER TABLE `users_todelete`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
