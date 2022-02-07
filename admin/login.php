@@ -1,5 +1,5 @@
 <?php
-	include('../connection.php');
+	include('connection.php');
 	session_start();
 	extract($_POST);
 	if(isset($login))
