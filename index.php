@@ -1,6 +1,15 @@
+<?php
+session_start();
+if(!isset( $_SESSION['SESS_MEMBER_ID'])){
+header ('location:user/login.php');
+exit();
+}
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <body>  
+ 
   <head>
     <title>Candidate Portal</title>
     <meta charset="utf-8">
@@ -36,18 +45,25 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="Online_notice_board/index.php" class="nav-link pl-0" style="background-color:orange"><b>Online Notice Board</b></a></li>
-	        	<li class="nav-item"><a href="online-notes-sharing/index.php" class="nav-link" style="background-color:orange"><b>Online Notes Sharing</b></a></li>
+	        	<li class="nav-item"><a href="online-notes-sharing/dashboard/index.php" class="nav-link" style="background-color:orange"><b>Online Notes Sharing</b></a></li>
 	        	<li class="nav-item"><a href="OnlineExamSystem-PHP/index.php"  style="color:"class="nav-link"><b>Online Exam</b></a></li>
 	        	<li class="nav-item"><a href="Resume/index.php" class="nav-link" style="background-color:"><b>Student Resume </b></a></li>
 	        	<li class="nav-item"><a href="Task-Management-master/index.php" class="nav-link" style="background-color:"><b>Task Management</b></a></li>
 	        	<li class="nav-item"><a href="student_result/srms/index.php" class="nav-link" style="background-color:green"><b>Student Result</b></a></li>
 	                <li class="nav-item"><a href="Student Report Card/index.php" class="nav-link" style="background-color:green"><b>Student Report</b></a></li>
-	        </ul>
+                   
+                </ul>
+
 	      </div>
 	    </div>
+       
 	  </nav>
     <!-- END nav -->
-    
+    <div>
+     <a href="user/logout.php"  style="background-color:green"><b><center>Log out</center></b></a><marquee bgcolor="yellow"><b>"Memories of childhood were the dreams that stayed with you after you woke."
+
+- Julian Barnes.<b></marquee>
+</div>
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
       	<div class="overlay"></div>
@@ -61,23 +77,13 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-8 text-center ftco-animate">
-            <h1 class="mb-4">Perfect Learned<span> For Your Child</span></h1>
-            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
-          </div>
-        </div>
-        </div>
-      </div>
+      
       <div class="slider-item" style="background-image:url(images/bg_6.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 text-center ftco-animate">
-            <h1 class="mb-4">SpecECE India<span> Foundation to Helps for Your Child</span></h1>
+            <h1 class="mb-4">SpacECE India<span> Foundation to Helps for Your Child</span></h1>
             <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
           </div>
          </div>

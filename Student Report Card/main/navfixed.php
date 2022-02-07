@@ -18,7 +18,7 @@
 								?>
 
 				</a></li>
-              <li><a href="../index.php"><font color="red"><i class="icon-off icon-large"></i></font> Log Out</a></li>
+        <li class="nav-item"><a href="../../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>	
             </ul>
           </div><!--/.nav-collapse -->
         </div>

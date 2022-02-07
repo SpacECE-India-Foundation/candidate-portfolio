@@ -32,7 +32,8 @@ Model :: Student Information System
 	require_once('auth.php');
 ?>
 <?php
-$position='admin';
+
+ 
 function createRandomPassword() {
 	$chars = "003232303232023232023456789";
 	srand((double)microtime()*1000000);
@@ -94,10 +95,11 @@ $position=$_SESSION['SESS_LAST_NAME'];
 if($position=='cashier') {
 ?>
 
-<a href="../index.php">Logout</a>
+ 
 <?php
 }
-if($position=='admin') {
+$position='admin';
+if($position==='admin') {
 ?>
 	
 	<div class="container-fluid">
@@ -136,8 +138,7 @@ if($position=='admin') {
 
                    
 <a href="students.php"><i class="icon-group icon-2x"></i><br> Students</a>     
-<a href="addstudent.php"><i class="icon-user icon-2x"></i><br> Add Student</a>     
-<a href="../index.php"><font color="red"><i class="icon-off icon-2x"></i></font><br> Logout</a> 
+<a href="addstudent.php"><i class="icon-user icon-2x"></i><br> Add Student</a>    	
 <?php
 }
 ?>

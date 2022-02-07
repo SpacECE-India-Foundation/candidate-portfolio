@@ -21,14 +21,16 @@ session_start();
    
    
 	
-	<li><a href="index.php?option=contact"><span class="glyphicon glyphicon-phone"></span>Contact</a></li>
+	<li><a href="user/index.php" style="color:whie"> My notification</a></li>
+	
 	
 	</ul>
 
 
 <ul class="nav navbar-nav navbar-right">
-      <li><a href="index.php?option=New_user"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="index.php?option=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>      
+<!-- <li><a href="index.php?option=New_user"><span class="glyphicon glyphicon-user"></span> </a></li>
+      <li><a href="index.php?option=login"><span class="glyphicon glyphicon-log-in"></span> </a></li> -->
     </ul>
 
 

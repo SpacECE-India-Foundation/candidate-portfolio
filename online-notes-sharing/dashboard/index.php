@@ -1,7 +1,12 @@
+ 
 <?php include ('includes/connection.php'); ?>
 <?php include('includes/adminheader.php');  ?>
 
-
+<?php
+if (!isset ($_SESSION['role'])){
+header('location:../../user/login.php');
+}
+?>
  <div id="wrapper">
        
        <?php include 'includes/adminnav.php';?>

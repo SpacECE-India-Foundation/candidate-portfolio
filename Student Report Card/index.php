@@ -23,7 +23,7 @@ Model :: Students Records Management System
   <link rel="stylesheet" href="main/css/font-awesome.min.css">
     <style type="text/css">
       body {
-		background-color:#D6ACE6;
+		background-color = #D6ACE6;
         padding-top: 60px;
         padding-bottom: 40px;
       }
@@ -40,6 +40,7 @@ Model :: Students Records Management System
       <div class="row-fluid">
 		<div class="span4">
 		</div>
+		 	
 	
 </div>
 <div id="login">
@@ -51,7 +52,7 @@ if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count
 	unset($_SESSION['ERRMSG_ARR']);
 }
 ?>
-<form action="login.php" method="post">
+<!-- <form action="login.php" method="post">
 
 			<font style=" font:bold 44px 'Aleo'; color:#fff;"><center>Model's SRMS</center></font>
 		<br>
@@ -66,7 +67,7 @@ if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count
 		<div class="qwe">
 		 <button class="btn btn-large btn-primary btn-block pull-right" href="dashboard.html" type="submit"><i class="icon-signin icon-large"></i> Login</button>
 </div>
-		 </form>
+		 </form> -->
 </div>
 </div>
 </div>

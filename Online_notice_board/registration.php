@@ -1,52 +1,52 @@
-<?php 
-require('connection.php');
-extract($_POST);
-if(isset($save))
-{
-//check user alereay exists or not
-$sql=mysqli_query($conn,"select * from user where uname='$e'");
+ <!-- <?php 
+// require('connection.php');
+// extract($_POST);
+// if(isset($save))
+// {
+// //check user alereay exists or not
+// $sql=mysqli_query($conn,"select * from user where uname='$e'");
 
-$r=mysqli_num_rows($sql);
+// $r=mysqli_num_rows($sql);
 
-if($r==true)
-{
-$err= "<font color='red'>This user already exists</font>";
-}
-else
-{
-//dob
-$dob=$yy."-".$mm."-".$dd;
+// if($r==true)
+// {
+// $err= "<font color='red'>This user already exists</font>";
+// }
+// else
+// {
+// //dob
+// $dob=$yy."-".$mm."-".$dd;
 
-//hobbies
-$hob=implode(",",$hob);
+// //hobbies
+// $hob=implode(",",$hob);
 
-//image
-$imageName=$_FILES['img']['name'];
+// //image
+// $imageName=$_FILES['img']['name'];
 
-$regid=rand(1000,10000);
+// $regid=rand(1000,10000);
 
-//encrypt your password
-$pass=md5($p);
-
-
-$query="insert into user (`uid`, `name`, `uname`, `upass`, `mobile`, `gender`, `hobbise`, `image`, `dob`, `regid`) 
-values('','$n','$e','$pass','$mob','$gen','$hob','$imageName','$dob','$regid')";
-
-mysqli_query($conn,$query);
-
-//upload image
-
-mkdir("images/$e");
-move_uploaded_file($_FILES['img']['tmp_name'],"images/$e/".$_FILES['img']['name']);
+// //encrypt your password
+// $pass=md5($p);
 
 
-$err="<font color='blue'>Registration successfull !!</font>";
+// $query="insert into user (`uid`, `name`, `uname`, `upass`, `mobile`, `gender`, `hobbise`, `image`, `dob`, `regid`) 
+// values('','$n','$e','$pass','$mob','$gen','$hob','$imageName','$dob','$regid')";
 
-}
-}
+// mysqli_query($conn,$query);
+
+// //upload image
+
+// mkdir("images/$e");
+// move_uploaded_file($_FILES['img']['tmp_name'],"images/$e/".$_FILES['img']['name']);
 
 
+// $err="<font color='blue'>Registration successfull !!</font>";
 
+// }
+// }  
+
+
+  
 
 ?>
 <h2>Registration Form</h2>
@@ -105,21 +105,21 @@ $err="<font color='blue'>Registration successfull !!</font>";
 					<select name="yy" required>
 					<option value="">Year</option>
 					<?php 
-					for($i=1950;$i<=2016;$i++)
-					{
-					echo "<option>".$i."</option>";
-					}					
-					?>
+					// for($i=1950;$i<=2016;$i++)
+					// {
+					// echo "<option>".$i."</option>";
+					// }					
+					// ?>
 					
-					</select>
+					// </select>
 					
-					<select name="mm" required>
-					<option value="">Month</option>
-					<?php 
-					for($i=1;$i<=12;$i++)
-					{
-					echo "<option>".$i."</option>";
-					}					
+					// <select name="mm" required>
+					// <option value="">Month</option>
+					// <?php 
+					// for($i=1;$i<=12;$i++)
+					// {
+					// echo "<option>".$i."</option>";
+					// }					
 					?>
 					
 					</select>
@@ -128,10 +128,10 @@ $err="<font color='blue'>Registration successfull !!</font>";
 					<select name="dd" required>
 					<option value="">Date</option>
 					<?php 
-					for($i=1;$i<=31;$i++)
-					{
-					echo "<option>".$i."</option>";
-					}					
+					// for($i=1;$i<=31;$i++)
+					// {
+					// echo "<option>".$i."</option>";
+					// }					
 					?>
 					
 					</select>
