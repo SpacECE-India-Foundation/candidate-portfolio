@@ -1,55 +1,113 @@
-<html>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<body class="bg-light">
+<!DOCTYPE html>
+<html lang="en">
+<body>  
+  <head>
+    <title>Candidate Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
 
-<div class="container ">
-<div class="row ml-3 mt-5">
-<div class="col">
-<a class="btn btn-primary" href="Online_notice_board/index.php">Online notice board</a>
-
-</div>
-<div class="col">
-<a class="btn btn-primary" href="online-notes-sharing/index.php">online note sharing</a>
-</div>
-
-<div class="col">
-<a class="btn btn-primary" href="OnlineExamSystem-PHP/index.php">online exam system</a>
-</div>
-<div class="col">
-    <a class="btn btn-primary" href="Resume/index.php">Sudent Resume</a></div>
-<div class="col">
-    <a class="btn btn-primary" href="Task-Management-master/index.php">Task Management System</a></div>
-</div>
-
-<div class="row ml-3 mt-5">
-<div class="col ml-3">
-    <a class="btn btn-primary" href="student_result/srms/index.php">student result</a></div>
-
-</div>
-<div class="col">
-    <a class="btn btn-primary" href="Student Report Card/index.php">Student Report Card</a></div>
-</div>
-</div>
-<div>
-    <div>
-    <div class="row ml-3 mt-3">
-    <div class="col">
-<a class="btn btn-primary" href=""> 
-    <button type="Submit" name="submit" value=""> Submit </button></a></div>
-    <div class="col">
-<a class="btn btn-primary" href=""> 
-<button type="Registratioin" name="registration" value=""> Registration </button></a></div>
-<div class="col">   
-<a class="btn btn-primary" href=""> 
-<button type="Admin" name="admin" value=""> Admin </button></a></div>
-</div>
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
     
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+	   
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
+	    <div class="container d-flex align-items-center">
+	    	<a class="navbar-brand" href="user/login.php"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="Online_notice_board/index.php" class="nav-link pl-0" style="background-color:orange"><b>Online Notice Board</b></a></li>
+	        	<li class="nav-item"><a href="online-notes-sharing/index.php" class="nav-link" style="background-color:orange"><b>Online Notes Sharing</b></a></li>
+	        	<li class="nav-item"><a href="OnlineExamSystem-PHP/index.php"  style="color:"class="nav-link"><b>Online Exam</b></a></li>
+	        	<li class="nav-item"><a href="Resume/index.php" class="nav-link" style="background-color:"><b>Student Resume </b></a></li>
+	        	<li class="nav-item"><a href="Task-Management-master/index.php" class="nav-link" style="background-color:"><b>Task Management</b></a></li>
+	        	<li class="nav-item"><a href="student_result/srms/index.php" class="nav-link" style="background-color:green"><b>Student Result</b></a></li>
+	                <li class="nav-item"><a href="Student Report Card/index.php" class="nav-link" style="background-color:green"><b>Student Report</b></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1>
+            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Perfect Learned<span> For Your Child</span></h1>
+            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="slider-item" style="background-image:url(images/bg_6.jpg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">SpecECE India<span> Foundation to Helps for Your Child</span></h1>
+            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Read More</a></p>
+          </div>
+         </div>
+      </div>
+ 
+ 
+    </section>
+       
+    </footer>
+    
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
-</body>
-
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
 </html>
+ 
