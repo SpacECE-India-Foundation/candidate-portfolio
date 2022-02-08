@@ -1,4 +1,4 @@
-<?php include 'includes/connection.php';?>
+<?php session_start();?>
 <?php include 'includes/header.php';?>
 
 <?php include 'includes/navbar.php';?>
@@ -22,6 +22,13 @@ $gump->filter_rules(array(
   'email'    => 'trim|sanitize_email',
   ));
 $validated_data = $gump->run($_POST);
+$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
+
+// Check connection
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    exit();
+}
 
 if($validated_data === false) {
   ?>
