@@ -46,6 +46,7 @@ $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 
       $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
+      echo $run_check;
       $countemail = mysqli_num_rows($run_check); 
       echo $countemail;
       if ($countemail > 0 ) {
@@ -67,10 +68,10 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 // //       if (mysqli_affected_rows($conn) > 0) { 
 // //         echo "<script>alert('SUCCESSFULLY REGISTERED');
 // //         window.location.href='login.php';</script>";
-//  //}
+//}
 // // else {
 // //   echo "<script>alert('Error Occured');</script>";
-// // }
+ //}
  }
 }
 }
