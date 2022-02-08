@@ -63,7 +63,7 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 //       if (mysqli_affected_rows($conn) > 0) { 
 //         echo "<script>alert('SUCCESSFULLY REGISTERED');
 //         window.location.href='login.php';</script>";
-// }
+ }
 else {
   echo "<script>alert('Error Occured');</script>";
 }
