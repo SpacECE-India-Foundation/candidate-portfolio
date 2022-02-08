@@ -22,7 +22,7 @@ $gump->filter_rules(array(
   'email'    => 'trim|sanitize_email',
   ));
 $validated_data = $gump->run($_POST);
-$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'condidate_portal');
+$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
 
 // Check connection
 if ($conn->connect_errno) {
