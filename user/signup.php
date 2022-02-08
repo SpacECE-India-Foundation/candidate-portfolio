@@ -33,7 +33,7 @@ else if ($_POST['password'] !== $_POST['repassword'])
   echo  "<center><font color='red'>Passwords do not match </font></center>";
 }
 else {
-  print_r($_POST);
+ 
       $username = $validated_data['email'];
       $checkusername = "SELECT * FROM user WHERE uname = '$username'";
       $run_check = mysqli_query($conn , $checkusername) or die(mysqli_error($conn));
@@ -50,7 +50,7 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 }
 
   else {
-   // print_r($_POST);
+    print_r($_POST);
       $name = $validated_data['name'];
       $email = $validated_data['email'];
       $pass = $validated_data['password'];
