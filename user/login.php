@@ -1,9 +1,11 @@
-<?php include 'includes/connection.php';?>
+<?php
+session_start();
+ include 'includes/connection.php';?>
 <?php include 'includes/header.php';?>
 <?php include 'includes/navbar.php';?>
 
 <?php
-session_start();
+
 if (isset($_POST['login'])) {
   $pass1 =$_POST['pass'];
   $username  = $_POST['user'];
