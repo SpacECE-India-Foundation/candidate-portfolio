@@ -53,9 +53,17 @@ $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 $result = mysqli_query($conn, $checkemail);
 if (mysqli_num_rows($result) > 0) {
-    echo "Success";
+    echo "Exists";
 }else{
-    echo "Error ";
+         $name = $validated_data['name'];
+      $email = $validated_data['email'];
+      $pass = $validated_data['password'];
+      $password = md5($pass);
+      $role = $_POST['role'];
+      $course = $_POST['course'];
+      $gender = $_POST['gender'];
+      $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )"; 
+      $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
 }
      // $countemail = mysqli_num_rows($run_check); 
       //echo $countemail;
