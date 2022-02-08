@@ -41,33 +41,35 @@ else {
 //       if ($countusername > 0 ) {
 //     echo  "<center><font color='red'>Username is already taken! try a different one</font></center>";
 // }
+print_r($_POST);
 $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
-      $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
-      $countemail = mysqli_num_rows($run_check); 
-      if ($countemail > 0 ) {
-    echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
-} else {
-    print_r($_POST);
-      $name = $validated_data['name'];
-      $email = $validated_data['email'];
-      $pass = $validated_data['password'];
-      $password = md5($pass);
-      $role = $_POST['role'];
-      $course = $_POST['course'];
-      $gender = $_POST['gender'];   
-     // $joindate = date("F j, Y");
-      $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )";
-      echo  $query;
-//       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
-//       if (mysqli_affected_rows($conn) > 0) { 
-//         echo "<script>alert('SUCCESSFULLY REGISTERED');
-//         window.location.href='login.php';</script>";
- //}
-// else {
-//   echo "<script>alert('Error Occured');</script>";
+echo $checkemail;
+      // $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
+      // $countemail = mysqli_num_rows($run_check); 
+//       if ($countemail > 0 ) {
+//     echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
+// } else {
+   
+//       $name = $validated_data['name'];
+//       $email = $validated_data['email'];
+//       $pass = $validated_data['password'];
+//       $password = md5($pass);
+//       $role = $_POST['role'];
+//       $course = $_POST['course'];
+//       $gender = $_POST['gender'];   
+//      // $joindate = date("F j, Y");
+//       $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )";
+//       echo  $query;
+// //       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
+// //       if (mysqli_affected_rows($conn) > 0) { 
+// //         echo "<script>alert('SUCCESSFULLY REGISTERED');
+// //         window.location.href='login.php';</script>";
+//  //}
+// // else {
+// //   echo "<script>alert('Error Occured');</script>";
+// // }
 // }
-}
 }
 }
 ?>
