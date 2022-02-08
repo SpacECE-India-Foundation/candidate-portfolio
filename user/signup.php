@@ -34,22 +34,20 @@ else if ($_POST['password'] !== $_POST['repassword'])
 }
 else {
  
-      $username = $validated_data['email'];
-      $checkusername = "SELECT * FROM user WHERE uname = '$username'";
-      $run_check = mysqli_query($conn , $checkusername) or die(mysqli_error($conn));
-      $countusername = mysqli_num_rows($run_check); 
-      if ($countusername > 0 ) {
-    echo  "<center><font color='red'>Username is already taken! try a different one</font></center>";
-}
+//       $username = $validated_data['email'];
+//       $checkusername = "SELECT * FROM user WHERE uname = '$username'";
+//       $run_check = mysqli_query($conn , $checkusername) or die(mysqli_error($conn));
+//       $countusername = mysqli_num_rows($run_check); 
+//       if ($countusername > 0 ) {
+//     echo  "<center><font color='red'>Username is already taken! try a different one</font></center>";
+// }
 $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
       $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
       $countemail = mysqli_num_rows($run_check); 
       if ($countemail > 0 ) {
     echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
-}
-
-  else {
+} else {
     print_r($_POST);
       $name = $validated_data['name'];
       $email = $validated_data['email'];
