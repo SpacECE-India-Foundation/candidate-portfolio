@@ -45,7 +45,7 @@ else {
 $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 
-      $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
+      $run_check = mysqli_query($conn , $checkemail);
       echo $run_check;
       $countemail = mysqli_num_rows($run_check); 
       echo $countemail;
