@@ -41,16 +41,17 @@ else {
 //       if ($countusername > 0 ) {
 //     echo  "<center><font color='red'>Username is already taken! try a different one</font></center>";
 // }
-print_r($_POST);
+
 $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 
       $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
       $countemail = mysqli_num_rows($run_check); 
       echo $countemail;
-//       if ($countemail > 0 ) {
-//     echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
-// } else {
+      if ($countemail > 0 ) {
+    echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
+} else {
+  echo "count>0";
    
 //       $name = $validated_data['name'];
 //       $email = $validated_data['email'];
@@ -70,7 +71,7 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 // // else {
 // //   echo "<script>alert('Error Occured');</script>";
 // // }
-// }
+ }
 }
 }
 ?>
