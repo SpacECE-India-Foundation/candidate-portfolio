@@ -52,11 +52,12 @@ else {
 $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 echo $checkemail;
-      $run_check = mysqli_query($conn , $checkemail);
+
+      $run_check = mysqli_query($conn, $checkemail);
       echo $run_check;
-      $countemail = mysqli_num_rows($run_check); 
-      echo $countemail;
-      if ($countemail > 0 ) {
+     // $countemail = mysqli_num_rows($run_check); 
+      //echo $countemail;
+      if ($run_check  ) {
     echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
 } else {
   echo "count>0";
