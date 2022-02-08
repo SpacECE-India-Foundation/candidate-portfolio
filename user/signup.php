@@ -59,11 +59,11 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
      // $joindate = date("F j, Y");
       $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )";
       echo  $query;
-      $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
-      if (mysqli_affected_rows($conn) > 0) { 
-        echo "<script>alert('SUCCESSFULLY REGISTERED');
-        window.location.href='login.php';</script>";
-}
+//       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
+//       if (mysqli_affected_rows($conn) > 0) { 
+//         echo "<script>alert('SUCCESSFULLY REGISTERED');
+//         window.location.href='login.php';</script>";
+// }
 else {
   echo "<script>alert('Error Occured');</script>";
 }
