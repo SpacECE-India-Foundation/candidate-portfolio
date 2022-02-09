@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['login_id']))
+header('location:../user/login.php');
+include 'db_connect.php';
+?>
 <!DOCTYPE html>
 <?php
 	require_once('admin/dbconnect.php');

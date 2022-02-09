@@ -120,7 +120,7 @@ while($row=mysqli_fetch_array($q) )
 $e=$row['email'];
 $s=$row['score'];
 
-$q12=mysqli_query($con,"SELECT * FROM user WHERE email='$e' " )or die('Error231');
+$q12=mysqli_query($con,"SELECT * FROM user WHERE uname='$e' " )or die('Error231');
 while($row=mysqli_fetch_array($q12) )
 {
 $name=$row['name'];
@@ -145,9 +145,9 @@ echo  '<div class="panel"><table class="table table-striped title1">
 $c=1;
 while($row = mysqli_fetch_array($result)) {
 	$name = $row['name'];
-	$mob = $row['mob'];
+	$mob = $row['mobile'];
 	$gender = $row['gender'];
-    $email = $row['email'];
+    $email = $row['uname'];
 	$college = $row['college'];
 
 	echo '<tr><td>'.$c++.'</td><td>'.$name.'</td><td>'.$gender.'</td><td>'.$college.'</td><td>'.$email.'</td><td>'.$mob.'</td>

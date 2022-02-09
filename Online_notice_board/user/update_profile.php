@@ -7,7 +7,7 @@ $dob=$yy."-".$mm."-".$dd;
 //hobbies
 $hob=implode(",",$hob);
 
-$query="update user set name='$n',mobile='$mob',gender='$gen',hobbies='$hob',dob='$dob' where email='".$_SESSION['user']."'";
+$query="update user set name='$n',mobile='$mob',gender='$gen',hobbies='$hob',dob='$dob' where uname='".$_SESSION['user']."'";
 
 //$query="insert into user values('','$n','$e','$pass','$mob','$gen','$hob','$imageName','$dob',now())";
 mysqli_query($conn,$query);
@@ -22,7 +22,7 @@ $err="<font color='blue'>Profie updated successfully !!</font>";
 
 //select old data
 //check user alereay exists or not
-$sql=mysqli_query($conn,"select * from user where email='".$_SESSION['user']."'");
+$sql=mysqli_query($conn,"select * from user where uname ='".$_SESSION['user']."'");
 $res=mysqli_fetch_assoc($sql);
 
 ?>
@@ -40,7 +40,7 @@ $res=mysqli_fetch_assoc($sql);
 				</tr>
 				<tr>
 					<td>Enter Your email </td>
-					<Td><input class="form-control" type="email" readonly="true" value="<?php echo $res['email'];?>"  name="e"/></td>
+					<Td><input class="form-control" type="email" readonly="true" value="<?php echo $res['uname'];?>"  name="e"/></td>
 				</tr>
 				
 				

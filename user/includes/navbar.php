@@ -9,15 +9,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php">College-Notes-Gallery</a>
+					<a class="navbar-brand" href="index.php"></a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                    	<li><a href="#">About Us</a></li>
-						 <li><a href="login.php">Login</a></li>
-						 <li><a href="signup.php">Sign Up</a></li>
-                         <li><a href="dashboard/">Upload Notes</a></li>
+                    	  <h1 style="color:white;margin-left:500px;text-size:20px"><b><center>Well come in SpacECE-Candidate Portal</b></center></h1>
 
 
 

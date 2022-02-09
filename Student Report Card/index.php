@@ -1,11 +1,19 @@
 <?php
+session_start();
+if(!isset($_SESSION['login_id']))
+header('location:../user/login.php');
+include 'db_connect.php';
+?>
+<?php
 	//Start session
 	session_start();
-	
+	if(isset($_SESSION['SESS_MEMBER_ID'])){
+		header('location:./main/index.php');
+	}
 	//Unset the variables stored in session
-	unset($_SESSION['SESS_MEMBER_ID']);
-	unset($_SESSION['SESS_FIRST_NAME']);
-	unset($_SESSION['SESS_LAST_NAME']);
+	//unset($_SESSION['SESS_MEMBER_ID']);
+	//unset($_SESSION['SESS_FIRST_NAME']);
+	//unset($_SESSION['SESS_LAST_NAME']);
 ?>
 <html>
 <head>
@@ -38,6 +46,7 @@ Model :: Students Records Management System
       <div class="row-fluid">
 		<div class="span4">
 		</div>
+		 	
 	
 </div>
 <div id="login">
@@ -49,7 +58,7 @@ if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count
 	unset($_SESSION['ERRMSG_ARR']);
 }
 ?>
-<form action="login.php" method="post">
+<!-- <form action="login.php" method="post">
 
 			<font style=" font:bold 44px 'Aleo'; color:#fff;"><center>Model's SRMS</center></font>
 		<br>
@@ -64,7 +73,7 @@ if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count
 		<div class="qwe">
 		 <button class="btn btn-large btn-primary btn-block pull-right" href="dashboard.html" type="submit"><i class="icon-signin icon-large"></i> Login</button>
 </div>
-		 </form>
+		 </form> -->
 </div>
 </div>
 </div>
