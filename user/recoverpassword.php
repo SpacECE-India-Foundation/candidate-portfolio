@@ -6,7 +6,7 @@
 if (isset($_POST['recover'])) {
 $email = mysqli_real_escape_string($conn , $_POST['email']);
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-$query = "SELECT email FROM users WHERE email = '$email'";
+$query = "SELECT uname FROM user WHERE uname = '$email'";
 $run = mysqli_query($conn , $query) or die (mysqli_error($conn) );
 if (mysqli_num_rows($run) > 0) {
 	function generateRandomString($length = 5) {
@@ -21,20 +21,20 @@ $dir = $_SERVER['SERVER_NAME'];
 for ($i = 0; $i < count($parts) - 1; $i++) {
  $dir .= $parts[$i] . "/";
 }
-require 'PHPMailerAutoload.php';
+require 'PHPMailer/PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
 
 $mail->isSMTP();                            // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';             // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                     // Enable SMTP authentication
-$mail->Username = 'collegenotesgallery@gmail.com';          // SMTP username
-$mail->Password = 'collegegallery'; // SMTP password
+$mail->Username = 'khandareumesh12@gmail.com';          // SMTP username
+$mail->Password = '8390139031'; // SMTP password
 $mail->SMTPSecure = 'tls';                  // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                          // TCP port to connect to
 
-$mail->setFrom('collegenotesgallery@gmail.com', 'Admin');
-$mail->addReplyTo('collegenotesgallery@gmail.com', 'Admin');
+$mail->setFrom('khandareumesh12@gmail.com', 'Admin');
+$mail->addReplyTo('khandareumesh12@gmail.com', 'Admin');
 $mail->addAddress($email);
 
 $mail->isHTML(true);  // Set email format to HTML
@@ -46,7 +46,7 @@ $mail->Subject = 'Email from collegenotesgallery ';
 $mail->Body    = $bodyContent;
 
 
-$query2 = "UPDATE users set token = '$token' WHERE email = '$email'";
+$query2 = "UPDATE user set token = '$token' WHERE uname = '$email'";
 $run = mysqli_query($conn , $query2) or die(mysqli_error($conn));
 $count = mysqli_affected_rows($conn);
 if($mail->send() && ($count > 0)) {
@@ -80,6 +80,7 @@ else {
     
   <div class="login-help">
     <a href="signup.php">Register</a> • <a href="login.php">Login</a>
+    
   </div>
 </div>
 
