@@ -1,8 +1,8 @@
 <?php
 /* Database config */
-$db_host		= 'localhost';
-$db_user		= 'root';
-$db_pass		= '';
+$db_host		= '3.109.14.4';
+$db_user		= 'ostechnix';
+$db_pass		= ' ';
 $db_database	= 'candidate_portal'; 
 
 /* End config */

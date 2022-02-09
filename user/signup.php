@@ -1,4 +1,5 @@
-<?php include 'includes/connection.php';?>
+<?php session_start();
+include 'includes/connection.php';?>
 <?php include 'includes/header.php';?>
 
 <?php include 'includes/navbar.php';?>
@@ -23,6 +24,7 @@ $gump->filter_rules(array(
   ));
 $validated_data = $gump->run($_POST);
 
+
 if($validated_data === false) {
   ?>
   <center><font color="red" > <?php echo $gump->get_readable_errors(true); ?> </font></center>
@@ -33,41 +35,61 @@ else if ($_POST['password'] !== $_POST['repassword'])
   echo  "<center><font color='red'>Passwords do not match </font></center>";
 }
 else {
-      $username = $validated_data['email'];
-      $checkusername = "SELECT * FROM user WHERE uname = '$username'";
-      $run_check = mysqli_query($conn , $checkusername) or die(mysqli_error($conn));
-      $countusername = mysqli_num_rows($run_check); 
-      if ($countusername > 0 ) {
-    echo  "<center><font color='red'>Username is already taken! try a different one</font></center>";
-}
+ 
+//       $username = $validated_data['email'];
+//       $checkusername = "SELECT * FROM user WHERE uname = '$username'";
+//       $run_check = mysqli_query($conn , $checkusername) or die(mysqli_error($conn));
+//       $countusername = mysqli_num_rows($run_check); 
+//       if ($countusername > 0 ) {
+//     echo  "<center><font color='red'>Username is already taken! try a different one</font></center>";
+// }
+
 $email = $validated_data['email'];
 $checkemail = "SELECT * FROM user WHERE uname = '$email'";
-      $run_check = mysqli_query($conn , $checkemail) or die(mysqli_error($conn));
-      $countemail = mysqli_num_rows($run_check); 
-      if ($countemail > 0 ) {
-    echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
-}
-
-  else {
-    print_r($_POST);
-      $name = $validated_data['name'];
+$result = mysqli_query($conn, $checkemail);
+if (mysqli_num_rows($result) > 0) {
+  echo "<script>alert('Error Occured');</script>";
+}else{
+         $name = $validated_data['name'];
       $email = $validated_data['email'];
       $pass = $validated_data['password'];
       $password = md5($pass);
       $role = $_POST['role'];
       $course = $_POST['course'];
-      $gender = $_POST['gender'];   
-     // $joindate = date("F j, Y");
-      $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )";
+      $gender = $_POST['gender'];
+      $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )"; 
       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
       if (mysqli_affected_rows($conn) > 0) { 
-        echo "<script>alert('SUCCESSFULLY REGISTERED');
-        window.location.href='login.php';</script>";
+                echo "<script>alert('SUCCESSFULLY REGISTERED');
+                window.location.href='login.php';</script>";
+        }
 }
-else {
-  echo "<script>alert('Error Occured');</script>";
-}
-}
+     // $countemail = mysqli_num_rows($run_check); 
+      //echo $countemail;
+//       if ($run_check  ) {
+//     echo  "<center><font color='red'>Email is already taken! try a different one</font></center>";
+// } else {
+//   echo "count>0";
+   
+// //       $name = $validated_data['name'];
+// //       $email = $validated_data['email'];
+// //       $pass = $validated_data['password'];
+// //       $password = md5($pass);
+// //       $role = $_POST['role'];
+// //       $course = $_POST['course'];
+// //       $gender = $_POST['gender'];   
+// //      // $joindate = date("F j, Y");
+// //       $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )";
+// //       echo  $query;
+// // //       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
+// // //       if (mysqli_affected_rows($conn) > 0) { 
+// // //         echo "<script>alert('SUCCESSFULLY REGISTERED');
+// // //         window.location.href='login.php';</script>";
+// //}
+// // // else {
+// // //   echo "<script>alert('Error Occured');</script>";
+//  //}
+//  }
 }
 }
 ?>
