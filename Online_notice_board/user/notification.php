@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 $q=mysqli_query($conn,"select * from notice where user='".$_SESSION['user']."'");
 $rr=mysqli_num_rows($q);
 if(!$rr)
