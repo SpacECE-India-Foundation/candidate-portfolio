@@ -11,7 +11,7 @@ if(isset($add))
 	{
 		foreach($user as $v)
 		{
-mysqli_query($conn,"insert into notice values('','$v','$sub','$details',now())");
+mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Date`) VALUES ('$v','$sub','$details',now())");
 		}
 		
 		$err="<font color='green'>Notice added Successfully</font>";	
