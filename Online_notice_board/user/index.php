@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('../connection.php');
-$user= $_SESSION['user'];
+$user= $_SESSION['uname'];
 $sql=mysqli_query($conn,"select * from user where uname='$user' ");
 $users=mysqli_fetch_assoc($sql);
 ?>
