@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
     $id = $row['uid'];
     $user = $row['uname'];
     $pass = $row['upass'];
-   
+    
     $name = $row['name'];
     $email = $row['uname'];
     $role= $row['role'];
@@ -39,6 +39,12 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['SESS_MEMBER_ID']=$id;
       $_SESSION['SESS_FIRST_NAME']=$row['uname'];
 	    $_SESSION['SESS_LAST_NAME']=$row['name'];
+
+      $_SESSION['login_type']=1;
+      $_SESSION['login_id']=$id;
+      $_SESSION['login_name']=$name;
+       
+
       $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
     foreach($system as $k => $v){
       $_SESSION['system'][$k] = $v;
@@ -70,7 +76,7 @@ else {
   </form>
     
   <div class="login-help">
-    <a href="signup.php">Register</a> • <a href="recoverpassword.php">Forgot Password</a>
+  <a href="signup.php">Register</a> • <a href="recoverpassword.php">Forgot Password</a>
   </div>
 </div>
 
