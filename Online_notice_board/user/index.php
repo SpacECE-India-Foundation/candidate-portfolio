@@ -83,7 +83,7 @@ $users=mysqli_fetch_assoc($sql);
 			else
 			{
 			?>
-			<li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/<?php echo $_SESSION['user'];?>/<?php echo $row['image'];?>" width="100" height="100" alt="not found"/></a></li>
+			<li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/<?php echo $row['image'];?>" width="100" height="100" alt="not found"/></a></li>
 			<?php 
 			}
 			?>

@@ -6,10 +6,10 @@ if(isset($update))
 $img=$_FILES['f']['name'];
 echo $img; 
 
-$query="update user set image='$img' where email='".$_SESSION['user']."'";
+$query="update user set image='$img' where uname='".$_SESSION['uname']."'";
 mysqli_query($conn,$query);
 
-move_uploaded_file($_FILES['f']['tmp_name'],"../images/$user/".$_FILES['f']['name']);
+move_uploaded_file($_FILES['f']['tmp_name'],"../images/".$_FILES['f']['name']);
 
 $err="<font color='blue'>Profie Pic updated successfully !!</font>";
 
@@ -18,7 +18,7 @@ $err="<font color='blue'>Profie Pic updated successfully !!</font>";
 
 //select old data
 //check user alereay exists or not
-$sql=mysqli_query($conn,"select * from user where email='".$_SESSION['user']."'");
+$sql=mysqli_query($conn,"select * from user where uname='".$_SESSION['uname']."'");
 $res=mysqli_fetch_assoc($sql);
 
 ?>
