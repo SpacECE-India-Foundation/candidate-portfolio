@@ -4,9 +4,9 @@ if(!isset($_SESSION['login_id']))
 header('location:../user/login.php');
 exit();
 ?>
-<?php include // 'includes/connection.php'; ?>
-<?php include //'includes/header.php'; ?>
-<?php include // 'includes/navbar.php'; ?>
+<?php include 'includes/connection.php';?>
+<?php include 'includes/header.php';?>
+<?php include 'includes/navbar.php';?>
 
 <br><br>
 <link rel="stylesheet" type="text/css" href="styles.css" media="all" />
