@@ -1,4 +1,8 @@
-<?php
+<html>
+<body style=" background-image: url('../images/bg_8.jpg');">
+<head>
+   
+  <?php
 session_start();
 include './includes/connection.php';
  ?>
@@ -44,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['login_id']=$id;
       $_SESSION['login_name']=$name;
        
-
+ 
       $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
     foreach($system as $k => $v){
       $_SESSION['system'][$k] = $v;
@@ -64,10 +68,9 @@ else {
 
     }
 }
-?>
+?> 
 
-
-  <div class="login-card">
+  <div class="login-card" >
     <h1>Log-in</h1><br>
   <form method="POST">
     <input type="text" name="user" placeholder="Username" required="">

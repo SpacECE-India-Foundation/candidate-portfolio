@@ -1,3 +1,7 @@
+<html>
+<body style=" background-image: url('../images/bg_9.jpg');">
+<head>
+   
 <?php session_start();
 include 'includes/connection.php';?>
 <?php include 'includes/header.php';?>

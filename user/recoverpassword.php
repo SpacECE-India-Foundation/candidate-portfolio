@@ -21,16 +21,35 @@ $dir = $_SERVER['SERVER_NAME'];
 for ($i = 0; $i < count($parts) - 1; $i++) {
  $dir .= $parts[$i] . "/";
 }
-$to=$_SESSION['uname'];
-$from="umesh@gmail.com";
-$subject="Password Update Link";
-$body="Please click This link".$token. "To change password";
-mail($to,$subject,$body);
+require 'PHPMailer/PHPMailerAutoload.php';
 
-if($mail->send() && ($count > 0)) {
+$mail = new PHPMailer;
+
+$mail->isSMTP();                            // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';             // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                     // Enable SMTP authentication
+$mail->Username = 'khandareumesh12@gmail.com';          // SMTP username
+$mail->Password = '8390139031'; // SMTP password
+$mail->SMTPSecure = 'tls';                  // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;                          // TCP port to connect to
+
+$mail->setFrom('khandareumesh12@gmail.com', 'Admin');
+$mail->addReplyTo('khandareumesh12@gmail.com', 'Admin');
+$mail->addAddress($email);
+
+$mail->isHTML(true);  // Set email format to HTML
+
+$bodyContent = '<h1>Recover Password Link: </h1>';
+$bodyContent .= 'http://' . $dir . 'verifytoken.php?token='.$token;
+
+$mail->Subject = 'Email from collegenotesgallery ';
+$mail->Body    = $bodyContent;
+
+
 $query2 = "UPDATE user set token = '$token' WHERE uname = '$email'";
 $run = mysqli_query($conn , $query2) or die(mysqli_error($conn));
 $count = mysqli_affected_rows($conn);
+if($mail->send() && ($count > 0)) {
 	echo "<center> <font color = 'green' >Email with recover password link has been sent </font><center> " ;
 } else {
 
