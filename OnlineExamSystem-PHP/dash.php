@@ -76,7 +76,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 		<li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="dash.php?q=2">User Rankings</a></li>
     <li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a href="dash.php?q=3">Feedback</a></li>
     <li <?php if(@$_GET['q']==4) echo'class="active"'; ?>><a href="dash.php?q=4">Add Exams</a></li>
-        
+    <li <?php if(@$_GET['q']==5) echo'class="active"'; ?>><a href="dash.php?q=5">edit exam</a></li>
       </ul>
           </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -369,6 +369,8 @@ echo '<div class="form-group">
 
 
 
+}
+if(@$_GET['q']==5 ) { include 'notification.php';
 }
 ?><!--add exam step 2 end-->
 
