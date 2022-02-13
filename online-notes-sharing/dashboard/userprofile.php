@@ -38,7 +38,7 @@ echo "<script>alert('Image size is not proper');
         window.location.href='userprofile.php';</script>";
     }
     else {
-        $folder  = 'profilepics/';
+        $folder  = '../../images/';
         $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if (move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
@@ -157,7 +157,7 @@ else {
 
 <div class="form-group">
         <label for="post_image">Profile Image</label>
-		<img class="img-responsive" width="200" src="profilepics/<?php echo $picture; ?>" alt="Photo">
+		<img class="img-responsive" width="200" src="../../images/<?php echo $picture; ?>" alt="Photo">
 		<input type="file" name="image"> 
 		<br>
 		<button type="submit" name="uploadphoto" class="btn btn-primary" value="upload photo">upload photo</button>
