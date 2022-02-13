@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['login_id']))
 header('location:../user/login.php');
-include 'db_connect.php';
+
 ?>
 <!DOCTYPE html>
 <?php
@@ -37,10 +37,11 @@ include 'db_connect.php';
 					<li class="splash">
 						<a href="#information">
 							<div class="profile-image">
-								<img src="<?php echo $personaldetails['image']; ?>" />
+								<!-- <img src="<?php //echo $personaldetails['image']; ?>" /> -->
+								<img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/<?php echo $_SESSION['image'];?>" width="100" height="100" alt="not found"/>
 							</div>
 							<div class="profile-info">
-								<div class="profile-name"><?php echo strtoupper($personaldetails['fname']); ?><br/><?php echo strtoupper($personaldetails['lname']); ?></div>
+								<div class="profile-name"><?php echo strtoupper($_SESSION['name']); ?><br/><?php echo strtoupper($personaldetails['lname']); ?></div>
 								<div class="profile-designation"><?php echo strtoupper($personaldetails['designation']); ?></div>
 							</div>
 						</a>

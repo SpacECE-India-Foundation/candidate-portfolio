@@ -33,10 +33,13 @@ if (mysqli_num_rows($result) > 0) {
   
     if (($password=== $pass )) {
       $_SESSION['id'] = $id;
+      $_SESSION['image'] = $row['image'];
+
       $_SESSION['username'] = $username;
       $_SESSION['login_id']= $id;
       $_SESSION['name'] = $name;
       $_SESSION['email']  = $email;
+      $_SESSION['uname']  = $email;
       $_SESSION['user']=$email;
       $_SESSION['role'] = $role;
       $_SESSION['course'] = $course;
