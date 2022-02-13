@@ -43,7 +43,7 @@ include "includes/adminheader.php"; ?>
         <?php 
             
             $query = "SELECT * FROM users ORDER BY name ASC ";
-            $select_users = mysqli_query($conn, $query) or die(mysqli_error($conn));
+            $select_users = mysqli_query($con, $query) or die(mysqli_error($con));
             if (mysqli_num_rows($select_users) > 0 ) {
             while ($row = mysqli_fetch_array($select_users)) {
                 $user_id = $row['id'];
@@ -71,9 +71,9 @@ include "includes/adminheader.php"; ?>
 }
 
     if (isset($_GET['delete'])) {
-        $the_user_id = mysqli_real_escape_string($conn , $_GET['delete']);
+        $the_user_id = mysqli_real_escape_string($con , $_GET['delete']);
         $query0 = "SELECT role FROM users WHERE id = '$the_user_id'";
-        $result = mysqli_query($conn , $query0) or die(mysqli_error($conn));
+        $result = mysqli_query($con , $query0) or die(mysqli_error($con));
         if (mysqli_num_rows($result) > 0 ) {
             $row = mysqli_fetch_array($result);
             $id1 = $row['role'];
@@ -85,8 +85,8 @@ include "includes/adminheader.php"; ?>
 
         $query = "DELETE FROM users WHERE id = '$the_user_id'";
 
-        $delete_query = mysqli_query($conn, $query) or die (mysqli_error($conn));
-        if (mysqli_affected_rows($conn) > 0 ) {
+        $delete_query = mysqli_query($con, $query) or die (mysqli_error($con));
+        if (mysqli_affected_rows($con) > 0 ) {
             echo "<script>alert('user deleted successfully');
             window.location.href= 'users.php';</script>";
         }

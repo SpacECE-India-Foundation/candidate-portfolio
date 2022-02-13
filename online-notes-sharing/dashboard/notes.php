@@ -52,7 +52,7 @@ header("location: index.php");
                  $currentuser = $_SESSION['username'];
 
 $query = "SELECT * FROM uploads WHERE file_uploader= '$currentuser' ORDER BY file_uploaded_on DESC";
-$run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$run_query = mysqli_query($con, $query) or die(mysqli_error($con));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $file_id = $row['file_id'];
@@ -92,11 +92,11 @@ else {
  <?php
  
     if (isset($_GET['del'])) {
-        $note_del = mysqli_real_escape_string($conn, $_GET['del']);
+        $note_del = mysqli_real_escape_string($con, $_GET['del']);
         $file_uploader = $_SESSION['username'];
         $del_query = "DELETE FROM uploads WHERE file_id='$note_del' AND file_uploader = '$file_uploader' ";
-        $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
-        if (mysqli_affected_rows($conn) > 0) {
+        $run_del_query = mysqli_query($con, $del_query) or die (mysqli_error($con));
+        if (mysqli_affected_rows($con) > 0) {
             echo "<script>alert('note deleted successfully');
             window.location.href='notes.php';</script>";
         }

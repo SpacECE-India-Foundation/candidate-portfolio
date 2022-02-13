@@ -8,7 +8,7 @@ include ('includes/adminheader.php');
 if (isset($_SESSION['username'])) {
 	$username = $_SESSION['username'];
 	$query = "SELECT * FROM users WHERE username = '$username'" ; 
-	$result= mysqli_query($conn , $query) or die (mysqli_error($conn));
+	$result= mysqli_query($con , $query) or die (mysqli_error($con));
 	if (mysqli_num_rows($result) > 0 ) {
 		$row = mysqli_fetch_array($result);
 		$userid = $row['id'];
@@ -43,8 +43,8 @@ echo "<script>alert('Image size is not proper');
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if (move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
         $queryupdate = "UPDATE users SET image = '$picture' WHERE id= '$userid' " ;
-        $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
-        if (mysqli_affected_rows($conn) > 0) {
+        $result = mysqli_query($con , $queryupdate) or die(mysqli_error($con));
+        if (mysqli_affected_rows($con) > 0) {
         	echo "<script>alert('Profile Photo uploaded successfully');
         	window.location.href= 'userprofile.php';</script>";
         }
@@ -98,8 +98,8 @@ else if (empty($_POST['newpassword'])) {
       $useremail = $validated_data['email'];
       $userbio = $validated_data['bio'];
       $updatequery1 = "UPDATE users SET name = '$name' , email='$useremail' , about='$userbio' WHERE id = '$userid' " ;
-      $result2 = mysqli_query($conn , $updatequery1) or die(mysqli_error($conn));
-if (mysqli_affected_rows($conn) > 0) {
+      $result2 = mysqli_query($con , $updatequery1) or die(mysqli_error($con));
+if (mysqli_affected_rows($con) > 0) {
 	echo "<script>alert('PROFILE UPDATED SUCCESSFULLY');
     window.location.href='userprofile.php';</script>";
 }
@@ -119,8 +119,8 @@ else {
       $userpassword = password_hash("$pass" , PASSWORD_DEFAULT);
 
 $updatequery = "UPDATE users SET password = '$userpassword', name='$name', email= '$useremail' WHERE id='$userid'";
-$result1 = mysqli_query($conn , $updatequery) or die(mysqli_error($conn));
-if (mysqli_affected_rows($conn) > 0) {
+$result1 = mysqli_query($con , $updatequery) or die(mysqli_error($con));
+if (mysqli_affected_rows($con) > 0) {
 	echo "<script>alert('PROFILE UPDATED SUCCESSFULLY');
 	window.location.href='userprofile.php';</script>";
 }
