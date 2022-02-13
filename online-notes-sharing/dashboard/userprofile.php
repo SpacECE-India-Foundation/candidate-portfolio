@@ -5,16 +5,16 @@ include ('includes/adminheader.php');
 
 ?>
 <?php
-if (isset($_SESSION['username'])) {
-	$username = $_SESSION['username'];
-	$query = "SELECT * FROM users WHERE username = '$username'" ; 
+if (isset($_SESSION['uname'])) {
+	$username = $_SESSION['uname'];
+	$query = "SELECT * FROM user WHERE uname = '$username'" ; 
 	$result= mysqli_query($con , $query) or die (mysqli_error($con));
 	if (mysqli_num_rows($result) > 0 ) {
 		$row = mysqli_fetch_array($result);
-		$userid = $row['id'];
-		$usernm = $row['username'];
+		$userid = $row['uid'];
+		$usernm = $row['uname'];
 		$userpassword = $row['password'];
-		$useremail = $row['email'];
+		$useremail = $row['uname'];
 		$name = $row['name'];
 		$profilepic = $row['image'];
 		$bio = $row['about'];
