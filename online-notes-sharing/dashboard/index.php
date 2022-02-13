@@ -54,7 +54,7 @@ header('location:../../user/login.php');
                  <?php
 
 $query = "SELECT * FROM uploads ORDER BY file_uploaded_on DESC";
-$run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$run_query = mysqli_query($con, $query) or die(mysqli_error($con));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $file_id = $row['file_id'];
@@ -94,11 +94,11 @@ while ($row = mysqli_fetch_array($run_query)) {
  <?php
  
     if (isset($_GET['del'])) {
-        $note_del = mysqli_real_escape_string($conn, $_GET['del']);
+        $note_del = mysqli_real_escape_string($con, $_GET['del']);
         $file_uploader = $_SESSION['username'];
         $del_query = "DELETE FROM uploads WHERE file_id='$note_del'";
-        $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
-        if (mysqli_affected_rows($conn) > 0) {
+        $run_del_query = mysqli_query($con, $del_query) or die (mysqli_error($con));
+        if (mysqli_affected_rows($con) > 0) {
             echo "<script>alert('note deleted successfully');
             window.location.href='index.php';</script>";
         }
@@ -108,10 +108,10 @@ while ($row = mysqli_fetch_array($run_query)) {
         }
 
          if (isset($_GET['approve'])) {
-        $note_approve = mysqli_real_escape_string($conn,$_GET['approve']);
+        $note_approve = mysqli_real_escape_string($con,$_GET['approve']);
         $approve_query = "UPDATE uploads SET status='approved' WHERE file_id='$note_approve'";
-        $run_approve_query = mysqli_query($conn, $approve_query) or die (mysqli_error($conn));
-        if (mysqli_affected_rows($conn) > 0) {
+        $run_approve_query = mysqli_query($con, $approve_query) or die (mysqli_error($con));
+        if (mysqli_affected_rows($con) > 0) {
             echo "<script>alert('note approved successfully');
             window.location.href='index.php';</script>";
         }
@@ -159,7 +159,7 @@ else {
                  $currentusercourse = $_SESSION['course'];
 
 $query = "SELECT * FROM uploads WHERE file_uploaded_to = '$currentusercourse' AND status = 'approved' ORDER BY file_uploaded_on DESC";
-$run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$run_query = mysqli_query($con, $query) or die(mysqli_error($con));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $file_id = $row['file_id'];
