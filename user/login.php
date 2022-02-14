@@ -1,5 +1,5 @@
 <html>
-<body style=" background-image: url('../images/bg_8.jpg');">
+<body style=" background-image: url('../images/bg_8.jpeg');">
 <head>
    
   <?php
