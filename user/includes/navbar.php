@@ -19,7 +19,7 @@
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                    	  <h1 style="color:white;margin-left:500px;text-size:20px"><b><center>Well come in SpacECE-Candidate Portal</b></center></h1>
+                    	  <h1 style="color:white;margin-left:500px;text-size:20px"><b><center>Wellcome in SpacECE-Candidate Portal</b></center></h1>
 
 
 
