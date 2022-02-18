@@ -37,7 +37,8 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="col-lg-6">
 <span class="logo">Online Exam System</span></div>
 <div class="col-md-2 col-md-offset-4">
-<li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
+<li class="nav-item"><a href="./account.php?q=1"class="nav-link">exam</a><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
+
 <!-- <a href="#" class="pull-right btn sub1" style="border-radius:0%" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Login</b></span></a></div>
  
 <div class="modal fade" id="myModal">
@@ -87,8 +88,8 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="bg1">
 <div class="row">
 
-<div class="col-md-7"></div>
-<div class="col-md-4 panel">
+<div class="col-md-7"style="display:none"></div>
+<div class="col-md-4 panel"style="display:none">
  
   <!-- <form class="form-horizontal" name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
 <fieldset>
@@ -194,13 +195,13 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
         <p>
 		<div class="row">
 		<div class="col-md-4">
-		 <img src="image/CAM00121.jpg" width=100 height=100 alt="Sunny Prakash Tiwari" class="img-rounded">
+		 <img src="image/bg_10.jpeg" width=100 height=100 alt="GANGINENI RAMYA" class="img-rounded">
 		 </div>
 		 <div class="col-md-5">
-		<a style="color:#202020; font-family:'typo' ; font-size:18px; text-decoration:none" title="Find on Facebook">Sunny Prakash Tiwari</a>
-		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1">+917785068889</h4>
-		<h4 style="font-family:'typo' ">sunnygkp10@gmail.com</h4>
-		<h4 style="font-family:'typo' ">Kamla Nehru Institute Of Technology ,Sultanpur</h4></div></div>
+		<a style="color:#202020; font-family:'typo' ; font-size:18px; text-decoration:none" title="Find on Facebook">GANGINENI RAMYA</a>
+		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1"></h4>
+		<h4 style="font-family:'typo' ">gangineniramya845@gmail.com</h4>
+		<h4 style="font-family:'typo' ">PBR VITS,KAVALI</h4></div></div>
 		</p>
       </div>
     
