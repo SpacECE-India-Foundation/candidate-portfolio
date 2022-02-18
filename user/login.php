@@ -1,12 +1,8 @@
-<html>
-<body style=" background-image: url('../images/bg_8.jpeg');">
-<head>
-   
-  <?php
+<?php
 session_start();
 include './includes/connection.php';
  ?>
-<?php include './includes/header.php';?>  
+<?php include './includes/header.php';?>
 <?php  include 'includes/navbar.php';?>
 
 <?php
@@ -33,25 +29,23 @@ if (mysqli_num_rows($result) > 0) {
   
     if (($password=== $pass )) {
       $_SESSION['id'] = $id;
-      $_SESSION['image'] = $row['image'];
-
       $_SESSION['username'] = $username;
       $_SESSION['login_id']= $id;
       $_SESSION['name'] = $name;
       $_SESSION['email']  = $email;
-      $_SESSION['uname']  = $email;
       $_SESSION['user']=$email;
       $_SESSION['role'] = $role;
       $_SESSION['course'] = $course;
       $_SESSION['SESS_MEMBER_ID']=$id;
       $_SESSION['SESS_FIRST_NAME']=$row['uname'];
 	    $_SESSION['SESS_LAST_NAME']=$row['name'];
-
+<<<<<<< HEAD
       $_SESSION['login_type']=1;
       $_SESSION['login_id']=$id;
       $_SESSION['login_name']=$name;
        
- 
+=======
+>>>>>>> 08216491a9805cb929ca21d587fe05420b0f6f84
       $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
     foreach($system as $k => $v){
       $_SESSION['system'][$k] = $v;
@@ -71,12 +65,13 @@ else {
 
     }
 }
-?> 
+?>
 
-  <div class="login-card" >
+
+  <div class="login-card">
     <h1>Log-in</h1><br>
   <form method="POST">
-    <input type="text" name="user" placeholder="Email" required="">
+    <input type="text" name="user" placeholder="Username" required="">
     <input type="password" name="pass" placeholder="Password" required="">
     <input type="submit" name="login" class="login login-submit" value="login">
   </form>

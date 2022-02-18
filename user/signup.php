@@ -1,7 +1,3 @@
-<html>
-<body style=" background-image: url('../images/bg_9.jpg');">
-<head>
-   
 <?php session_start();
 include 'includes/connection.php';?>
 <?php include 'includes/header.php';?>
@@ -54,7 +50,6 @@ $result = mysqli_query($conn, $checkemail);
 if (mysqli_num_rows($result) > 0) {
   echo "<script>alert('Error Occured');</script>";
 }else{
-if  (isset($_FILES['f'])){
          $name = $validated_data['name'];
       $email = $validated_data['email'];
       $pass = $validated_data['password'];
@@ -62,15 +57,13 @@ if  (isset($_FILES['f'])){
       $role = $_POST['role'];
       $course = $_POST['course'];
       $gender = $_POST['gender'];
-      $img=$_FILES['f']['name'];
-      move_uploaded_file($_FILES['f']['tmp_name'],"../images/".$_FILES['f']['name']);
-      $query = "INSERT INTO user(name,uname,upass,role,course,gender,image) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender','$img' )"; 
+      $query = "INSERT INTO user(name,uname,upass,role,course,gender) VALUES ('$name' , '$email', '$password' , '$role', '$course', '$gender' )"; 
       $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
       if (mysqli_affected_rows($conn) > 0) { 
                 echo "<script>alert('SUCCESSFULLY REGISTERED');
                 window.location.href='login.php';</script>";
         }
-}}
+}
      // $countemail = mysqli_num_rows($run_check); 
       //echo $countemail;
 //       if ($run_check  ) {
@@ -106,8 +99,7 @@ if  (isset($_FILES['f'])){
 
 
       <div  class="form">
-        <form id="contactform" method="POST"enctype="multipart/form-data"> 
-          
+        <form id="contactform" method="POST"> 
           <p class="contact"><label for="name">Name</label></p> 
           <input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text" value="<?php if(isset($_POST['signup'])) { echo $_POST['name']; } ?>"> 
            
@@ -132,8 +124,6 @@ if  (isset($_FILES['f'])){
             <select class="select-style gender" name="role">
             <option value="teacher">Teacher</option>
             <option value="student">Student</option>
-            <option value="admin">Admin</option>
-            <option value="manager">Manager</option>
             </select><br><br>
             
             <p class="contact"><label for="course">I teach/study..</label></p>
@@ -142,8 +132,6 @@ if  (isset($_FILES['f'])){
             <option value="Electrical">Electrical Engineering</option>
             <option value="Mechanical">Mechanical Engineering</option>
             </select><br><br>
-            <p class="contact"><label> Choose Your pic</label></p>
-					<input class="form-control"  type="file" required name="f"/>
             
             <input class="buttom" name="signup" id="submit" tabindex="5" value="Sign me up!" type="submit">    
    </form> 

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Candidate Porifolio</title>
+<title>Online Notes Sharing</title>
  <script src="dashboard/js/tinymce/tinymce.min.js"></script>
     <script src="dashboard/js/tinymce/script.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
