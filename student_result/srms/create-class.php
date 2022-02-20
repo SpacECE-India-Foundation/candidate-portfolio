@@ -17,7 +17,6 @@ $query = $dbh->prepare($sql);
 $query->bindParam(':classname',$classname,PDO::PARAM_STR);
 $query->bindParam(':classnamenumeric',$classnamenumeric,PDO::PARAM_STR);
 $query->bindParam(':section',$section,PDO::PARAM_STR);
-
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
