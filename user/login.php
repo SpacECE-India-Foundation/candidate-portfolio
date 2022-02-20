@@ -1,3 +1,6 @@
+<html>
+<body style=" background-image: url('../images/bg_8.jpg');">
+<head>
 <?php
 session_start();
 include './includes/connection.php';
@@ -39,13 +42,11 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['SESS_MEMBER_ID']=$id;
       $_SESSION['SESS_FIRST_NAME']=$row['uname'];
 	    $_SESSION['SESS_LAST_NAME']=$row['name'];
-<<<<<<< HEAD
+ 
       $_SESSION['login_type']=1;
       $_SESSION['login_id']=$id;
       $_SESSION['login_name']=$name;
-       
-=======
->>>>>>> 08216491a9805cb929ca21d587fe05420b0f6f84
+ 
       $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
     foreach($system as $k => $v){
       $_SESSION['system'][$k] = $v;
