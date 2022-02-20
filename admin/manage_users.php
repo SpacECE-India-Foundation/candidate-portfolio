@@ -38,12 +38,12 @@ while($row=mysqli_fetch_assoc($q))
 echo "<Tr>";
 echo "<td>".$i."</td>";
 echo "<td>".$row['name']."</td>";
-echo "<td>".$row['email']."</td>";
+echo "<td>".$row['uname']."</td>";
 echo "<td>".$row['mobile']."</td>";
 echo "<td>".$row['gender']."</td>";
 ?>
 
-<Td><a href="javascript:DeleteUser('<?php echo $row['id']; ?>')" style='color:Red'><span class='glyphicon glyphicon-trash'></span></a></td><?php 
+<Td><a href="javascript:DeleteUser('<?php echo $row['uid']; ?>')" style='color:Red'><span class='glyphicon glyphicon-trash'></span></a></td><?php 
 
 echo "</Tr>";
 $i++;

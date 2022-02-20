@@ -1,22 +1,26 @@
 <?php
  
-	include('../connection.php');
- 
 	include('connection.php');
+ 
+ 
   
 	session_start();
 	extract($_POST);
-	if(isset($login))
-	{
+    if (isset($_POST['login'])) {
+        $pass =$_POST['pass'];
+        $email =$_POST['email'];
+
 		$que=mysqli_query($conn,"select * from admin where user='$email' and pass='$pass'");
 		$row=mysqli_num_rows($que);
 		if($row)
 			{	
 				$_SESSION['admin']=$email;
-                $_SESSION['alogin']=$_POST['user'];
-                $_SESSION['uid']=$row['uid'];
-		    	$_SESSION['uname']=$row['uname'];
-				header('location:index.php');
+                // $_SESSION['alogin']=$_POST['user'];
+                // $_SESSION['id']=$row['id'];
+                $_SESSION['role']='Admin';
+                $_SESSION['SESS_MEMBER_ID']=$row['admin_id'];
+		    	 
+				header('location:admin/index.php');
 			}
 		else
 			{
@@ -69,18 +73,19 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
+                 
                         <form method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" name="email" type="email" autofocus required placeholder="E-mail">
+                                    <input class="form-control" id="email" name="email" type="email" autofocus required placeholder="E-mail">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="pass" type="password" required>
+                                    <input class="form-control" placeholder="Password" id="pass" name="pass" type="password" required>
                                 </div>
                                 
                                 
 								<div class="form-group">
-                                    <input name="login" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
+                                    <input name="login" type="submit" id="login" value="Login" class="btn btn-lg btn-success btn-block">
                                 </div>
 								
 								<div class="form-group">
@@ -97,7 +102,7 @@
             </div>
         </div>
     </div>
-
+     
     <!-- jQuery -->
     <script src="../css/css/jquery.min.js"></script>
 
