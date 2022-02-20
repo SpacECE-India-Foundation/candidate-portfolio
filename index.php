@@ -44,13 +44,14 @@ exit();
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="Online_notice_board/index.php" class="nav-link pl-0" style="background-color:orange"><b>Online Notice Board</b></a></li>
+	        	<li class="nav-item active"><a href="Online_notice_board/user/index.php" class="nav-link pl-0" style="background-color:orange"><b>Online Notice Board</b></a></li>
 	        	<li class="nav-item"><a href="online-notes-sharing/dashboard/index.php" class="nav-link" style="background-color:orange"><b>Online Notes Sharing</b></a></li>
-	        	<li class="nav-item"><a href="OnlineExamSystem-PHP/index.php"  style="color:"class="nav-link"><b>Online Exam</b></a></li>
+	        	<li class="nav-item"><a href="OnlineExamSystem-PHP/index.php"  style="background-color:orange"class="nav-link"><b>Online Exam</b></a></li>
 	        	<li class="nav-item"><a href="Resume/index.php" class="nav-link" style="background-color:"><b>Student Resume </b></a></li>
 	        	<li class="nav-item"><a href="Task-Management-master/index.php" class="nav-link" style="background-color:"><b>Task Management</b></a></li>
-	        	<li class="nav-item"><a href="student_result/srms/index.php" class="nav-link" style="background-color:green"><b>Student Result</b></a></li>
-	                <li class="nav-item"><a href="Student Report Card/index.php" class="nav-link" style="background-color:green"><b>Student Report</b></a></li>
+	        	<li class="nav-item"><a href="student_result/srms/index.php" class="nav-link" style="background-color:green"><b>Student Result Management</b></a></li>
+            <li class="nav-item"><a href="Student Recruitment/index.php" class="nav-link" style="background-color:green"><b>Student Recruitment</b></a></li>
+	          <li class="nav-item"><a href="chatbot/index.php" class="nav-link" style="background-color:green"><b>May I help You</b></a></li>
                    
                 </ul>
 
