@@ -74,8 +74,8 @@ echo "<script>alert('file size is not proper');</script>";
         $notefile = rand(1000 , 1000000) .'.'.$fileext;
         if(move_uploaded_file($_FILES['file']['tmp_name'], $folder.$notefile)) {
             $query = "INSERT INTO uploads(file_name, file_description, file_type, file_uploader, file_uploaded_to, file) VALUES ('$file_title' , '$file_description' , '$fileext' , '$file_uploader' , '$file_uploaded_to' , '$notefile')";
-            $result = mysqli_query($con , $query) or die(mysqli_error($con));
-            if (mysqli_affected_rows($con) > 0) {
+            $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
+            if (mysqli_affected_rows($conn) > 0) {
                 echo "<script> alert('file uploaded successfully.It will be published after admin approves it');
                 window.location.href='notes.php';</script>";
             }

@@ -40,7 +40,7 @@ header("location: index.php");
                         <th>Description</th>
                         <th>Type </th>
                         <th>Uploaded on</th>
-                        <th>Status</th>
+                      
                         <th>View</th>
                         <th>Delete</th>
                         
@@ -52,7 +52,7 @@ header("location: index.php");
                  $currentuser = $_SESSION['username'];
 
 $query = "SELECT * FROM uploads WHERE file_uploader= '$currentuser' ORDER BY file_uploaded_on DESC";
-$run_query = mysqli_query($con, $query) or die(mysqli_error($con));
+$run_query = mysqli_query($conn, $query) or die(mysqli_error($conn));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $file_id = $row['file_id'];
@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $file_description = $row['file_description'];
     $file_type = $row['file_type'];
     $file_date = $row['file_uploaded_on'];
-    $file_status = $row['status'];
+ 
     $file = $row['file'];
 
     echo "<tr>";
@@ -68,7 +68,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$file_description</td>";
     echo "<td>$file_type</td>";
     echo "<td>$file_date</td>";
-    echo "<td>$file_status</td>";
+    
     echo "<td><a href='allfiles/$file' target='_blank' style='color:green'>View </a></td>";
     echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this post?')\" href='?del=$file_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
 
@@ -92,11 +92,11 @@ else {
  <?php
  
     if (isset($_GET['del'])) {
-        $note_del = mysqli_real_escape_string($con, $_GET['del']);
+        $note_del = mysqli_real_escape_string($conn, $_GET['del']);
         $file_uploader = $_SESSION['username'];
         $del_query = "DELETE FROM uploads WHERE file_id='$note_del' AND file_uploader = '$file_uploader' ";
-        $run_del_query = mysqli_query($con, $del_query) or die (mysqli_error($con));
-        if (mysqli_affected_rows($con) > 0) {
+        $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($conn));
+        if (mysqli_affected_rows($conn) > 0) {
             echo "<script>alert('note deleted successfully');
             window.location.href='notes.php';</script>";
         }

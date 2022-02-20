@@ -1,4 +1,4 @@
- 
+  
 <?php include ('includes/connection.php'); ?>
 <?php include('includes/adminheader.php');  ?>
 
@@ -54,7 +54,7 @@ header('location:../../user/login.php');
                  <?php
 
 $query = "SELECT * FROM uploads ORDER BY file_uploaded_on DESC";
-$run_query = mysqli_query($con, $query) or die(mysqli_error($con));
+$run_query = mysqli_query($conn, $query) or die(mysqli_error($con));
 if (mysqli_num_rows($run_query) > 0) {
 while ($row = mysqli_fetch_array($run_query)) {
     $file_id = $row['file_id'];

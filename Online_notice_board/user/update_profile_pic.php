@@ -9,7 +9,7 @@ echo $img;
 $query="update user set image='$img' where uname='".$_SESSION['uname']."'";
 mysqli_query($conn,$query);
 
-move_uploaded_file($_FILES['f']['tmp_name'],"../images/".$_FILES['f']['name']);
+move_uploaded_file($_FILES['f']['tmp_name'],"../../images/".$_FILES['f']['name']);
 
 $err="<font color='blue'>Profie Pic updated successfully !!</font>";
 
