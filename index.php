@@ -44,6 +44,7 @@ exit();
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="Student Account/index.php" class="nav-link" style="background-color:orange"><b>Student Account</b></a></li>
 	        	<li class="nav-item active"><a href="Online_notice_board/user/index.php" class="nav-link pl-0" style="background-color:orange"><b>Online Notice Board</b></a></li>
 	        	<li class="nav-item"><a href="online-notes-sharing/dashboard/index.php" class="nav-link" style="background-color:orange"><b>Online Notes Sharing</b></a></li>
 	        	<li class="nav-item"><a href="OnlineExamSystem-PHP/index.php"  style="background-color:orange"class="nav-link"><b>Online Exam</b></a></li>

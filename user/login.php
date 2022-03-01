@@ -29,6 +29,7 @@ if (mysqli_num_rows($result) > 0) {
     $email = $row['uname'];
     $role= $row['role'];
     $course = $row['course'];
+    
   
     if (($password=== $pass )) {
       $_SESSION['id'] = $id;
@@ -46,6 +47,16 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['login_type']=1;
       $_SESSION['login_id']=$id;
       $_SESSION['login_name']=$name;
+      $_SESSION['department']=$row['department'];
+      $_SESSION['message']=$row['message'];
+      $_SESSION['gcNotify']=$row['gcNotify'];
+      $_SESSION['active']=$row['active'];
+      $_SESSION['basicInfo']=$row['active']
+      // $_SESSION['work']=$row['active'];
+      // $_SESSION['gvCart']=$row['gvCart'];
+      // $_SESSION['admingvCart']=$row['admingvCart'];
+      
+
  
       $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
     foreach($system as $k => $v){
