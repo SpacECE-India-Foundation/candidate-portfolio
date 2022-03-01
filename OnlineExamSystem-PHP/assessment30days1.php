@@ -33,8 +33,10 @@ if(mysqli_num_rows($resultGetAllCandidates) > 0){
             $assesmentDepartment = $rowRandAssessment['department'];
 
             echo "; Assessment:".$assesmentId."\n";
-
-            $queryAllocateAssessment = "UPDATE user SET assesment1id = '$assesmentId' WHERE uid = '$candidateId'";
+            $submision_date="2022-02-12";
+           // $queryAllocateAssessment = "UPDATE user SET assesment1id = '$assesmentId' WHERE uid = '$candidateId'";
+           $queryAllocateAssessment = "INSERT INTO userassessment(assessmentId,submissionDate,user_id)values('$assesmentId','$candidateId','$submision_date')";
+           echo $queryAllocateAssessment;
             if(mysqli_query($con, $queryAllocateAssessment) or die('Error231')){
                 echo "\nAssessment allocated successfully to..".$candidateName;
 
