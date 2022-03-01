@@ -3,7 +3,7 @@ session_start();
 include 'dbConnection.php';
 
 //Fetch list of candidates compliting 30 days from joining date
-$queryGetAllCandidates = "SELECT * from user where DATEDIFF(CURRENT_DATE(), joindate)>30;";//Todo: Below 60
+$queryGetAllCandidates = "SELECT  user.uid as uid,user.uname as uname,department.dptName as department from user join department where  user.department=department.id and DATEDIFF(CURRENT_DATE(), joindate)>30;";//Todo: Below 60
 $resultGetAllCandidates = mysqli_query($con, $queryGetAllCandidates)or die('Error231');
 
 if(mysqli_num_rows($resultGetAllCandidates) > 0){
@@ -14,7 +14,7 @@ if(mysqli_num_rows($resultGetAllCandidates) > 0){
         $candidateId = $rowGetAllCandidates['uid'];
         $candidateName = $rowGetAllCandidates['uname'];
         $candidateDepartment = $rowGetAllCandidates['department'];
-        $candiateEmail = $rowGetAllCandidates['uemail'];
+        $candiateEmail = $rowGetAllCandidates['uname'];
         
         echo "Candidate Name:".$candidateName."; department:".$candidateDepartment;
 

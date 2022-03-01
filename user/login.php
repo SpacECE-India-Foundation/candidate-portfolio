@@ -51,11 +51,11 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['message']=$row['message'];
       $_SESSION['gcNotify']=$row['gcNotify'];
       $_SESSION['active']=$row['active'];
-      $_SESSION['basicInfo']=$row['active']
+      $_SESSION['basicInfo']=$row['active'];
       // $_SESSION['work']=$row['active'];
       // $_SESSION['gvCart']=$row['gvCart'];
       // $_SESSION['admingvCart']=$row['admingvCart'];
-      
+    
 
  
       $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
