@@ -84,7 +84,7 @@ $res=mysqli_fetch_assoc($sql);
 					for($i=1950;$i<=2016;$i++)
 					{
 					?>
-					<option <?php if($arrr1[0]==$i){echo "selected";} ?>><?php echo $i; ?></option>
+					<option <?php if($arrr1==$i){echo "selected";} ?>><?php echo $i; ?></option>
 					<?php }					
 					?>
 					
@@ -96,7 +96,7 @@ $res=mysqli_fetch_assoc($sql);
 					for($i=1;$i<=12;$i++)
 					{
 					?>
-					<option <?php if($arrr1[1]==$i){echo "selected";} ?>><?php echo $i; ?></option>
+					<option <?php if($arrr1==$i){echo "selected";} ?>><?php echo $i; ?></option>
 					<?php }					
 					?>
 					}					
@@ -111,7 +111,7 @@ $res=mysqli_fetch_assoc($sql);
 					for($i=1;$i<=31;$i++)
 					{
 					?>
-					<option <?php if($arrr1[2]==$i){echo "selected";} ?>><?php echo $i; ?></option>
+					<option <?php if($arrr1==$i){echo "selected";} ?>><?php echo $i; ?></option>
 					<?php }					
 					?>
 					}					

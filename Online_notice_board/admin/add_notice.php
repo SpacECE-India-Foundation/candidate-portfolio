@@ -49,7 +49,7 @@ mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Dat
 	
 	
 	<div class="row" style="margin-top:10px">
-		<div class="col-sm-2"></div>
+		<div class="col-sm-4"></div>
 		<div class="col-sm-8">
 		
 	
@@ -60,13 +60,20 @@ mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Dat
                     <option value=''>-----SELECT-----</option>
                     <?php
                     $conn = mysqli_connect('localhost', 'root','','candidate_portal');
-                    $result = mysqli_query($conn, 'SELECT distinct department FROM user');
+                    // $result = mysqli_query($conn, 'SELECT distinct department FROM user');
+                    // while ($row = mysqli_fetch_assoc($result))
+                    // {
+                    //   $selected = (isset($_POST['list']) && $_POST['list'] ==  $row['department']) ? 'selected' : '';
+                    //   echo "<option value='$row[department]' $selected >$row[department]</option>";
+                    // }
+					$result = mysqli_query($conn, 'select department.id,dptName from department');
                     while ($row = mysqli_fetch_assoc($result))
                     {
                       $selected = (isset($_POST['list']) && $_POST['list'] ==  $row['department']) ? 'selected' : '';
-                      echo "<option value='$row[department]' $selected >$row[department]</option>";
+                      echo "<option value='$row[dptName]' $selected >$row[dptName]</option>";
                     }
                     ?>
+
                 </select>
             </div>
 
@@ -82,45 +89,59 @@ mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Dat
                 }
                 ?>
             </div>
+
+            <div <div class="row" style="margin-top:10px">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-8">
+			<label for="list">Select project</label>
+                <select name="project"id="project" onchange="call_function()"> 
+                    <option value=''>-----SELECT-----</option>
+                    <?php
+                    $conn = mysqli_connect('localhost', 'root','','candidate_portal');
+                    $result = mysqli_query($conn, 'SELECT distinct name FROM project_list');
+                    while ($row = mysqli_fetch_assoc($result))
+                    {
+                      $selected = (isset($_POST['list']) && $_POST['list'] ==  $row['name']) ? 'selected' : '';
+                      echo "<option value='$row[name]' $selected >$row[name]</option>";
+
+
+
+
+                    }
+                    ?>
+                </select>
+            </div>
+
+            <div>
+                <?php
+                if (isset($_POST['list']))
+                {
+					$result = $conn->query("SELECT *,concat(name) as name FROM user where uid in ($user_ids) order by concat(name) asc");
+                    // $result = mysqli_query($conn, 'SELECT user_ids FROM project_list WHERE user_ids=' . $_POST['list']);
+                    while ($row = mysqli_fetch_assoc($result))
+                    {
+                        echo $row['name'];
+                    }
+                }
+                ?>
+            </div>
+			</div>
+
+
+
 			
-
-
-      
-
-	<!-- <div class="row">
-		<div class="col-sm-4">Select Department</div>
-		<div class="col-sm-5">
-		<select name="user[]" multiple="multiple" class="form-control">
-		<select name="user2[]" multiple="multiple" class="form-control">
-			 
-	// $sql=mysqli_query($conn,"select  distinct department from user");
-	// $r=mysqli_fetch_array($sql);
-	// while($r)
-	// {
-	// 	echo "<option value='".$r['department']."'>".$r['department']."</option>";
-	// }
-	// $sql2=mysqli_query($conn,"select  name  from user where department=.$r['department']");
-	// while($r1=mysqli_fetch_array($sql2))
-	// {
-		//echo "<option value='".$r1['name']."'>".$r1['name']."</option>";
-	//}
-
-	
-			?>
-		</select>
-		</div>
-	</div> -->
-
-
-
-
-
-
 	<div class="row">
 		<div class="col-sm-4">Select User</div>
 		<div class="col-sm-5">
 		<select name ="user[]"id="user" multiple="multiple" class="form-control">
 			<?php 
+
+
+
+
+
+
+
 	// $sql=mysqli_query($conn,"select name,uname from user");
 	// while($r=mysqli_fetch_array($sql))
 	// {
@@ -145,7 +166,12 @@ mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Dat
 	</div>
 </form>	
 <script>
+	
+
+
+	
 function change(){
+
 	var department = $('#department').val();
 	//alert(department);
 	$.ajax({
@@ -165,18 +191,30 @@ $(document).ready(function(){
 		//alert("called");
 		$("#department").change(function(){
 			var department = $(this).val();
-			//alert(department);
-
-			//now sending this username to ajax page for geting img saved against this username.
-			// $.ajax({
-			// 	url:"ajaxpage.php",
-			// 	data:{data:username}
-			// }).done(function(result)
-			// {
-			// 	//now assign result to its related place
-			// 	$(".img").html(result);
-			// })
+			
 		});
  
 	});
+
+
 	</script>
+	<script>
+		function call_function(){
+		//alert("inside");
+		var project = $('#project').val();
+		$("#user").empty();
+	$.ajax({
+				url:"fetch.php?project",
+				method:"POST",
+				data:{project:project}
+			}).done(function(result)
+
+			{
+				//alert(result);
+				//now assign result to its related place
+$("#user").html(result);
+			})
+			
+	}
+		</script>
+	

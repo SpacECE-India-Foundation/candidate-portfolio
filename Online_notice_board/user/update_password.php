@@ -11,7 +11,7 @@ if(isset($save))
 	{
 $op=md5($op);	
 
-$sql=mysqli_query($conn,"select * from user where pass='$op'");
+$sql=mysqli_query($conn,"select * from user where upass='$op'");
 $r=mysqli_num_rows($sql);
 if($r==true)
 {
@@ -19,7 +19,7 @@ if($r==true)
 	if($np==$cp)
 	{
 	$np=md5($np);
-	$sql=mysqli_query($conn,"update user set pass='$np' where email='$user'");
+	$sql=mysqli_query($conn,"update user set upass='$np' where uname='$user'");
 	
 	$err="<font color='blue'>Password updated </font>";
 	}

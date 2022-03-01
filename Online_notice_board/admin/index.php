@@ -56,7 +56,7 @@ header('location:login.php');
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
            
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="../user/logout.php">Logout</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -81,7 +81,7 @@ header('location:login.php');
 			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
             <li><a href="index.php?page=manage_users"><span class="glyphicon glyphicon-user"></span> Manage Users</a></li>
 			 <li><a href="index.php?page=notification"><span class="glyphicon glyphicon-envelope"></span> Mange  Notification</a></li>
-            
+
           </ul>
          
          
@@ -97,6 +97,10 @@ header('location:login.php');
 				include('manage_users.php');
 			
 			}
+      if($page=="manage_department")
+			{
+				include('manage_department.php');
+      }
 			
 			if($page=="update_password")
 			{
@@ -123,6 +127,8 @@ header('location:login.php');
 				include('add_notice.php');
 			
 			}
+        
+      
 		  }
 		  
 		  else
