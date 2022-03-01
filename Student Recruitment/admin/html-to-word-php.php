@@ -1,15 +1,16 @@
 <?php
+	session_start();
 	//Loading class file
 	include_once 'HtmlToDoc.class.php';
 
 	//Initialize class
 	$htd = new HTML_TO_DOC();
 
-	$html = '<h1>Dear [Candidate Name], 
+	$html = '<h1>Dear  '.$_SESSION['name'].', 
  
 	With great pleasure, I would like offer the following employment offer.
 	 
-	Position: [Job title]
+	Position: '.$_SESSION['role'].'
 	Start date: No later than [date] 
 	This employment offer is contingent upon the successful completion of [background check, drug screening, reference check, I-9 form, etc.]. This offer is not a contract of employment, and either party may terminate employment at any time, with or without cause. 
 	 
@@ -17,7 +18,7 @@
 	 
 	[Your Signature]
 	 
-	[Your Printed Name]
+	'.$_SESSION['name'].'
 	[Your Job Title]
 	 
 	Candidate Signature: ______________________________
@@ -40,7 +41,7 @@
 	$subject="Welcome to SpaceEce";
 	$message="Please find your assignment below
 	Assignment: Create an api";
-	 More headers
+ 
 	$headers .= 'From: <webmaster@example.com>' . "\r\n";
 	$headers .= 'Cc: myboss@example.com' . "\r\n";
 		

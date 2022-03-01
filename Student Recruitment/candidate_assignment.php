@@ -1,18 +1,37 @@
 <?php
 include('header.php');
-?>
-<div class="container  ">
+$id=$_GET['id'];
+echo ($id);
+$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" )or die('Error231');
+while($row=mysqli_fetch_array($a) )
 
-<form id="sc"> 
+$assignment=$row['assignment'];
+	
+
+
+?>
+
+<div class="container  ">
+<title>SpaceEce</title>
+
+<form id="sc" method="POST"> 
 <div class="col-md-4">
 				<label for="" class="control-label">Email</label>
 
 				<input type="email" class="form-control" name="email" required="required">
 			</div>
+<?php
+
+echo ($assignment)
+	
+
+?>
+		
 <div  class="row form-group">
 			<div class="col-md-7">
-				<label for="" class="control-label">Assignment 1 <br> Assignment 2 <br> Assignment 3</label>
-				<textarea name="assignments" id="" cols="30" rows="3"  class="form-control"></textarea>
+				<label for="" class="control-label"></label>
+				<textarea name="assignment" id="" cols="30" rows="3"  class="form-control"></textarea>
 			</div>
 		</div>
 		
@@ -22,8 +41,8 @@ include('header.php');
 			    <span class="input-group-text" id="">Assignment </span>
 			  </div>
 			  <div class="custom-file">
-			    <input type="file" class="custom-file-input" id="assignments" onchange="displayfname(this,$(this))" name="assignments" accept="application/msword,text/plain, application/pdf">
-			    <label class="custom-file-label" for="assignments">Choose file</label>
+			    <input type="file" class="custom-file-input" id="assignment" onchange="displayfname(this,$(this))" name="assignment" accept="application/msword,text/plain, application/pdf">
+			    <label class="custom-file-label" for="assignment">Choose file</label>
 			  </div>
 
               
@@ -33,8 +52,10 @@ include('header.php');
         
 		</div>
         <input type="submit" value="Save" class="btn btn-primary" >
+		
         
         </form>
+		<a href="view.php">Next</a>
         <?php include('footer.php') ?>
 <script>
     function displayfname(input,_this) {

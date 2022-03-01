@@ -18,15 +18,15 @@
 		<div class="row form-group">
 			<div class="col-md-4">
 				<label for="" class="control-label">Last Name</label>
-				<input type="text" class="form-control" name="lastname" required="">
+				<input type="text" class="form-control" name="lastname"required="required">
 			</div>
 			<div class="col-md-4">
 				<label for="" class="control-label">First Name</label>
-				<input type="text" class="form-control" name="firstname" required="">
+				<input type="text" class="form-control" name="firstname" required="required">
 			</div>
 			<div class="col-md-4">
 				<label for="" class="control-label">Middle Name</label>
-				<input type="text" class="form-control" name="middlename" required="">
+				<input type="text" class="form-control" name="middlename" required="required">
 			</div>
 		</div>
 		<div class="row form-group">
@@ -44,29 +44,29 @@
 			</div>
 			<div class="col-md-4">
 				<label for="" class="control-label">Contact</label>
-				<input type="text" class="form-control" name="contact" required="">
+				<input type="text" class="form-control" name="contact" required="required">
 			</div>
 		</div>
 		<div class="row form-group">
 			<div class="col-md-7">
 				<label for="" class="control-label">Address</label>
-				<textarea name="address" id="" cols="30" rows="3" required class="form-control"></textarea>
+				<textarea name="address" id="" cols="30" rows="3" required="required" class="form-control"></textarea>
 			</div>
 		</div>
 		<div class="row form-group">
 			<div class="col-md-7">
-				<label for="" class="control-label">Cover Letter</label>
-				<textarea name="cover_letter" id="" cols="30" rows="3" placeholder="(Optional)" class="form-control"></textarea>
+				<label for="" class="control-label" required= " required" >Cover Letter</label>
+				<textarea name="cover_letter" id=""required="required" cols="30" rows="3" placeholder="(Optional)" class="form-control"></textarea>
 			</div>
 		</div>
 		<div class="row form-group">
 			<div class="input-group col-md-4 mb-3">
 				<div class="input-group-prepend">
-			    <span class="input-group-text" id="">Resume</span>
+			    <span class="input-group-text" id="" required="required">Resume</span>
 			  </div>
 			  <div class="custom-file">
 			    <input type="file" class="custom-file-input" id="resume" onchange="displayfname(this,$(this))" name="resume" accept="application/msword,text/plain, application/pdf">
-			    <label class="custom-file-label" for="resume">Choose file</label>
+			    <label class="custom-file-label" for="resume" required="required">Choose file</label>
 			  </div>
                 
             
