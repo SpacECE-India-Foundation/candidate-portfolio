@@ -43,7 +43,18 @@ if(mysqli_num_rows($resultGetAllCandidates) > 0){
                 $emailBody = "Your Assessment is as following..\nTitle:".$assesmentTitle."\nAssessment Description:".$assessmentDescription;
                 echo "\nEmail Subject:".$emailSubject;
                 echo "\nEmail body:".$emailBody;
-                mail($candiateEmail, $emailSubject, $emailBody);
+            
+                //Email header
+                // a random hash will be necessary to send mixed content
+                $separator = md5(time());
+
+                $eol = "\r\n";
+                // main header (multipart mandatory)
+                $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                 
+                mail($candiateEmail, $emailSubject, $emailBody, $headers);
             }
 
         }//if (mysqli_num_rows($resultRandAssessment) > 0) {
