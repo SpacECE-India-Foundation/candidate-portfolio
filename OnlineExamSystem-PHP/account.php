@@ -139,11 +139,12 @@ var countdownTimer = setInterval('secondPassed()', 1000);
 
 <!--quiz start-->
 <?php
+$qid=null;
 if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
 $eid=@$_GET['eid'];
 $sn=@$_GET['n'];
 $total=@$_GET['t'];
-$q=mysqli_query($con,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
+$q=mysqli_query($con,"SELECT * FROM questions1 WHERE eid='$eid' AND sn='$sn' " );
 echo '<div class="panel" style="margin:5%">';
 while($row=mysqli_fetch_array($q) )
 {
@@ -168,7 +169,7 @@ echo'<br /><button type="submit" class="btn btn-primary" style="border-radius:0%
 if(@$_GET['q']== 'result' && @$_GET['eid']) 
 {
 $eid=@$_GET['eid'];
-$q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' AND uname='$uname' " )or die('Error157');
+$q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' " )or die('Error157');
 echo  '<div class="panel">
 <center><h1 class="title" style="color:#660033">Result</h1><center><br /><table class="table table-striped title1" style="font-size:20px;font-weight:1000;">';
 
@@ -183,7 +184,7 @@ echo '<tr style="color:#66CCFF"><td>Total Questions</td><td>'.$qa.'</td></tr>
 	  <tr style="color:red"><td>Wrong Answer&nbsp;<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td><td>'.$w.'</td></tr>
 	  <tr style="color:#66CCFF"><td>Score&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
 }
-$q=mysqli_query($con,"SELECT * FROM rank WHERE  uname='$uname' " )or die('Error157');
+$q=mysqli_query($con,"SELECT * FROM rank WHERE  email='$uname' " )or die('Error157');
 while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];
