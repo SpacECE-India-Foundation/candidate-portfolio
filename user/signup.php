@@ -138,7 +138,15 @@ if  (isset($_FILES['f'])){
             
             <p class="contact"><label for="department">Department..</label></p>
             <select class="select-style gender" name="department">
-            <option value="1">Intern(Web Development)</option>
+            <?php
+            $result = mysqli_query($conn, 'select department.id,dptName from department');
+                    while ($row = mysqli_fetch_assoc($result))
+                    {
+                      $selected = (isset($_POST['list']) && $_POST['list'] ==  $row['department']) ? 'selected' : '';
+                      echo "<option value='$row[id]' $selected >$row[dptName]</option>";
+                    }
+                    ?>
+            <!-- <option value="1">Intern(Web Development)</option>
    <option value="2">Intern(Video Editing)</option>
    <option value="3">Intern(Education-ECCE)</option>
    <option value="4">Intern(Education-Policy</option>
@@ -176,7 +184,7 @@ if  (isset($_FILES['f'])){
    <option value="36">Intern(Cloud Network Administrator)</option>
    <option value="37">Intern(Cloud System Administration)</option>
    <option value="38">Intern(Content Writing)</option>
-   <option value="40">Intern(Fashion Designing)</option> 
+   <option value="40">Intern(Fashion Designing)</option>  -->
              </select><br><br>
             <p class="contact"><label> Choose Your pic</label></p>
 					<input class="form-control"  type="file" required name="f"/>
