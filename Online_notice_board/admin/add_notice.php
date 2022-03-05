@@ -59,7 +59,7 @@ mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Dat
                 <select name="department"id="department" onchange="change()"> 
                     <option value=''>-----SELECT-----</option>
                     <?php
-                    $conn = mysqli_connect('localhost', 'root','','candidate_portal');
+                   // $conn = mysqli_connect('localhost', 'root','','candidate_portal');
                     // $result = mysqli_query($conn, 'SELECT distinct department FROM user');
                     // while ($row = mysqli_fetch_assoc($result))
                     // {
