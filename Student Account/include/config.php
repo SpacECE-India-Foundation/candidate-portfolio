@@ -1,7 +1,7 @@
 <?php
-defined('server') ? null : define("server", "localhost");
-defined('user') ? null : define ("user", "root") ;
-defined('pass') ? null : define("pass","");
+defined('server') ? null : define("server", "3.109.14.4");
+defined('user') ? null : define ("user", "ostechnix") ;
+defined('pass') ? null : define("pass","Password123#@!");
 defined('database_name') ? null : define("database_name", "candidate_portal") ;
 
 $this_file = str_replace('\\', '/', __File__) ;
