@@ -51,7 +51,7 @@ exit();
 	        	<!-- <li class="nav-item"><a href="Resume/index.php" class="nav-link" style="background-color:"><b>Student Resume </b></a></li> -->
 	        	<li class="nav-item"><a href="Task-Management-master/index.php" class="nav-link" style="background-color:"><b>Task Management</b></a></li>
 	        	<li class="nav-item"><a href="student_result/srms/index.php" class="nav-link" style="background-color:green"><b>Student Result Management</b></a></li>
-            <li class="nav-item"><a href="Student Recruitment/index.php" class="nav-link" style="background-color:green"><b>Student Recruitment</b></a></li>
+            <!-- <li class="nav-item"><a href="Student Recruitment/index.php" class="nav-link" style="background-color:green"><b>Student Recruitment</b></a></li> -->
 	          <li class="nav-item"><a href="chatbot/index.php" class="nav-link" style="background-color:green"><b>May I help You</b></a></li>
                    
                 </ul>
