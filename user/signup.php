@@ -130,10 +130,10 @@ if  (isset($_FILES['f'])){
             
             <p class="contact"><label for="role">I am a..</label></p> 
             <select class="select-style gender" name="role">
-            <option value="teacher">Teacher</option>
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
-            <option value="manager">Manager</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+            <option value="Admin">Admin</option>
+            <option value="Manager">Manager</option>
             </select><br><br>
             
             <p class="contact"><label for="department">Department..</label></p>
