@@ -81,7 +81,7 @@ mysqli_query($conn,"INSERT INTO `notice`( `user`, `subject`, `Description`, `Dat
                 <?php
                 if (isset($_POST['list']))
                 {
-                    $result = mysqli_query($conn, 'SELECT name FROM user WHERE department=' . $_POST['list']);
+                    $result = mysqli_query($conn, 'SELECT * FROM user JOIN department WHERE user.department=department.id and user.department=' . $_POST['list']);
                     while ($row = mysqli_fetch_assoc($result))
                     {
                         echo $row['name'];
