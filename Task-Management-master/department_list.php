@@ -9,7 +9,7 @@
         <th>Department Name</th>
         <th>Department Description</th>
 <?php
-// include("connection.php");
+ include("db_connect.php");
 error_reporting(0);
 $query="select * from department";
 $data=mysqli_query($conn,$query);
