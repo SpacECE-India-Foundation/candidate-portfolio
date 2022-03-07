@@ -91,23 +91,13 @@ while ($row = mysqli_fetch_array($run_query)) {
 </div>
 <?php 
 }
-else {
+
     ?>
 
-<div class="row form-group">
-			<div class="input-group col-md-4 mb-3">
-				<div class="input-group-prepend">
-			    <span class="input-group-text" id="">Documents</span>
-			  </div>
-			  <div class="custom-file">
-			    <input type="file" class="custom-file-input" id="resume" onchange="displayfname(this,$(this))" name="documents" accept="application/msword,text/plain, application/pdf">
-			    <label class="custom-file-label" for="documents" require="require">Choose file</label><br>
-                <button type="button" href="index.php" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Submit</button> </br>
- 
-			  </div>
+    
                 
-            
-			</div>
+			  
+
  <h3 class="page-header">
                             <center>  <font color="green" >  <?php echo $_SESSION['name']; ?></font><font color="brown">Thank you for submmiting assignment </font> </center>
                         </h3>
@@ -126,11 +116,10 @@ else {
             
                     <tr>
                          
-                        <td><b>Download offer Letter</b> <br> <a href="admin/html-to-word-php.php" class="btn btn-primary" >Download here</br></a></td> 
                         
+                    <td><b>Click To Upload Documents and download offer letter</b> <br> <a href="admin/Documents.php" class="btn btn-primary" >Download here</br></a></td>
                         <th><b>Prejoing process</b><br> <a href="admin/prejoing form.php" class="btn btn-primary" >Complete Prejoing procedure</br></a></th>
-                        <td><b>Download Joining Letter</b> <br> <a href="admin/html-to-word-php.php" class="btn btn-primary" >Download here</br></a></td>
-              	
+                        
                         
                     </tr>
                 </thead>
@@ -147,16 +136,56 @@ else {
 </div>
 </div>
 </div>
-<?php }
+<?php 
  
  ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-
-<script src="../js/jquery.js"></script>
+<script src="js/jquery.js"></script>
 
   
     <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
+</html>
+
+<script> function change() {
+
+      var formData = new FormData();
+      formData.append('file', $('#document')[0].files[0]);
+       
+       
+  
+
+      let file = $("#document")[0].files[0]; 
+     // file.name
+      alert(file.name);
+  // code here CAN use carName
+
+
+  
+
+$.ajax({
+			url:'admin/ajax.php?action=documents',
+            
+            
+            data : formData,
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    method: 'POST',
+		    async: false,
+            
+            contentType: false,
+            enctype: 'multipart/form-data',
+			error:err=>{
+				console.log(err)
+			},
+			success:function(resp){
+                alert(resp);
+            }
+        })
+}
+    </script>
