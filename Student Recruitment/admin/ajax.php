@@ -65,19 +65,19 @@ if($action == "delete_vacancy"){
 		echo $save;
 }
 if($action == "save_application"){
-	echo "Inside";
-	var_dump($_POST);
-	// $email=$_POST['email'];
-    // $lastname=$_POST['lastname'];
-	// $firstname=$_POST['firstname'];
-	// $middlename=$_POST['middlename'];
-	// $address=$_POST['address'];
-	// $contact=$_POST['contact'];
-	// $email=$_POST['email'];
-	// $gender=$_POST['gender'];
-	// $cover_letter=$_POST['cover_letter'];
-	// $position_id=$_POST['position_id'];
-	//$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id);
+
+	//var_dump($_POST);
+	$email=$_POST['email'];
+    $lastname=$_POST['lastname'];
+	$firstname=$_POST['firstname'];
+	$middlename=$_POST['middlename'];
+	$address=$_POST['address'];
+	$contact=$_POST['contact'];
+	$email=$_POST['email'];
+	$gender=$_POST['gender'];
+	$cover_letter=$_POST['cover_letter'];
+	$position_id=$_POST['position_id'];
+	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id);
 	if($save)
 		echo $save;
 }
