@@ -196,7 +196,7 @@ Class Action {
 		// if(empty($id)){
 		// 	// echo "INSERT INTO application set ".$data;
 		// 	// exit;
-		 	$save = $this->db->query("INSERT INTO application ('$lastname','$firstname','$middlename','$address','$contact','$email','$gender','$cover_letter','$position_id','$resume1')");
+		 	$save = $this->db->query("INSERT INTO application ('$lastname','$firstname','$middlename','$address','$contact','$email','$gender','$cover_letter','$position_id')");
 		// }else{
 		//	$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
 		//}
