@@ -119,10 +119,10 @@ $(document).ready(function(){
 				console.log(err)
 			},
 			success:function(resp){
-				alert(resp);
+				//alert(resp);
 				if(resp == 1){
 					alert_toast('Application successfully submitted.','success')
-					window.location.href ="candidate_assignment.php";
+					window.location.href ="./candidate_assignment.php?id='<?php echo $_GET['id'];  ?>'";
 					setTimeout(function(){
 						location.reload()
 					},1000)
