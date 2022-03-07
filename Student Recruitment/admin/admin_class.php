@@ -172,7 +172,16 @@ Class Action {
 	}
 	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume){
 		//extract($_POST);
+		echo $email;
 		echo $lastname;
+		echo $firstname;
+		echo $middlename;
+		echo $address;
+		echo $contact;
+		echo $email;
+		echo $gender;
+		echo $cover_letter;
+		echo $position_id;
 		$status=1;
 		// $data = " lastname = '$lastname' ";
 		// $data .= ", firstname = '$firstname' ";
