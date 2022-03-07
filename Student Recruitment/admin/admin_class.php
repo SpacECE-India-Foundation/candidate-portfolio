@@ -183,13 +183,15 @@ Class Action {
 		// $data .= ", position_id = '$position_id' ";
 		if(isset($status))
 		//$data .= ", process_id = '$status' ";
-		$resume1="";
+		
 
 		if($_FILES['resume']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
 						$move = move_uploaded_file($_FILES['resume']['tmp_name'],'./'. $fname);
 					$resume1 = $fname;
 
+		}else{
+			$resume1 = null;
 		}
 		// if(empty($id)){
 		// 	// echo "INSERT INTO application set ".$data;
