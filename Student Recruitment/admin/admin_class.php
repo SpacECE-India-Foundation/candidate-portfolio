@@ -183,6 +183,7 @@ Class Action {
 		// $data .= ", position_id = '$position_id' ";
 		if(isset($status))
 		//$data .= ", process_id = '$status' ";
+		$resume1="";
 
 		if($_FILES['resume']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
