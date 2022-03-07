@@ -77,7 +77,8 @@ if($action == "save_application"){
 	$gender=$_POST['gender'];
 	$cover_letter=$_POST['cover_letter'];
 	$position_id=$_POST['position_id'];
-	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id);
+	$resume=$_FILES['resume'];
+	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume);
 	if($save)
 		echo $save;
 }

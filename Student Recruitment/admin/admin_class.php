@@ -170,33 +170,33 @@ Class Action {
 		if($delete)
 			return 1;
 	}
-	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id){
-		extract($_POST);
-		$data = " lastname = '$lastname' ";
-		$data .= ", firstname = '$firstname' ";
-		$data .= ", middlename = '$middlename' ";
-		$data .= ", address = '$address' ";
-		$data .= ", contact = '$contact' ";
-		$data .= ", email = '$email' ";
-		$data .= ", gender = '$gender' ";
-		$data .= ", cover_letter = '".htmlentities(str_replace("'","&#x2019;",$cover_letter))."' ";
-		$data .= ", position_id = '$position_id' ";
+	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume){
+		//extract($_POST);
+		// $data = " lastname = '$lastname' ";
+		// $data .= ", firstname = '$firstname' ";
+		// $data .= ", middlename = '$middlename' ";
+		// $data .= ", address = '$address' ";
+		// $data .= ", contact = '$contact' ";
+		// $data .= ", email = '$email' ";
+		// $data .= ", gender = '$gender' ";
+		// $data .= ", cover_letter = '".htmlentities(str_replace("'","&#x2019;",$cover_letter))."' ";
+		// $data .= ", position_id = '$position_id' ";
 		if(isset($status))
-		$data .= ", process_id = '$status' ";
+		//$data .= ", process_id = '$status' ";
 
 		if($_FILES['resume']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
-						$move = move_uploaded_file($_FILES['resume']['tmp_name'],'assets/resume/'. $fname);
-					$data .= ", resume_path = '$fname' ";
+						$move = move_uploaded_file($_FILES['resume']['tmp_name'],'./'. $fname);
+					$resume1 = ", resume_path = '$fname' ";
 
 		}
-		if(empty($id)){
-			// echo "INSERT INTO application set ".$data;
-			// exit;
-			$save = $this->db->query("INSERT INTO application set ".$data);
-		}else{
-			$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
-		}
+		// if(empty($id)){
+		// 	// echo "INSERT INTO application set ".$data;
+		// 	// exit;
+		 	$save = $this->db->query("INSERT INTO application ('$lastname','$firstname','$middlename','$address','$contact','$email','$gender','$cover_letter','$position_id','$resume1')");
+		// }else{
+		//	$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
+		//}
 		if($save)
 	//	$headers = "MIME-Version: 1.0" . "\r\n";
 	//	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
