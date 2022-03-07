@@ -66,7 +66,7 @@ if($action == "delete_vacancy"){
 }
 if($action == "save_application"){
 
-	//var_dump($_POST);
+	var_dump($_POST);
 	$email=$_POST['email'];
     $lastname=$_POST['lastname'];
 	$firstname=$_POST['firstname'];
