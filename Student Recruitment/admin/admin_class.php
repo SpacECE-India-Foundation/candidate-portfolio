@@ -187,7 +187,7 @@ Class Action {
 		if($_FILES['resume']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
 						$move = move_uploaded_file($_FILES['resume']['tmp_name'],'./'. $fname);
-					$resume1 = ", resume_path = '$fname' ";
+					$resume1 = $fname;
 
 		}
 		// if(empty($id)){
