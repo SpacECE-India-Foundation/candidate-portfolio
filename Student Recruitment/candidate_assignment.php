@@ -3,8 +3,7 @@ include('header.php');
 $id=$_GET['id'];
 echo ($id);
 $conn= new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal' )or die("Could not connect to mysql".mysqli_error($con));
-$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" );
-echo $a;
+$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='.$id.' ORDER BY RAND() LIMIT 1" )or die('Error231');
 while($row=mysqli_fetch_array($a) )
 
 $assignment=$row['assignment'];
