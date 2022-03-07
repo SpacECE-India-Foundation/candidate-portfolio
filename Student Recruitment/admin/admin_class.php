@@ -198,7 +198,7 @@ Class Action {
 		// 	// exit;
 
 		
-		$save = $this->db->query("INSERT INTO application ('$lastname','$firstname','$middlename','$address','$contact','$email','$gender','$cover_letter','$position_id')");
+		$save = $this->db->query("INSERT INTO `application` VALUES ('$lastname','$firstname','$middlename','$address','$contact','$email','$gender','$cover_letter','$position_id')");
 		echo $save;
 		
 		// }else{
