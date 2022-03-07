@@ -217,7 +217,9 @@ Class Action {
 		// }else{
 		//	$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
 		//}
-		if($save)
+		if($save){
+			return 1;
+		}
 	//	$headers = "MIME-Version: 1.0" . "\r\n";
 	//	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		
@@ -233,7 +235,7 @@ Class Action {
 		//} else {
 		//	echo "Email sending failed...";
 		//}
-			return 1;
+			
 	}
 	function delete_application(){
 		extract($_POST);
