@@ -104,7 +104,7 @@
 }
 $(document).ready(function(){
 	$('#manage-application').submit(function(e){
-		alert(new FormData($(this)[0]));
+		//alert(new FormData($(this)[0]));
 		e.preventDefault()
 		//start_load()
 		$.ajax({
