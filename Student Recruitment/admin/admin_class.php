@@ -173,15 +173,15 @@ Class Action {
 	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume,$pos_id){
 		//extract($_POST);
 		
-		echo $lastname;
-		echo $firstname;
-		echo $middlename;
-		echo $address;
-		echo $contact;
-		echo $email;
-		echo $gender;
-		echo $cover_letter;
-		echo $position_id;
+		// echo $lastname;
+		// echo $firstname;
+		// echo $middlename;
+		// echo $address;
+		// echo $contact;
+		// echo $email;
+		// echo $gender;
+		// echo $cover_letter;
+		// echo $position_id;
 		$resume;
 		$status=1;
 		// $data = " lastname = '$lastname' ";
@@ -211,7 +211,7 @@ Class Action {
 		
 		
 		$save = $this->db->query("INSERT INTO `application`(`id`, `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`) VALUES
-		('0','$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','','$pos_id','0','$pos_id')");
+		('0','$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','$pos_id','0','$pos_id')");
 		echo $save;
 		
 		// }else{
