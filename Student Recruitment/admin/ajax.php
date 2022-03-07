@@ -80,5 +80,12 @@ if($action == "save_assignment"){
 		echo $save;
 }
 
+if($action == "save_documents"){
+	$save = $crud->documents();
+	if($save)
+		echo $save;
+//echo "hello";
+}
+
 
 

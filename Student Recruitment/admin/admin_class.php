@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ini_set('display_errors', 1);
 Class Action {
 	private $db;
@@ -265,5 +266,43 @@ Class Action {
 		if($delete)
 			return 1;
 	}
+	function documents(){
+		extract($_POST);
+		$id=$_SESSION['id'];
+		
+		$data = " user_id = '$id' ";
+		$name= $_FILES['file']['name'];
+		//$data .= ", document = '".htmlentities(str_replace("'","&#x2019;",$file))."' ";
+		//var_dump($_FILES); 
+		if($_FILES['file']['tmp_name'] != ''){
+						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['file']['name'];
+						$move = move_uploaded_file($_FILES['file']['tmp_name'], $fname);
+					$data .= ", file_path = '$fname' ";
 
+		}
+		if(!empty($id)){
+			// echo "INSERT INTO application set ".$data;
+			// exit;
+			
+			$save = $this->db->query("INSERT INTO `documents`(`file_path`, `name`, `user_id`) VALUES ('$fname','$name','$id') ");
+			if($save)
+			//$headers = "MIME-Version: 1.0" . "\r\n";
+			//$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+			
+			//$message="Please find your assignment below
+			//Assignment: Create an api";
+			 //More headers
+			//$headers .= 'From: <webmaster@example.com>' . "\r\n";
+			//$headers .= 'Cc: myboss@example.com' . "\r\n";
+			
+			//mail($to,$subject,$message,$headers);
+			//if (mail($to_email, $subject, $body, $headers)) {
+			//	echo "Email successfully sent to $to_email...";
+			//} else {
+			//	echo "Email sending failed...";
+			//}
+				return 1;
+		}		
+		}
+		
 }

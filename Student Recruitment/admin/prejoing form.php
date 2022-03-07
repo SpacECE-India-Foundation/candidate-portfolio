@@ -139,6 +139,8 @@ function test_input($data) {
   <br><br>
   
   <input type="submit" name="submit" value="Submit">  
+  <b>Download Joining Letter</b> <br> <a href="dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a>
+              	
 </form>
 
 <?php
