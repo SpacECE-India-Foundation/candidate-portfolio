@@ -170,7 +170,7 @@ Class Action {
 		if($delete)
 			return 1;
 	}
-	function save_application(){
+	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id){
 		extract($_POST);
 		$data = " lastname = '$lastname' ";
 		$data .= ", firstname = '$firstname' ";
@@ -198,8 +198,8 @@ Class Action {
 			$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
 		}
 		if($save)
-		// $headers = "MIME-Version: 1.0" . "\r\n";
-		// $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		
 		//$message="Please find your assignment below
 	    //Assignment: Create an api";
@@ -243,8 +243,8 @@ Class Action {
 			
 		}
 		if($save)
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		//$headers = "MIME-Version: 1.0" . "\r\n";
+		//$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		
 		//$message="Please find your assignment below
 	    //Assignment: Create an api";
