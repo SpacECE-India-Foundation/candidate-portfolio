@@ -78,9 +78,21 @@ if($action == "save_application"){
 	$cover_letter=$_POST['cover_letter'];
 	$position_id=$_POST['position_id'];
 	$resume=$_FILES['resume'];
-	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume);
-	if($save)
-		echo $save;
+	echo $email;
+	echo $lastname;
+	echo $firstname;
+	echo $middlename;
+	echo $address;
+	echo $contact;
+	echo $email;
+	echo $gender;
+	echo $cover_letter;
+	echo $position_id;
+	echo $resume;
+	
+	//$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume);
+// 	if($save)
+// 		echo $save;
 }
 if($action == "delete_application"){
 	$save = $crud->delete_application();
