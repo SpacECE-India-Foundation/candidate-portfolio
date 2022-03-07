@@ -122,7 +122,7 @@ $(document).ready(function(){
 				//alert(resp);
 				if(resp == 1){
 					alert_toast('Application successfully submitted.','success')
-					window.location.href ="./candidate_assignment.php?id='<?php echo $_GET['id'];  ?>'";
+					window.location.href ="./candidate_assignment.php?id=<?php echo $_GET['id']  ?>";
 					setTimeout(function(){
 						location.reload()
 					},1000)
