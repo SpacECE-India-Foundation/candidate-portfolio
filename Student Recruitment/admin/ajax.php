@@ -82,8 +82,8 @@ if($action == "save_application"){
 	$pos_id=$_POST['position_id'];
 	
 	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume,$pos_id);
-// 	if($save)
-// 		echo $save;
+	if($save)
+		echo $save;
 }
 if($action == "delete_application"){
 	$save = $crud->delete_application();
