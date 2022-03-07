@@ -112,8 +112,8 @@ $(document).ready(function(){
 		    cache: false,
 		    contentType: false,
 		    processData: false,
-		    method: 'POST',
-		
+		   
+		    type: 'POST',
 			error:err=>{
 				console.log(err)
 			},
