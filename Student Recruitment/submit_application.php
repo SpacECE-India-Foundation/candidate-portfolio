@@ -104,7 +104,8 @@
 }
 $(document).ready(function(){
 	$('#manage-application').submit(function(e){
-		e.preventDefault()
+		alert(new FormData($(this)[0]));
+		//e.preventDefault()
 		//start_load()
 		$.ajax({
 			url:'admin/ajax.php?action=save_application',
