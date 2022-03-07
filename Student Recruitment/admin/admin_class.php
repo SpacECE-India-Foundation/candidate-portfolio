@@ -210,8 +210,8 @@ Class Action {
 		// 	// exit;
 		
 		
-		$save = $this->db->query("INSERT INTO `application`(`id`, `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`, `date_created`) VALUES
-		('0','$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','','','0','$pos_id','')");
+		$save = $this->db->query("INSERT INTO `application`(`id`, `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`) VALUES
+		('0','$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','','$pos_id','0','$pos_id')");
 		echo $save;
 		
 		// }else{
