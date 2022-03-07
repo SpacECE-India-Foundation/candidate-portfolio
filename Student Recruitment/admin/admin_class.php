@@ -170,7 +170,7 @@ Class Action {
 		if($delete)
 			return 1;
 	}
-	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume){
+	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume,$pos_id){
 		//extract($_POST);
 		
 		echo $lastname;
@@ -210,8 +210,8 @@ Class Action {
 		// 	// exit;
 		
 		
-		$save = $this->db->query("INSERT INTO `application`( `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`, `date_created`) VALUES
-		('$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','','','0','$resume')");
+		$save = $this->db->query("INSERT INTO `application`(`id`, `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`, `date_created`) VALUES
+		('0','$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','','','0','$pos_id','')");
 		echo $save;
 		
 		// }else{
