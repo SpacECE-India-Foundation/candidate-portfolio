@@ -172,7 +172,7 @@ Class Action {
 	}
 	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume){
 		//extract($_POST);
-		echo $email;
+		
 		echo $lastname;
 		echo $firstname;
 		echo $middlename;
@@ -182,6 +182,7 @@ Class Action {
 		echo $gender;
 		echo $cover_letter;
 		echo $position_id;
+		$resume;
 		$status=1;
 		// $data = " lastname = '$lastname' ";
 		// $data .= ", firstname = '$firstname' ";
@@ -192,24 +193,25 @@ Class Action {
 		// $data .= ", gender = '$gender' ";
 		// $data .= ", cover_letter = '".htmlentities(str_replace("'","&#x2019;",$cover_letter))."' ";
 		// $data .= ", position_id = '$position_id' ";
-		if(isset($status))
+		//if(isset($status))
 		//$data .= ", process_id = '$status' ";
 		
 
-		if($_FILES['resume']['tmp_name'] != ''){
-						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
-						$move = move_uploaded_file($_FILES['resume']['tmp_name'],'./'. $fname);
-					$resume1 = $fname;
+		// if($_FILES['resume']['tmp_name'] != ''){
+		// 				$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
+		// 				$move = move_uploaded_file($_FILES['resume']['tmp_name'],'./'. $fname);
+		// 			$resume1 = $fname;
 
-		}else{
-			$resume1 = null;
-		}
+		// }else{
+		// 	$resume1 = null;
+		// }
 		// if(empty($id)){
 		// 	// echo "INSERT INTO application set ".$data;
 		// 	// exit;
-
 		
-		$save = $this->db->query("INSERT INTO `application` VALUES ('$lastname','$firstname','$middlename','$address','$contact','$email','$gender','$cover_letter','$position_id')");
+		
+		$save = $this->db->query("INSERT INTO `application`( `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`, `date_created`) VALUES
+		('$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','','','0','$resume')");
 		echo $save;
 		
 		// }else{
