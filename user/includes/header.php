@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css">
 
     <link rel="stylesheet" href="../css/loginstyle.css">
-	<link href="../dashboard/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	
 </head>
 <body>
