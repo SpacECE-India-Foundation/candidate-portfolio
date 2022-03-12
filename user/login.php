@@ -1,12 +1,12 @@
 <html>
-<body style=" background-image: url('../images/bg_8.jpeg');">
+<body style=" background-image: url('../images/bg_8.jpeg');  background-repeat: no-repeat;">
 <head>
 <?php
 session_start();
 include './includes/connection.php';
  ?>
 <?php include './includes/header.php';?>
-<?php  include 'includes/navbar.php';?>
+<?php  include './includes/navbar.php';?>
 
 <?php
 
@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) > 0) {
     $course = $row['course'];
     
   
-    if (($password=== $pass )) {
+    if (( $password=== $pass )) {
       $_SESSION['id'] = $id;
       $_SESSION['username'] = $username;
       $_SESSION['login_id']= $id;
