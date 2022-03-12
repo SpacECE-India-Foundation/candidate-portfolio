@@ -94,8 +94,8 @@ else {
   </div>
 </div>
 
-  <script src='css/jquery.min.js'></script>
-<script src='css/jquery-ui.min.js'></script>
+  <script src='js/jquery.min.js'></script>
+<script src='js/jquery-ui.min.js'></script>
 
   
 </body>
