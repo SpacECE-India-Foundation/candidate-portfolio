@@ -6,10 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Online Notes Sharing</title>
- <script src="dashboard/js/tinymce/tinymce.min.js"></script>
-    <script src="dashboard/js/tinymce/script.js"></script>
-	<link rel="stylesheet" type="text/css" href="./../css/bootstrap.min.css">
+<title>Candidate Portal </title>
+ <!-- <script src="dashboard/js/tinymce/tinymce.min.js"></script> -->
+    <!-- <script src="dashboard/js/tinymce/script.js"></script>
+	 --><link rel="stylesheet" type="text/css" href="./../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./../css/cms-home.css">
 	<link rel="stylesheet" type="text/css" href="./../css/material-icons.css">
 	<link rel="stylesheet" type="text/css" href="./../css/style.css" media="all" />
