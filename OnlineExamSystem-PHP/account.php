@@ -225,7 +225,7 @@ echo'</table></div>';
 //ranking start
 if(@$_GET['q']== 3) 
 {
-$q=mysqli_query($con,"SELECT * FROM `rank` ORDER BY score DESC " )or die('Error223');
+$q=mysqli_query($con,"SELECT * FROM rank  ORDER BY score DESC " )or die('Error223');
 echo  '<div class="panel title">
 <table class="table table-striped title1" >
 <tr style="color:red"><td><b>Rank</b></td><td><b>Name</b></td><td><b>Score</b></td></tr>';

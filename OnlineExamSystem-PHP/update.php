@@ -15,7 +15,7 @@ header("location:dash.php?q=3");
 if(isset($_SESSION['key'])){
 if(@$_GET['demail'] && $_SESSION['key']=='sunny7785068889') {
 $demail=@$_GET['demail'];
-$r1 = mysqli_query($con,"DELETE FROM `rank` WHERE email='$demail' ") or die('Error');
+$r1 = mysqli_query($con,"DELETE FROM rank WHERE email='$demail' ") or die('Error');
 $r2 = mysqli_query($con,"DELETE FROM history WHERE email='$demail' ") or die('Error');
 $result = mysqli_query($con,"DELETE FROM user WHERE uname='$demail' ") or die('Error');
 header("location:dash.php?q=1");
@@ -53,7 +53,7 @@ $desc = $_POST['desc'];
 $id=uniqid();
 $department=$_POST['department'];
 
-$q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name','$sahi','$wrong','$total','$time','$desc','$tag', NOW(),'$department')");
+$q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW(),'$department')");
 
 header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }
@@ -179,11 +179,11 @@ while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];
 }
-$q=mysqli_query($con,"SELECT * FROM `rank` WHERE email='$email'" )or die('Error161');
+$q=mysqli_query($con,"SELECT * FROM rank WHERE email='$email'" )or die('Error161');
 $rowcount=mysqli_num_rows($q);
 if($rowcount == 0)
 {
-$q2=mysqli_query($con,"INSERT INTO `rank` VALUES('$email','$s',NOW())")or die('Error165');
+$q2=mysqli_query($con,"INSERT INTO rank VALUES('$email','$s',NOW())")or die('Error165');
 }
 else
 {
@@ -213,7 +213,7 @@ while($row=mysqli_fetch_array($q) )
 $s=$row['score'];
 }
 $q=mysqli_query($con,"DELETE FROM `history` WHERE eid='$eid' AND email='$email' " )or die('Error184');
-$q=mysqli_query($con,"SELECT * FROM  `rank` WHERE email='$email'" )or die('Error161');
+$q=mysqli_query($con,"SELECT * FROM rank WHERE email='$email'" )or die('Error161');
 while($row=mysqli_fetch_array($q) )
 {
 $sun=$row['score'];

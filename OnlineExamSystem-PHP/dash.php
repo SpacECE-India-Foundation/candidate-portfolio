@@ -110,7 +110,7 @@ echo '</table></div>';
 //ranking start
 if(@$_GET['q']== 2) 
 {
-$q=mysqli_query($con,"SELECT * FROM `rank` ORDER BY score DESC " )or die('Error223');
+$q=mysqli_query($con,"SELECT * FROM rank  ORDER BY score DESC " )or die('Error223');
 echo  '<div class="panel title">
 <table class="table table-striped title1" >
 <tr style="color:red"><td><b>Rank</b></td><td><b>Name</b></td><td><b>Score</b></td></tr>';
@@ -284,45 +284,45 @@ echo '
 <select placeholder="department" class="form-control input-md" id="department" name="department" >
    <option value="a">Select department </option>
    
-            <option value="Web Development">Intern(Web Development)</option>
-            <option value="video editing">Intern(Video Editing)</option>
-            <option value="Education-ECCE">Intern(Education-ECCE)</option>
-            <option value="Education-Polocy">Intern(Education-Policy</option>
-            <option value="Research">Intern(Research)</option>
-            <option value="Project Management">Intern(Project Management)</option>
-            <option value="Product Marketing">Intern(Product Marketing)</option>
-            <option value="Graphics">Intern(Graphics)</option>
-            <option value="Financial Accounting">Intern(Financial Accounting)</option>
-            <option value="Digital Marketing">Intern(Digital Marketing)</option>
-            <option value="HR">Intern(HR)</option>
-            <option value="Android Development">Inetrn(Android Development)</option>
-            <option value="Lamp Stack Development">Intern(LAMP Stack Development)</option>
-            <option value="Cloud Computing">Inetrn(Cloud Computing)</option>
-            <option value="MERN Stack Development">Intern(MERN Satck Development)</option>
-            <option value="Marketing">Intern(Marketing)</option>
-            <option value="Sales">Intern(Sales)</option>
-            <option value="Software Testing">Intern(Software Testing)</option>
-            <option value="You Tuber">Intern(You Tuber)</option>
-            <option value="Data Analyst">Intern(Data Analyst)</option>
-            <option value="SEO">Intern(SEO)</option>
-            <option value="UI UX Developer">Intern(UI UX Developer)</option>
-            <option value="Proposal Writing">Intern(Proposal Writing)</option>
-            <option value="Report Writing">Intern(Report Writing)</option>
-            <option value="PHP">Intern(PHP)</option>
-            <option value="Story Telling">Intern(Story Telling)</option>
-            <option value="Blogger">Intern(Blogger)</option>
-            <option value="Social Worker">Intern(Social Worker)</option>
-            <option value="Fundrasing">Intern(Fundrasing)</option>
-            <option value="Event Management">Intern(Event Management)</option>
-            <option value="Org Branding">Intern(Org Branding)</option>
-            <option value="Curriculum Designer">Intern(Curriculum Designer)</option>
-            <option value="Business Plans">Intern(Business Plans)</option>
-            <option value="Laravel Development">Intern(Laravel Development)</option>
-            <option value="Office Administration">Intern(Office Administration)</option>
-            <option value="Cloud Network Administrator">Intern(Cloud Network Administrator)</option>
-            <option value="Cloud System Administration">Intern(Cloud System Administration)</option>
-            <option value="Content Writing">Intern(Content Writing)</option>
-            <option value="Fashion Designing">Intern(Fashion Designing)</option> </select>
+   <option value="1">Intern(Web Development)</option>
+   <option value="2">Intern(Video Editing)</option>
+   <option value="3">Intern(Education-ECCE)</option>
+   <option value="4">Intern(Education-Policy</option>
+   <option value="5">Intern(Research)</option>
+   <option value="6">Intern(Project Management)</option>
+   <option value="7">Intern(Product Marketing)</option>
+   <option value="8">Intern(Graphics)</option>
+   <option value="9">Intern(Financial Accounting)</option>
+   <option value="10">Intern(Digital Marketing)</option>
+   <option value="11">Intern(HR)</option>
+   <option value="12">Intern(Android Development)</option>
+   <option value="13">Intern(LAMP Stack Development)</option>
+   <option value="14">Inetrn(Cloud Computing)</option>
+   <option value="15">Intern(MERN Stack Development)</option>
+   <option value="16">Intern(Marketing)</option>
+   <option value="17">Intern(Sales)</option>
+   <option value="18">Intern(Software Testing)</option>
+   <option value="19">Intern(You Tuber)</option>
+   <option value="20">Intern(Data Analyst)</option>
+   <option value="21">Intern(SEO)</option>
+   <option value="22">Intern(UI UX Developer)</option>
+   <option value="23">Intern(Proposal Writing)</option>
+   <option value="24">Intern(Report Writing)</option>
+   <option value="25">Intern(PHP)</option>
+   <option value="26">Intern(Story Telling)</option>
+   <option value="27">Intern(Blogger)</option>
+   <option value="28">Intern(Social Worker)</option>
+   <option value="29">Intern(Fundrasing)</option>
+   <option value="30">Intern(Event Management)</option>
+   <option value="31">Intern(Org Branding)</option>
+   <option value="32">Intern(Curriculum Designer)</option>
+   <option value="33">Intern(Business Plans)</option>
+   <option value="34">Intern(Laravel Development)</option>
+   <option value="35">Intern(Office Administration)</option>
+   <option value="36">Intern(Cloud Network Administrator)</option>
+   <option value="37">Intern(Cloud System Administration)</option>
+   <option value="38">Intern(Content Writing)</option>
+   <option value="40">Intern(Fashion Designing)</option> </select>
  </div>
 <div class="form-group">
   <label class="col-md-12 control-label" for=""></label>

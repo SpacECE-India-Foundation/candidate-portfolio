@@ -3,7 +3,7 @@ session_start();
 include 'dbConnection.php';
 
 //Fetch list of candidates compliting 30 days from joining date
-$queryGetAllCandidates = "SELECT  user.uid as uid,user.uname as uname,department.id as department from user join department where  user.department=department.id and DATEDIFF(CURRENT_DATE(), joindate)>30;";//Todo: Below 60
+$queryGetAllCandidates = "SELECT * from user where DATEDIFF(CURRENT_DATE(), joindate)>30;";//Todo: Below 60
 $resultGetAllCandidates = mysqli_query($con, $queryGetAllCandidates)or die('Error231');
 
 if(mysqli_num_rows($resultGetAllCandidates) > 0){
@@ -14,39 +14,27 @@ if(mysqli_num_rows($resultGetAllCandidates) > 0){
         $candidateId = $rowGetAllCandidates['uid'];
         $candidateName = $rowGetAllCandidates['uname'];
         $candidateDepartment = $rowGetAllCandidates['department'];
-        $candiateEmail = $rowGetAllCandidates['uname'];
+        $candiateEmail = $rowGetAllCandidates['uemail'];
         
         echo "Candidate Name:".$candidateName."; department:".$candidateDepartment;
 
         //Randomly fetch assessment departmentwise
-        $queryRandAssessment = "SELECT assessment.AssessmentId as AssessmentId ,assessment.assessmentDescription as assessmentDescription,
-        assessment.subjectName as subjectName ,department.dptName as department  FROM assessment  join department where assessment.department=department.id and  assessment.department = '$candidateDepartment' ORDER BY RAND() LIMIT 1";
-       // echo $queryRandAssessment;
-        $resultRandAssessment = mysqli_query($con, $queryRandAssessment)or die('Error2312');
+        $queryRandAssessment = "SELECT * FROM assessment where department = '$candidateDepartment' ORDER BY RAND() LIMIT 1";
+        $resultRandAssessment = mysqli_query($con, $queryRandAssessment)or die('Error231');
         $rowRandAssessment = mysqli_fetch_array($resultRandAssessment);
 
         //Assign the assignment to candidates
         if (mysqli_num_rows($resultRandAssessment) > 0) {
             
             //Fetching assessment details
-            $assesmentId = $rowRandAssessment['AssessmentId'];
+            $assesmentId = $rowRandAssessment['assessmentId'];
             $assessmentDescription = $rowRandAssessment['assessmentDescription'];
-            $assesmentTitle = $rowRandAssessment['subjectName'];
+            $assesmentTitle = $rowRandAssessment['assessmentTitle'];
             $assesmentDepartment = $rowRandAssessment['department'];
 
             echo "; Assessment:".$assesmentId."\n";
-          
-            date_default_timezone_set("Asia/Kolkata");   //India time (GMT+5:30)
-          
-            $Date =  date('Y-m-d');
-           $submission_date= date('Y-m-d', strtotime($Date. ' + 15 days'));
 
-
-
-           // $queryAllocateAssessment = "UPDATE user SET assesment1id = '$assesmentId' WHERE uid = '$candidateId'";
-            $queryAllocateAssessment = "INSERT INTO `userassessment` ( `assessmentId`,  `submissionDate`, `user_id`) 
-            VALUES ('$assesmentId', '$submission_date','$candidateId')";
-            echo $queryAllocateAssessment;
+            $queryAllocateAssessment = "UPDATE user SET assesment1id = '$assesmentId' WHERE uid = '$candidateId'";
             if(mysqli_query($con, $queryAllocateAssessment) or die('Error231')){
                 echo "\nAssessment allocated successfully to..".$candidateName;
 
@@ -55,18 +43,7 @@ if(mysqli_num_rows($resultGetAllCandidates) > 0){
                 $emailBody = "Your Assessment is as following..\nTitle:".$assesmentTitle."\nAssessment Description:".$assessmentDescription;
                 echo "\nEmail Subject:".$emailSubject;
                 echo "\nEmail body:".$emailBody;
-            
-                //Email header
-                // a random hash will be necessary to send mixed content
-                $separator = md5(time());
-
-                $eol = "\r\n";
-                // main header (multipart mandatory)
-                $headers = "From: 'SpacActive' <'contactus@spacece.co'>" . $eol;
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-                 
-                mail($candiateEmail, $emailSubject, $emailBody, $headers);
+                mail($candiateEmail, $emailSubject, $emailBody);
             }
 
         }//if (mysqli_num_rows($resultRandAssessment) > 0) {

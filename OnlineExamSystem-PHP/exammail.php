@@ -5,7 +5,7 @@
 	while($r=mysqli_fetch_array($sql))
 {
 	 print_r ($r );
-     sendmailto($r['uname'],$r['subject'],$r['description'],$r['Date']);
+     sendmailto($r['uname'],$r['subject'],$r['description'],$r['Date'])
 
 	}
     sendmailto("user","My subject",$msg){
