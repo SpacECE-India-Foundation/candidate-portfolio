@@ -19,7 +19,7 @@ while($r=mysqli_fetch_array($sql))
         sendmailto($r['user'],$r['subject'],$r['description'],$r['Date']);
 	
 	}
-    sendmailto(user,subject,description,Date){
+    //sendmailto(user,subject,description,Date){
         // the message
         $msg = description;
 
@@ -28,4 +28,4 @@ while($r=mysqli_fetch_array($sql))
         
         // send email
         mail("user","My subject",$msg);
-    }
+    //}

@@ -25,13 +25,13 @@ header("location:dash.php?q=1");
 if(isset($_SESSION['key'])){
 if(@$_GET['q']== 'rmquiz' && $_SESSION['key']=='sunny7785068889') {
 $eid=@$_GET['eid'];
-$result = mysqli_query($con,"SELECT * FROM questions1 WHERE eid='$eid' ") or die('Error');
+$result = mysqli_query($con,"SELECT * FROM questions WHERE eid='$eid' ") or die('Error');
 while($row = mysqli_fetch_array($result)) {
 	$qid = $row['qid'];
 $r1 = mysqli_query($con,"DELETE FROM options WHERE qid='$qid'") or die('Error');
 $r2 = mysqli_query($con,"DELETE FROM answer WHERE qid='$qid' ") or die('Error');
 }
-$r3 = mysqli_query($con,"DELETE FROM questions1 WHERE eid='$eid' ") or die('Error');
+$r3 = mysqli_query($con,"DELETE FROM questions WHERE eid='$eid' ") or die('Error');
 $r4 = mysqli_query($con,"DELETE FROM quiz WHERE eid='$eid' ") or die('Error');
 $r4 = mysqli_query($con,"DELETE FROM history WHERE eid='$eid' ") or die('Error');
 
@@ -51,9 +51,7 @@ $time = $_POST['time'];
 $tag = $_POST['tag'];
 $desc = $_POST['desc'];
 $id=uniqid();
-$department=$_POST['department'];
-
-$q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW(),'$department')");
+$q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
 
 header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }
@@ -70,7 +68,7 @@ for($i=1;$i<=$n;$i++)
  {
  $qid=uniqid();
  $qns=$_POST['qns'.$i];
-$q3=mysqli_query($con,"INSERT INTO questions1 VALUES  ('$eid','$qid','$qns' , '$ch' , '$i')");
+$q3=mysqli_query($con,"INSERT INTO questions VALUES  ('$eid','$qid','$qns' , '$ch' , '$i')");
   $oaid=uniqid();
   $obid=uniqid();
 $ocid=uniqid();
