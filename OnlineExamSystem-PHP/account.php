@@ -89,7 +89,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 
 echo "<h3 class='text-center'>Available Tests</h3>";
 $dep_id=$_SESSION['department'];
-$result = mysqli_query($con,"SELECT DISTINCT quiz.eid,quiz.sahi,quiz.wrong,quiz.time,quiz.title from quiz JOIN user WHERE quiz.department=user.department AND user.department='$dep_id' ORDER BY quiz.date DESC") or die('Error');
+$result = mysqli_query($con,"SELECT DISTINCT quiz.eid,quiz.sahi,quiz.wrong,quiz.time,quiz.title,quiz.date from quiz JOIN user WHERE quiz.department=user.department AND user.department='1' ORDER BY quiz.date DESC") or die('Error');
 echo  '<div class="panel"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total Question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
 $c=1;
