@@ -88,8 +88,8 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 <?php if(@$_GET['q']==1) {
 
 echo "<h3 class='text-center'>Available Tests</h3>";
-
-$result = mysqli_query($con,"SELECT * FROM `quiz` ORDER BY date DESC") or die('Error');
+$dep_id=$_SESSION['department'];
+$result = mysqli_query($con,"SELECT * FROM `quiz` join `user` WHERE user.department=quiz.department ORDER BY date DESC") or die('Error');
 echo  '<div class="panel"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total Question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
 $c=1;
