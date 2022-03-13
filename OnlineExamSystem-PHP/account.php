@@ -143,7 +143,7 @@ if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
 $eid=@$_GET['eid'];
 $sn=@$_GET['n'];
 $total=@$_GET['t'];
-$q=mysqli_query($con,"SELECT * FROM `questions` WHERE eid='$eid' AND sn='$sn' " );
+$q=mysqli_query($con,"SELECT * FROM `questions1` WHERE eid='$eid' AND sn='$sn' " );
 echo '<div class="panel" style="margin:5%">';
 while($row=mysqli_fetch_array($q) )
 {
