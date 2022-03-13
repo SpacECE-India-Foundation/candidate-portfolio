@@ -50,8 +50,9 @@ $wrong = $_POST['wrong'];
 $time = $_POST['time'];
 $tag = $_POST['tag'];
 $desc = $_POST['desc'];
+$department=$_POST['department'];
 $id=uniqid();
-$q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
+$q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW(),'$department')");
 
 header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }

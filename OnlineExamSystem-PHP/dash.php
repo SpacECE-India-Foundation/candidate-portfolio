@@ -280,7 +280,7 @@ echo '
 </div>
 
 <p class="contact"><label for="department">Department..</label></p>
-<select class="select-style gender" name="department">';
+<select class="select-style gender" name="department" id="department">';
 
 $result = mysqli_query($con, 'select department.id,dptName from department');
         while ($row = mysqli_fetch_assoc($result))
