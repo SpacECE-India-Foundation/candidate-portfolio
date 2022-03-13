@@ -127,6 +127,7 @@ $q=mysqli_query($con,"SELECT * FROM `quiz` WHERE eid='$eid' " );
 while($row=mysqli_fetch_array($q) )
 {
 $sahi=$row['sahi'];
+
 }
 if($sn == 1)
 {
@@ -163,7 +164,7 @@ $s=$row['score'];
 $w=$row['wrong'];
 }
 $w++;
-$s=$s-$wrong;
+$s=$s-$w;
 $q=mysqli_query($con,"UPDATE `history` SET `score`=$s,`level`=$sn,`wrong`=$w, date=NOW() WHERE  email = '$email' AND eid = '$eid'")or die('Error147');
 }
 if($sn != $total)
