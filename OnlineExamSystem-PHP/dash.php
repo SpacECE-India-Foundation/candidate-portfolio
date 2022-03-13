@@ -282,7 +282,7 @@ echo '
 <p class="contact"><label for="department">Department..</label></p>
 <select class="select-style gender" name="department">
 
-'.$result = mysqli_query($conn, 'select department.id,dptName from department');
+'.$result = mysqli_query($con, 'select department.id,dptName from department');
         while ($row = mysqli_fetch_assoc($result))
         {
           $selected = (isset($_POST['list']) && $_POST['list'] ==  $row['department']) ? 'selected' : '';
