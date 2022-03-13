@@ -279,7 +279,17 @@ echo '
   </div>
 </div>
 
+<p class="contact"><label for="department">Department..</label></p>
+<select class="select-style gender" name="department">
 
+'.$result = mysqli_query($conn, 'select department.id,dptName from department');
+        while ($row = mysqli_fetch_assoc($result))
+        {
+          $selected = (isset($_POST['list']) && $_POST['list'] ==  $row['department']) ? 'selected' : '';
+          echo "<option value='$row[id]' $selected >$row[dptName]</option>";
+        }'
+      
+ </select><br><br>
 <div class="form-group">
   <label class="col-md-12 control-label" for=""></label>
   <div class="col-md-12"> 
