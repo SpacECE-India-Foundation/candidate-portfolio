@@ -105,7 +105,7 @@ if  (isset($_FILES['f'])){
 <div class="container">
 
 
-      <div  class="form">
+      <div  class="login-card">
         <form id="contactform" method="POST"enctype="multipart/form-data"> 
           
           <p class="contact"><label for="name">Name</label></p> 
