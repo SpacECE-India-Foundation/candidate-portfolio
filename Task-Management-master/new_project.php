@@ -46,10 +46,10 @@
               <select class="form-control form-control-sm select2" name="manager_id">
               	<option></option>
               	<?php 
-              	$managers = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 2 order by concat(firstname,' ',lastname) asc ");
+              	$managers = $conn->query("SELECT *,concat(uname) as name FROM user order by concat(uname) asc ");
               	while($row= $managers->fetch_assoc()):
               	?>
-              	<option value="<?php echo $row['id'] ?>" <?php echo isset($manager_id) && $manager_id == $row['id'] ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
+              	<option value="<?php echo $row['uid'] ?>" <?php echo isset($manager_id) && $manager_id == $row['uid'] ? "selected" : '' ?>><?php echo ucwords($row['uname']) ?></option>
               	<?php endwhile; ?>
               </select>
             </div>
@@ -63,10 +63,10 @@
               <select class="form-control form-control-sm select2" multiple="multiple" name="user_ids[]">
               	<option></option>
               	<?php 
-              	$employees = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where type = 3 order by concat(firstname,' ',lastname) asc ");
+              	$employees = $conn->query("SELECT *,concat(uname) as name FROM user order by concat(uname) asc ");
               	while($row= $employees->fetch_assoc()):
               	?>
-              	<option value="<?php echo $row['id'] ?>" <?php echo isset($user_ids) && in_array($row['id'],explode(',',$user_ids)) ? "selected" : '' ?>><?php echo ucwords($row['name']) ?></option>
+              	<option value="<?php echo $row['uid'] ?>" <?php echo isset($user_ids) && in_array($row['uid'],explode(',',$user_ids)) ? "selected" : '' ?>><?php echo ucwords($row['uname']) ?></option>
               	<?php endwhile; ?>
               </select>
             </div>
@@ -75,7 +75,7 @@
 		<div class="row">
 			<div class="col-md-10">
 				<div class="form-group">
-					<label for="" class="control-label">Description</label>
+					<label for="">Description</label>
 					<textarea name="description" id="" cols="30" rows="10" class="summernote form-control">
 						<?php echo isset($description) ? $description : '' ?>
 					</textarea>

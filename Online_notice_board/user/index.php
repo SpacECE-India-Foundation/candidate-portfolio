@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('../connection.php');
-$user= $_SESSION['user'];
+$user= $_SESSION['uname'];
 $sql=mysqli_query($conn,"select * from user where uname='$user' ");
 $users=mysqli_fetch_assoc($sql);
 ?>
@@ -53,8 +53,9 @@ $users=mysqli_fetch_assoc($sql);
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-           
-            <li><a href="logout.php">Logout</a></li>
+            
+            <li><a href="../admin/login.php">Admin</a></li>
+            <li><a href="../user/logout.php">Logout</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -83,7 +84,7 @@ $users=mysqli_fetch_assoc($sql);
 			else
 			{
 			?>
-			<li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/<?php echo $_SESSION['user'];?>/<?php echo $row['image'];?>" width="100" height="100" alt="not found"/></a></li>
+			<li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../../images/<?php echo $row['image'];?>" width="100" height="100" alt="not found"/></a></li>
 			<?php 
 			}
 			?>

@@ -9,7 +9,7 @@
 		if($row)
 			{	
 				$_SESSION['admin']=$email;
-				header('location:index.php');
+				header('location:index.php?page=notification');
 			}
 		else
 			{

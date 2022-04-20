@@ -45,19 +45,18 @@ $res=mysqli_fetch_array($q);
 	<div class="row" style="margin-top:10px">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
-	</div>	
-	
-	<div class="row">
+
+	<!-- <div class="row">
 		<div class="col-sm-4">Select User</div>
 		<div class="col-sm-5">
 		<select name="user[]" multiple="multiple" class="form-control">
-			<?php 
-	$sql=mysqli_query($conn,"select name,email from user");
-	while($r=mysqli_fetch_array($sql))
-	{
-		echo "<option value='".$r['email']."'>".$r['name']."</option>";
-	}
-			?>
+			<!-- <?php 
+	//  $sql=mysqli_query($conn,"select name,uname from user");
+	//  while($r=mysqli_fetch_array($sql))
+	//  {
+	 	//echo "<option value='".$r['uname']."'>".$r['name']."</option>"; -->
+	// }
+	 		//?>
 		</select>
 		</div>
 	</div>
@@ -65,7 +64,7 @@ $res=mysqli_fetch_array($q);
 	<div class="row" style="margin-top:10px">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
-	</div>	
+	</div>	 -->
 		
 		<div class="row" style="margin-top:10px">
 		<div class="col-sm-2"></div>

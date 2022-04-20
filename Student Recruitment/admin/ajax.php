@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 $action = $_GET['action'];
 include 'admin_class.php';
 $crud = new Action();
@@ -65,7 +66,18 @@ if($action == "delete_vacancy"){
 		echo $save;
 }
 if($action == "save_application"){
-	$save = $crud->save_application();
+	$email=$_POST['email'];
+    $lastname=$_POST['lastname'];
+	$firstname=$_POST['firstname'];
+	$middlename=$_POST['middlename'];
+	$address=$_POST['address'];
+	$contact=$_POST['contact'];
+	$email=$_POST['email'];
+	$gender=$_POST['gender'];
+	$cover_letter=$_POST['cover_letter'];
+	$position_id=$_POST['position_id'];
+	
+	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id);
 	if($save)
 		echo $save;
 }
@@ -74,6 +86,23 @@ if($action == "delete_application"){
 	if($save)
 		echo $save;
 }
+if($action == "save_assignment"){
+	//$email=$_POST['email'];
+	$assignment_name=$_POST['assign'];
+    $assignment=$_POST['assignment'];
+	$fname=$_FILES['assignment']['tmp_name'];
+	$position_id=$_POST['sk'];
+	$save = $crud->save_assignment($assignment,$fname,$assignment_name,$position_id);
+	
+	if($save)
+		echo $save;
+}
 
+if($action == "save_documents"){
+	$save = $crud->documents();
+	if($save)
+		echo $save;
+//echo "hello";
+}
 
 

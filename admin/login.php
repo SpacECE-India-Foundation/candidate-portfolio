@@ -1,25 +1,34 @@
 <?php
  
 	include('connection.php');
- 
- 
   
 	session_start();
 	extract($_POST);
+
     if (isset($_POST['login'])) {
+
         $pass =$_POST['pass'];
         $email =$_POST['email'];
 
 		$que=mysqli_query($conn,"select * from admin where user='$email' and pass='$pass'");
 		$row=mysqli_num_rows($que);
+        $data = mysqli_fetch_assoc($que);
 		if($row)
 			{	
+                //print_r("Array of".var_dump($data));
 				$_SESSION['admin']=$email;
+                $_SESSION['name'] = "Admin";//$name;//There is no name field in the Admin table
+                $_SESSION['role']='admin';
+
+                $_SESSION['email']=$email;
                 // $_SESSION['alogin']=$_POST['user'];
                 // $_SESSION['id']=$row['id'];
-                $_SESSION['role']='Admin';
-                $_SESSION['SESS_MEMBER_ID']=$row['admin_id'];
-		    	 
+                $_SESSION['uname'] = $data['user'];
+                
+                $_SESSION['SESS_MEMBER_ID']=$data['admin_id'];
+                //$_SESSION['login_id']=$data['admin_id'];
+                $_SESSION['userdata']=$data['user'];
+                
 				header('location:index.php');
 			}
 		else

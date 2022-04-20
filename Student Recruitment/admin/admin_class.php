@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ini_set('display_errors', 1);
 Class Action {
 	private $db;
@@ -169,7 +170,7 @@ Class Action {
 		if($delete)
 			return 1;
 	}
-	function save_application(){
+	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id){
 		extract($_POST);
 		$data = " lastname = '$lastname' ";
 		$data .= ", firstname = '$firstname' ";
@@ -182,6 +183,7 @@ Class Action {
 		$data .= ", position_id = '$position_id' ";
 		if(isset($status))
 		$data .= ", process_id = '$status' ";
+		$data .= ", assignment_status = 'uncomplete'";
 
 		if($_FILES['resume']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
@@ -199,9 +201,7 @@ Class Action {
 		if($save)
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-		//$to=201800288@vupune.ac,in;
 		
-		//$subject="Welcome to SpaceEce";
 		//$message="Please find your assignment below
 	    //Assignment: Create an api";
 		 //More headers
@@ -215,7 +215,6 @@ Class Action {
 		//	echo "Email sending failed...";
 		//}
 			return 1;
-			
 	}
 	function delete_application(){
 		extract($_POST);
@@ -224,4 +223,86 @@ Class Action {
 			return 1;
 	}
 
+	function save_assignment($assignment,$fname,$assignment_name,$position_id){
+		extract($_POST);
+		//$data = " assignment = '$assignment' ";
+		//$data .= ", fname = '$fname' ";
+		//$data = ", assignment = '$assignment_name' ";
+		//$data = ", position_id = '$position_id' ";
+		//$data = ", date = '$date' ";
+		//$data = " email = '$email' ";
+		if(function_exists('date_default_timezone_set')) {
+			date_default_timezone_set("Asia/Kolkata");
+		}
+		$date = date("Y-m-d");
+		//$data .= ", assignment = '".htmlentities(str_replace("'","&#x2019;",$assignment))."' ";
+		
+		if($_FILES['assignment']['tmp_name'] != ''){
+						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['assignment']['name'];
+						$move = move_uploaded_file($_FILES['assignment']['tmp_name'],'assets/assignment/'. $fname);
+					//$data .= ", assignment_path = '$fname' ";
+
+		}
+		if(empty($id)){
+			// echo "INSERT INTO application set ".$data;
+			// exit;
+			$ee= $_SESSION['email'];
+			$save1 = $this->db->query("UPDATE `application` SET `position_id`='$position_id', `assignment_status`='complete' where email='$ee' ");
+
+			if(!$save1){
+
+			}
+
+			$save = $this->db->query("INSERT INTO assignments( `description`,`email`,  `assignment_path` ) VALUES ('$assignment_name','$ee','$fname' )");
+		}
+		if($save)
+		return 1;
+	}
+	function delete_assignment(){
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM assignment where id = ".$id);
+		if($delete)
+			return 1;
+	}
+	function documents(){
+		extract($_POST);
+		$id=$_SESSION['id'];
+		
+		$data = " user_id = '$id' ";
+		$name= $_FILES['file']['name'];
+		//$data .= ", document = '".htmlentities(str_replace("'","&#x2019;",$file))."' ";
+		//var_dump($_FILES); 
+		if($_FILES['file']['tmp_name'] != ''){
+						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['file']['name'];
+						$move = move_uploaded_file($_FILES['file']['tmp_name'], $fname);
+					$data .= ", file_path = '$fname' ";
+
+		}
+		if(!empty($id)){
+			// echo "INSERT INTO application set ".$data;
+			// exit;
+			
+			$save = $this->db->query("INSERT INTO `documents`(`file_path`, `name`, `user_id`) VALUES ('$fname','$name','$id')");
+			if($save)
+			//$headers = "MIME-Version: 1.0" . "\r\n";
+			//$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+			
+			//$message="Please find your assignment below
+			//Assignment: Create an api";
+			 //More headers
+			//$headers .= 'From: <webmaster@example.com>' . "\r\n";
+			//$headers .= 'Cc: myboss@example.com' . "\r\n";
+			
+			//mail($to,$subject,$message,$headers);
+			//if (mail($to_email, $subject, $body, $headers)) {
+			//	echo "Email successfully sent to $to_email...";
+			//} else {
+			//	echo "Email sending failed...";
+			//}
+				return 1;
+		}		
+		}
+
+		
+		
 }

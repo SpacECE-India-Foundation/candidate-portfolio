@@ -33,7 +33,7 @@ include "includes/adminheader.php"; ?>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Course</th>
+            <th>Department</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -42,16 +42,16 @@ include "includes/adminheader.php"; ?>
         
         <?php 
             
-            $query = "SELECT * FROM users ORDER BY name ASC ";
+            $query = "SELECT * FROM user ORDER BY name ASC ";
             $select_users = mysqli_query($conn, $query) or die(mysqli_error($conn));
             if (mysqli_num_rows($select_users) > 0 ) {
             while ($row = mysqli_fetch_array($select_users)) {
-                $user_id = $row['id'];
-                $username = $row['username'];
+                $user_id = $row['uid'];
+                $username = $row['name'];
                 $name = $row['name'];
-                $user_email = $row['email'];
+                $user_email = $row['uname'];
                 $user_role = $row['role'];
-                $user_course = $row['course'];
+                $user_course = $row['departmentId'];
                 echo "<tr>";
                 echo "<td>$user_id</td>";
                 echo "<td><a href='viewprofile.php?name=$username' target='_blank'> $username</a></td>";

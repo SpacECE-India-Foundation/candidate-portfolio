@@ -108,8 +108,8 @@ else
 <div class="col-md-9">
 <!-- Text input-->
 <div class="form-group">
-  <input id="name" name="name" placeholder="Enter your name" class="form-control input-md" type="text"><br />    
-   <input id="name" name="subject" placeholder="Enter subject" class="form-control input-md" type="text">    
+  <input id="name" name="name" placeholder="Enter your name" class="form-control input-md" type="text"required><br />    
+   <input id="name" name="subject" placeholder="Enter subject" class="form-control input-md" type="text"required>    
 
 </div>
 </div>
@@ -120,13 +120,13 @@ else
 <div class="col-md-9">
 <!-- Text input-->
 <div class="form-group">
-  <input id="email" name="email" placeholder="Enter your email-id" class="form-control input-md" type="email">    
+  <input id="email" name="email" placeholder="Enter your email-id" class="form-control input-md" type="email"required>    
  </div>
 </div>
 </div><!--End of row-->
 
 <div class="form-group"> 
-<textarea rows="5" cols="8" name="feedback" class="form-control" placeholder="Write feedback here..."></textarea>
+<textarea rows="5" cols="8" name="feedback" class="form-control" placeholder="Write feedback here..."required></textarea>
 </div>
 <div class="form-group" align="center">
 <input type="submit" name="submit" value="Submit" class="btn btn-primary" />
@@ -162,13 +162,13 @@ else
         <p>
 		<div class="row">
 		<div class="col-md-4">
-		 <img src="image/CAM00121.jpg" width=100 height=100 alt="Sunny Prakash Tiwari" class="img-rounded">
+		 <img src="image/bg_10.jpeg" width=100 height=100 alt="GANGINENI RAMYA" class="img-rounded">
 		 </div>
 		 <div class="col-md-5">
-     <a style="color:#202020; font-family:'typo' ; font-size:18px; text-decoration:none" title="Find on Facebook">Sunny Prakash Tiwari</a>
-		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1">+917785068889</h4>
-		<h4 style="font-family:'typo' ">sunnygkp10@gmail.com</h4>
-		<h4 style="font-family:'typo' ">Kamla Nehru Institute Of Technology ,Sultanpur</h4></div></div>
+     <a style="color:#202020; font-family:'typo' ; font-size:18px; text-decoration:none" title="Find on Facebook">GANGINENI RAMYA</a>
+		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1"></h4>
+		<h4 style="font-family:'typo' ">gangineniramya845@gmail.com</h4>
+		<h4 style="font-family:'typo' ">PBR VITS,KAVALI,ANDHRA PRADESH</h4></div></div>
 		</p>
       </div>
     

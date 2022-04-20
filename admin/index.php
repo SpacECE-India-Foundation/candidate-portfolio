@@ -1,9 +1,9 @@
 <?php
 session_start();
-// if(!isset( $_SESSION['SESS_MEMBER_ID'])){
-// header ('location:login.php');
-// exit();
-// }
+if(!isset( $_SESSION['SESS_MEMBER_ID'])){
+header ('location:login.php');
+exit();
+}
  
 ?>
 <!DOCTYPE html>
@@ -46,16 +46,16 @@ session_start();
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="../Online_notice_board/admin/index.php" class="nav-link pl-0" style="background-color:orange"><b>Online Notice Board Admin</b></a></li>
 	        	<li class="nav-item"><a href="../online-notes-sharing/dashboard/index.php" class="nav-link" style="background-color:orange"><b> Notes Sharing Admin</b></a></li>
-	        	<!-- <li class="nav-item"><a href="../OnlineExamSystem-PHP/dash.php"  style="color:"class="nav-link"><b>Online Exam Admin</b></a></li> -->
+            <li class="nav-item active"><a href="../OnlineExamSystem-PHP/dash.php?q=0" class="nav-link pl-0" style="background-color:orange"><b>Online Exam  Admin</b></a></li>
 	        	<li class="nav-item"><a href="../Resume/admin/index.php" class="nav-link" style="background-color:"><b>Student Resume Admin </b></a></li>
 	        	<li class="nav-item"><a href="../Task-Management-master/index.php" class="nav-link" style="background-color:"><b>Task Management</b></a></li>
-	        	<li class="nav-item"><a href="../student_result/srms/dashboard.php" class="nav-link" style="background-color:green"><b>Student Result Management Admin</b></a></li>
+	        	<li class="nav-item"><a href="../student_result/srms/dashboard.php" class="nav-link" style="background-color:"><b>Student Result Management Admin</b></a></li>
 	          <li class="nav-item"><a href="../Student Recruitment/admin/index.php" class="nav-link" style="background-color:green"><b>Student Recruitment</b></a></li>
-                   
+            <li class="nav-item"><a href="../chatbot/admin/index.php" class="nav-link" style="background-color:green"><b>SpacECE chatbot</b></a></li>
                 </ul>
 
 	      </div>
-	    </div>
+	    </div> 
        
 	  </nav>
     <!-- END nav -->

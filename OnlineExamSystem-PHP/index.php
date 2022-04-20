@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['login_id']))
+if(!isset($_SESSION['SESS_MEMBER_ID']))
 header('location:../user/login.php');
 include 'dbConnection.php';
 ?>
@@ -37,27 +37,10 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="col-lg-6">
 <span class="logo">Online Exam System</span></div>
 <div class="col-md-2 col-md-offset-4">
-<!-- <li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li> -->
-<a href="#" class="pull-right btn sub1" style="border-radius:0%" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Login</b></span></a></div> 
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content title1">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title title1 text-center"><span style="color:red"><b>Exam Detail</b></span></h4>
-      </div>
-      <div class="modal-body">
-        <form class="form-horizontal" action="login.php?q=index.php" method="POST">
-<fieldset>
+<li class="nav-item"><a href="./account.php?q=1"class="nav-link">exam</a><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
 
+<!-- <a href="#" class="pull-right btn sub1" style="border-radius:0%" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Login</b></span></a></div>
  
-<div class="form-group">
-  <label class="col-md-3 control-label" for="email"></label>  
-  <div class="col-md-6">
-  <input id="email" name="email" placeholder="Email" class="form-control input-md" type="email">
-    
-  </div>
-</div> 
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content title1">
@@ -76,7 +59,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
   <input id="email" name="email" placeholder="Email" class="form-control input-md" type="email">
     
   </div>
-</div> -->
+</div>
 
  
 <div class="form-group">
@@ -90,25 +73,25 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
+        <li class="nav-item"><a href="user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
 		</fieldset>
 </form> -->
       </div>
-    </div> 
-  </div> 
-</div> 
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
  
 
-</div> 
+</div><!--header row closed-->
 </div>
 
 <div class="bg1">
 <div class="row">
 
-<div class="col-md-7"></div>
-<div class="col-md-4 panel">
+<div class="col-md-7"style="display:none"></div>
+<div class="col-md-4 panel"style="display:none">
  
-  <form class="form-horizontal" name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
+  <!-- <form class="form-horizontal" name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
 <fieldset>
 
  
@@ -175,10 +158,10 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <input id="cpassword" name="cpassword" placeholder="Conformation Password" class="form-control input-md" type="password">
     
   </div>
-</div>
+</div> -->
 <?php if(@$_GET['q7'])
 { echo'<p style="color:red;font-size:15px;">'.@$_GET['q7'];}?>
- 
+<!-- Button -->
 <div class="form-group">
  
   </div>
@@ -186,14 +169,15 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 
 </fieldset>
 </form>
-</div> 
+</div><!--col-md-6 end-->
 </div></div>
-</div> 
- 
+</div><!--container end-->
+
+<!--Footer start-->
 <div class="row footer">
 
 <div class="col-md-4 box">
- 
+<a href="#" data-toggle="modal" data-target="#login">Admin Login</a></div>
 <div class="col-md-4 box">
 <a href="#" data-toggle="modal" data-target="#developers">Developers</a>
  <div class="col-md-4 box">
@@ -211,21 +195,21 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
         <p>
 		<div class="row">
 		<div class="col-md-4">
-		 <img src="image/CAM00121.jpg" width=100 height=100 alt="Sunny Prakash Tiwari" class="img-rounded">
+		 <img src="image/bg_10.jpeg" width=100 height=100 alt="GANGINENI RAMYA" class="img-rounded">
 		 </div>
 		 <div class="col-md-5">
-		<a style="color:#202020; font-family:'typo' ; font-size:18px; text-decoration:none" title="Find on Facebook">Sunny Prakash Tiwari</a>
-		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1">+917785068889</h4>
-		<h4 style="font-family:'typo' ">sunnygkp10@gmail.com</h4>
-		<h4 style="font-family:'typo' ">Kamla Nehru Institute Of Technology ,Sultanpur</h4></div></div>
+		<a style="color:#202020; font-family:'typo' ; font-size:18px; text-decoration:none" title="Find on Facebook">GANGINENI RAMYA</a>
+		<h4 style="color:#202020; font-family:'typo' ;font-size:16px" class="title1"></h4>
+		<h4 style="font-family:'typo' ">gangineniramya845@gmail.com</h4>
+		<h4 style="font-family:'typo' ">PBR VITS,KAVALI</h4></div></div>
 		</p>
       </div>
     
-    </div> 
-  </div> 
-</div> 
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
- 
+<!--Modal for admin login-->
 	 <div class="modal fade" id="login">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -249,14 +233,14 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 </div>
 </form>
 </div><div class="col-md-3"></div></div>
-      </div> 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
-    </div> 
-  </div> 
-</div> 
-footer end
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>-->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--footer end-->
 
 
 </body>

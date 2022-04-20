@@ -91,7 +91,7 @@ $qry = $conn->query("SELECT * FROM vacancy ");
 										<p>Applied for : <b><?php echo $row['position'] ?></b></p>
 									</td>
 									<td class="text-center">
-										<?php echo $stat_arr[$row['process_id']] ?>
+									       <?php //echo $stat_arr[$row['process_id']] ?>
 									</td>
 									<td class="text-center">
 										<button class="btn btn-sm btn-primary view_application" type="button" data-id="<?php echo $row['id'] ?>" >View</button>

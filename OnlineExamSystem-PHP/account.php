@@ -31,7 +31,7 @@ include_once 'dbConnection.php';
 <span class="logo">Online Exam System</span></div>
 <div class="col-md-4 col-md-offset-2">
  <?php
- include_once 'dbConnection.php';
+ //include_once 'dbConnection.php';
 session_start();
   if(!(isset($_SESSION['uname']))){
 header("location:index.php");
@@ -42,7 +42,7 @@ else
 $name = $_SESSION['name'];
 $uname=$_SESSION['uname'];
 
-include_once 'dbConnection.php';
+//include_once 'dbConnection.php';
 echo '<span class="pull-right top title1" ><span class="log1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;Hello,</span> <a href="account.php?q=1" class="log log1">'.$name.'</a>&nbsp;|&nbsp;<a href="logout.php?q=account.php" class="log"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout</button></a></span>';
 }?>
 </div>
@@ -89,7 +89,10 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 
 echo "<h3 class='text-center'>Available Tests</h3>";
 
-$result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+$dep_id=$_SESSION['departmentId'];
+echo "Deparetment ID:".$dep_id;
+$result = mysqli_query($con,"SELECT DISTINCT quiz.eid, quiz.sahi, quiz.wrong, quiz.time, quiz.title, quiz.date, quiz.total, quiz.intro, quiz.tag, quiz.departmentId FROM quiz WHERE quiz.departmentId='$dep_id' ORDER BY quiz.date DESC") or die('Error');
+
 echo  '<div class="panel"><table class="table table-striped title1">
 <tr><td><b>S.N.</b></td><td><b>Topic</b></td><td><b>Total Question</b></td><td><b>Marks</b></td><td><b>Time limit</b></td><td></td></tr>';
 $c=1;
@@ -139,11 +142,12 @@ var countdownTimer = setInterval('secondPassed()', 1000);
 
 <!--quiz start-->
 <?php
+$qid=null;
 if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) {
 $eid=@$_GET['eid'];
 $sn=@$_GET['n'];
 $total=@$_GET['t'];
-$q=mysqli_query($con,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
+$q=mysqli_query($con,"SELECT * FROM questions1 WHERE eid='$eid' AND sn='$sn' " );
 echo '<div class="panel" style="margin:5%">';
 while($row=mysqli_fetch_array($q) )
 {
@@ -168,7 +172,7 @@ echo'<br /><button type="submit" class="btn btn-primary" style="border-radius:0%
 if(@$_GET['q']== 'result' && @$_GET['eid']) 
 {
 $eid=@$_GET['eid'];
-$q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' AND uname='$uname' " )or die('Error157');
+$q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' " )or die('Error157');
 echo  '<div class="panel">
 <center><h1 class="title" style="color:#660033">Result</h1><center><br /><table class="table table-striped title1" style="font-size:20px;font-weight:1000;">';
 
@@ -183,7 +187,7 @@ echo '<tr style="color:#66CCFF"><td>Total Questions</td><td>'.$qa.'</td></tr>
 	  <tr style="color:red"><td>Wrong Answer&nbsp;<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td><td>'.$w.'</td></tr>
 	  <tr style="color:#66CCFF"><td>Score&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
 }
-$q=mysqli_query($con,"SELECT * FROM rank WHERE  uname='$uname' " )or die('Error157');
+$q=mysqli_query($con,"SELECT * FROM rank WHERE  email='$uname' " )or die('Error157');
 while($row=mysqli_fetch_array($q) )
 {
 $s=$row['score'];

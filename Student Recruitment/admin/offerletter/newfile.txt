@@ -1,17 +1,17 @@
-<h1>Dear [Candidate Name], 
+<h1>Dear  Umesh, 
  
-	\nWith great pleasure, I would like offer the following employment offer.
+	With great pleasure, I would like offer the following employment offer.
 	 
-	\nPosition: [Job title]
-	\nStart date: No later than [date] 
-	\nThis employment offer is contingent upon the successful completion of [background check, drug screening, reference check, I-9 form, etc.]. This offer is not a contract of employment, and either party may terminate employment at any time, with or without cause. 
+	Position:  Student
+	Start date: No later than [date] 
+	This employment offer is contingent upon the successful completion of [background check, drug screening, reference check, I-9 form, etc.]. This offer is not a contract of employment, and either party may terminate employment at any time, with or without cause. 
 	 
-	\nSincerely,
+	Sincerely,
 	 
-	\n[Your Signature]
+	[Your Signature]
 	 
-	\n[Your Printed Name]
-	\n[Your Job Title]
+	Umesh
+	[Your Job Title]
 	 
 	Candidate Signature: ______________________________
 	 

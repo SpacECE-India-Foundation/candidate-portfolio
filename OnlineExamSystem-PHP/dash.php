@@ -40,7 +40,7 @@ $(function () {
  include_once 'dbConnection.php';
 session_start();
 $email=$_SESSION['email'];
-  if(!(isset($_SESSION['email']))){
+  if(!(isset($_SESSION['SESS_MEMBER_ID']))){
 header("location:index.php");
 
 }
@@ -76,7 +76,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
 		<li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="dash.php?q=2">User Rankings</a></li>
     <li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a href="dash.php?q=3">Feedback</a></li>
     <li <?php if(@$_GET['q']==4) echo'class="active"'; ?>><a href="dash.php?q=4">Add Exams</a></li>
-        
+    <li <?php if(@$_GET['q']==5) echo'class="active"'; ?>><a href="dash.php?q=5">edit exam</a></li>
       </ul>
           </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -279,7 +279,51 @@ echo '
   </div>
 </div>
 
-
+<div class="form-group">
+<b>department</b>:
+<select placeholder="department" class="form-control input-md" id="department" name="department" >
+   <option value="a">Select department </option>
+   
+   <option value="1">Intern(Web Development)</option>
+   <option value="2">Intern(Video Editing)</option>
+   <option value="3">Intern(Education-ECCE)</option>
+   <option value="4">Intern(Education-Policy</option>
+   <option value="5">Intern(Research)</option>
+   <option value="6">Intern(Project Management)</option>
+   <option value="7">Intern(Product Marketing)</option>
+   <option value="8">Intern(Graphics)</option>
+   <option value="9">Intern(Financial Accounting)</option>
+   <option value="10">Intern(Digital Marketing)</option>
+   <option value="11">Intern(HR)</option>
+   <option value="12">Intern(Android Development)</option>
+   <option value="13">Intern(LAMP Stack Development)</option>
+   <option value="14">Inetrn(Cloud Computing)</option>
+   <option value="15">Intern(MERN Stack Development)</option>
+   <option value="16">Intern(Marketing)</option>
+   <option value="17">Intern(Sales)</option>
+   <option value="18">Intern(Software Testing)</option>
+   <option value="19">Intern(You Tuber)</option>
+   <option value="20">Intern(Data Analyst)</option>
+   <option value="21">Intern(SEO)</option>
+   <option value="22">Intern(UI UX Developer)</option>
+   <option value="23">Intern(Proposal Writing)</option>
+   <option value="24">Intern(Report Writing)</option>
+   <option value="25">Intern(PHP)</option>
+   <option value="26">Intern(Story Telling)</option>
+   <option value="27">Intern(Blogger)</option>
+   <option value="28">Intern(Social Worker)</option>
+   <option value="29">Intern(Fundrasing)</option>
+   <option value="30">Intern(Event Management)</option>
+   <option value="31">Intern(Org Branding)</option>
+   <option value="32">Intern(Curriculum Designer)</option>
+   <option value="33">Intern(Business Plans)</option>
+   <option value="34">Intern(Laravel Development)</option>
+   <option value="35">Intern(Office Administration)</option>
+   <option value="36">Intern(Cloud Network Administrator)</option>
+   <option value="37">Intern(Cloud System Administration)</option>
+   <option value="38">Intern(Content Writing)</option>
+   <option value="40">Intern(Fashion Designing)</option> </select>
+ </div>
 <div class="form-group">
   <label class="col-md-12 control-label" for=""></label>
   <div class="col-md-12"> 
@@ -347,17 +391,19 @@ echo '<b>Question number&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
     
   </div>
 </div>
-<br />
-<b>Correct answer</b>:<br />
-<select id="ans'.$i.'" name="ans'.$i.'" placeholder="Choose correct answer " class="form-control input-md" >
+
+<div class="form-group">
+<b>Correct answer</b>:
+<select placeholder="Choose correct answer " class="form-control input-md" >
    <option value="a">Select answer for question '.$i.'</option>
   <option value="a">option a</option>
   <option value="b">option b</option>
   <option value="c">option c</option>
-  <option value="d">option d</option> </select><br /><br />'; 
+  <option value="d">option d</option> </select>
+ </div>';
  }
-    
-echo '<div class="form-group">
+ 
+ echo'<div class="form-group">
   <label class="col-md-12 control-label" for=""></label>
   <div class="col-md-12"> 
     <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
@@ -368,7 +414,9 @@ echo '<div class="form-group">
 </form></div>';
 
 
+}
 
+if(@$_GET['q']==5 ) { include 'notification.php';
 }
 ?><!--add exam step 2 end-->
 

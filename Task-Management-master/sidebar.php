@@ -1,15 +1,19 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="dropdown">
+     
    	<a href="./" class="brand-link">
-        <?php if($_SESSION['login_type'] == 1): ?>
+        <?php if( $_SESSION['role'] == 'Admin'):
+           ?>
         <h3 class="text-center p-0 m-0"><b>ADMIN</b></h3>
         <?php else: ?>
         <h3 class="text-center p-0 m-0"><b>USER</b></h3>
+      
         <?php endif; ?>
 
     </a>
       
     </div>
+    
     <div class="sidebar pb-4 mb-4">
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
@@ -30,7 +34,9 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            <?php if($_SESSION['login_type'] != 3): ?>
+            <?php if($_SESSION['role'] === 'Admin'): 
+              ?>
+              
               <li class="nav-item">
                 <a href="./index.php?page=new_project" class="nav-link nav-new_project tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
@@ -52,7 +58,7 @@
                   <p>Task</p>
                 </a>
           </li>
-          <?php if($_SESSION['login_type'] != 3): ?>
+          <?php if($_SESSION['role'] != ""): ?>
            <li class="nav-item">
                 <a href="./index.php?page=reports" class="nav-link nav-reports">
                   <i class="fas fa-th-list nav-icon"></i>
@@ -60,7 +66,7 @@
                 </a>
           </li>
           <?php endif; ?>
-          <?php if($_SESSION['login_type'] == 1): ?>
+          <?php if($_SESSION['role'] == 'Admin'): ?>
           <li class="nav-item">
             <a href="#" class="nav-link nav-edit_user">
               <i class="nav-icon fas fa-users"></i>

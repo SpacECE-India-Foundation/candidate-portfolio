@@ -72,6 +72,7 @@ echo "<script>alert('file size is not proper');</script>";
         $folder  = 'allfiles/';
         $fileext = strtolower(pathinfo($file, PATHINFO_EXTENSION) );
         $notefile = rand(1000 , 1000000) .'.'.$fileext;
+
         if(move_uploaded_file($_FILES['file']['tmp_name'], $folder.$notefile)) {
             $query = "INSERT INTO uploads(file_name, file_description, file_type, file_uploader, file_uploaded_to, file) VALUES ('$file_title' , '$file_description' , '$fileext' , '$file_uploader' , '$file_uploaded_to' , '$notefile')";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
@@ -132,6 +133,3 @@ echo "<script>alert('file size is not proper');</script>";
 </body>
 
 </html>
-
-
-
