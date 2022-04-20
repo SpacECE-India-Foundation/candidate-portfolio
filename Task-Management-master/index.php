@@ -2,7 +2,7 @@
 <html lang="en">
 <?php session_start() ?>
 <?php 
-	if(!isset($_SESSION['login_id']))
+	if(!isset( $_SESSION['SESS_MEMBER_ID']))
 	    header('location:../user/login.php');
     include 'db_connect.php';
     ob_start();

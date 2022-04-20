@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['login_id']))
 header('location:../user/login.php');
-include 'db_connect.php';
+include 'dbConnection.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,9 +37,27 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="col-lg-6">
 <span class="logo">Online Exam System</span></div>
 <div class="col-md-2 col-md-offset-4">
-<li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
-<!-- <a href="#" class="pull-right btn sub1" style="border-radius:0%" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Login</b></span></a></div>
+<!-- <li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li> -->
+<a href="#" class="pull-right btn sub1" style="border-radius:0%" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Login</b></span></a></div> 
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content title1">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title title1 text-center"><span style="color:red"><b>Exam Detail</b></span></h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" action="login.php?q=index.php" method="POST">
+<fieldset>
+
  
+<div class="form-group">
+  <label class="col-md-3 control-label" for="email"></label>  
+  <div class="col-md-6">
+  <input id="email" name="email" placeholder="Email" class="form-control input-md" type="email">
+    
+  </div>
+</div> 
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content title1">
@@ -58,7 +76,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
   <input id="email" name="email" placeholder="Email" class="form-control input-md" type="email">
     
   </div>
-</div>
+</div> -->
 
  
 <div class="form-group">
@@ -72,16 +90,16 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <li class="nav-item"><a href="user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
+        <li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
 		</fieldset>
 </form> -->
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div> 
+  </div> 
+</div> 
  
 
-</div><!--header row closed-->
+</div> 
 </div>
 
 <div class="bg1">
@@ -90,7 +108,7 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="col-md-7"></div>
 <div class="col-md-4 panel">
  
-  <!-- <form class="form-horizontal" name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
+  <form class="form-horizontal" name="form" action="sign.php?q=account.php" onSubmit="return validateForm()" method="POST">
 <fieldset>
 
  
@@ -157,10 +175,10 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
     <input id="cpassword" name="cpassword" placeholder="Conformation Password" class="form-control input-md" type="password">
     
   </div>
-</div> -->
+</div>
 <?php if(@$_GET['q7'])
 { echo'<p style="color:red;font-size:15px;">'.@$_GET['q7'];}?>
-<!-- Button -->
+ 
 <div class="form-group">
  
   </div>
@@ -168,15 +186,14 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 
 </fieldset>
 </form>
-</div><!--col-md-6 end-->
+</div> 
 </div></div>
-</div><!--container end-->
-
-<!--Footer start-->
+</div> 
+ 
 <div class="row footer">
 
 <div class="col-md-4 box">
-<a href="#" data-toggle="modal" data-target="#login">Admin Login</a></div>
+ 
 <div class="col-md-4 box">
 <a href="#" data-toggle="modal" data-target="#developers">Developers</a>
  <div class="col-md-4 box">
@@ -204,11 +221,11 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 		</p>
       </div>
     
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    </div> 
+  </div> 
+</div> 
 
-<!--Modal for admin login-->
+ 
 	 <div class="modal fade" id="login">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -232,14 +249,14 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 </div>
 </form>
 </div><div class="col-md-3"></div></div>
-      </div>
-      <!--<div class="modal-footer">
+      </div> 
+      <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>-->
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!--footer end-->
+      </div>
+    </div> 
+  </div> 
+</div> 
+footer end
 
 
 </body>
