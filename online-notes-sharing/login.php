@@ -1,8 +1,8 @@
 <?php
-if (isset ($_SESSION['id'])){
-header('location:index.php');
-exit();
-}
+// if (isset ($_SESSION['id'])){
+// header('location:index.php');
+// exit();
+// }
 ?>
 <?php include 'includes/connection.php';?>
 <?php include 'includes/header.php';?>

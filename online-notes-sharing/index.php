@@ -3,7 +3,7 @@
 <?php include('includes/adminheader.php');  ?>
 
 <?php
-if (!isset ($_SESSION['role'])){
+if (!isset($_SESSION['role'])){
 header('location:../../user/login.php');
 }
 ?>
