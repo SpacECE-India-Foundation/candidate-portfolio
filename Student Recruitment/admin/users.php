@@ -25,7 +25,7 @@
 			<tbody>
 				<?php
  					include 'db_connect.php';
- 					$users = $conn->query("SELECT * FROM users order by name asc");
+ 					$users = $conn->query("SELECT * FROM user order by name asc");
  					$i = 1;
  					while($row= $users->fetch_assoc()):
 				 ?>
@@ -37,7 +37,7 @@
 				 		<?php echo $row['name'] ?>
 				 	</td>
 				 	<td>
-				 		<?php echo $row['username'] ?>
+				 		<?php echo $row['uname'] ?>
 				 	</td>
 				 	<td>
 				 		<center>

@@ -170,58 +170,37 @@ Class Action {
 		if($delete)
 			return 1;
 	}
-	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id,$resume,$pos_id){
-		//extract($_POST);
-		
-		// echo $lastname;
-		// echo $firstname;
-		// echo $middlename;
-		// echo $address;
-		// echo $contact;
-		// echo $email;
-		// echo $gender;
-		// echo $cover_letter;
-		// echo $position_id;
-		$resume;
-		$status=1;
-		// $data = " lastname = '$lastname' ";
-		// $data .= ", firstname = '$firstname' ";
-		// $data .= ", middlename = '$middlename' ";
-		// $data .= ", address = '$address' ";
-		// $data .= ", contact = '$contact' ";
-		// $data .= ", email = '$email' ";
-		// $data .= ", gender = '$gender' ";
-		// $data .= ", cover_letter = '".htmlentities(str_replace("'","&#x2019;",$cover_letter))."' ";
-		// $data .= ", position_id = '$position_id' ";
-		//if(isset($status))
-		//$data .= ", process_id = '$status' ";
-		
+	function save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id){
+		extract($_POST);
+		$data = " lastname = '$lastname' ";
+		$data .= ", firstname = '$firstname' ";
+		$data .= ", middlename = '$middlename' ";
+		$data .= ", address = '$address' ";
+		$data .= ", contact = '$contact' ";
+		$data .= ", email = '$email' ";
+		$data .= ", gender = '$gender' ";
+		$data .= ", cover_letter = '".htmlentities(str_replace("'","&#x2019;",$cover_letter))."' ";
+		$data .= ", position_id = '$position_id' ";
+		if(isset($status))
+		$data .= ", process_id = '$status' ";
+		$data .= ", assignment_status = 'uncomplete'";
 
-		// if($_FILES['resume']['tmp_name'] != ''){
-		// 				$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
-		// 				$move = move_uploaded_file($_FILES['resume']['tmp_name'],'./'. $fname);
-		// 			$resume1 = $fname;
+		if($_FILES['resume']['tmp_name'] != ''){
+						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['resume']['name'];
+						$move = move_uploaded_file($_FILES['resume']['tmp_name'],'assets/resume/'. $fname);
+					$data .= ", resume_path = '$fname' ";
 
-		// }else{
-		// 	$resume1 = null;
-		// }
-		// if(empty($id)){
-		// 	// echo "INSERT INTO application set ".$data;
-		// 	// exit;
-		
-		
-		$save = $this->db->query("INSERT INTO `application`(`id`, `firstname`, `middlename`, `lastname`, `gender`, `email`, `contact`, `address`, `cover_letter`, `position_id`, `resume_path`, `process_id`) VALUES
-		('0','$firstname','$firstname','$lastname','$gender','$email','$contact','$address','$cover_letter','$pos_id','0','$pos_id')");
-		//echo $save;
-		
-		// }else{
-		//	$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
-		//}
-		if($save){
-			return 1;
 		}
-	//	$headers = "MIME-Version: 1.0" . "\r\n";
-	//	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		if(empty($id)){
+			// echo "INSERT INTO application set ".$data;
+			// exit;
+			$save = $this->db->query("INSERT INTO application set ".$data);
+		}else{
+			$save = $this->db->query("UPDATE application set ".$data." where id=".$id);
+		}
+		if($save)
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		
 		//$message="Please find your assignment below
 	    //Assignment: Create an api";
@@ -235,7 +214,7 @@ Class Action {
 		//} else {
 		//	echo "Email sending failed...";
 		//}
-			
+			return 1;
 	}
 	function delete_application(){
 		extract($_POST);
@@ -244,43 +223,40 @@ Class Action {
 			return 1;
 	}
 
-	function save_assignment(){
+	function save_assignment($assignment,$fname,$assignment_name,$position_id){
 		extract($_POST);
-		
-		$data .= ", email = '$email' ";
-		
-		$data .= ", assignment = '".htmlentities(str_replace("'","&#x2019;",$assignment))."' ";
+		//$data = " assignment = '$assignment' ";
+		//$data .= ", fname = '$fname' ";
+		//$data = ", assignment = '$assignment_name' ";
+		//$data = ", position_id = '$position_id' ";
+		//$data = ", date = '$date' ";
+		//$data = " email = '$email' ";
+		if(function_exists('date_default_timezone_set')) {
+			date_default_timezone_set("Asia/Kolkata");
+		}
+		$date = date("Y-m-d");
+		//$data .= ", assignment = '".htmlentities(str_replace("'","&#x2019;",$assignment))."' ";
 		
 		if($_FILES['assignment']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['assignment']['name'];
 						$move = move_uploaded_file($_FILES['assignment']['tmp_name'],'assets/assignment/'. $fname);
-					$data .= ", assignment_path = '$fname' ";
+					//$data .= ", assignment_path = '$fname' ";
 
 		}
 		if(empty($id)){
 			// echo "INSERT INTO application set ".$data;
 			// exit;
-			
-			$save = $this->db->query("UPDATE application set ".$data." where email=".$email);
-			
+			$ee= $_SESSION['email'];
+			$save1 = $this->db->query("UPDATE `application` SET `position_id`='$position_id', `assignment_status`='complete' where email='$ee' ");
+
+			if(!$save1){
+
+			}
+
+			$save = $this->db->query("INSERT INTO assignments( `description`,`email`,  `assignment_path` ) VALUES ('$assignment_name','$ee','$fname' )");
 		}
 		if($save)
-		//$headers = "MIME-Version: 1.0" . "\r\n";
-		//$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-		
-		//$message="Please find your assignment below
-	    //Assignment: Create an api";
-		 //More headers
-		//$headers .= 'From: <webmaster@example.com>' . "\r\n";
-		//$headers .= 'Cc: myboss@example.com' . "\r\n";
-		
-		//mail($to,$subject,$message,$headers);
-		//if (mail($to_email, $subject, $body, $headers)) {
-		//	echo "Email successfully sent to $to_email...";
-		//} else {
-		//	echo "Email sending failed...";
-		//}
-			return 1;
+		return 1;
 	}
 	function delete_assignment(){
 		extract($_POST);
@@ -306,7 +282,7 @@ Class Action {
 			// echo "INSERT INTO application set ".$data;
 			// exit;
 			
-			$save = $this->db->query("INSERT INTO `documents`(`file_path`, `name`, `user_id`) VALUES ('$fname','$name','$id') ");
+			$save = $this->db->query("INSERT INTO `documents`(`file_path`, `name`, `user_id`) VALUES ('$fname','$name','$id')");
 			if($save)
 			//$headers = "MIME-Version: 1.0" . "\r\n";
 			//$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -326,5 +302,7 @@ Class Action {
 				return 1;
 		}		
 		}
+
+		
 		
 }

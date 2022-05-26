@@ -16,11 +16,13 @@ span.hightlight{
     background: yellow;
 }
 </style>
-        <header class="masthead">
-            <div class="container-fluid h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end mb-4 page-title">
-                    	<h3 class="text-white">Welcome to <?php echo $_SESSION['setting_name']; ?></h3>
+        
+<div class="container">
+       <header class="masthead">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end mb-4 page-title bg-theme">
+                    	<h4 class="text-black">WELCOME  TO RECRUITMENT MANAGEMENT SYSTEM</h4>
                         <hr class="divider my-4" />
                     <div class="col-md-12 mb-2 text-left">
                         <div class="card">
@@ -69,6 +71,7 @@ span.hightlight{
                 <?php endwhile; ?>
             </div>
         </section>
+</div>
 
 
 <script>

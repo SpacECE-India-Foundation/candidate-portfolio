@@ -11,7 +11,7 @@
     }
     ob_end_flush();
     include('header.php');
-    //include('assignment.php');
+    // //include('assignment.php');
 
 	
     ?>
@@ -29,7 +29,7 @@
         <div class="toast-body text-white">
         </div>
       </div>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['setting_name'] ?></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -42,7 +42,90 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
+  <!-- <nav class="mnb navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header d-flex align-center justify-between">
+    <a class="navbar-brand js-scroll-trigger" href="./"></a>
+    <?php //echo $_SESSION['setting_name'] ;?>
+    <a class="navbar-right" href="logout.php">Logout</a>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <a class="navbar-brand" href="#">RECRUITMENT MANAGEMENT SYSTEM</a>
+    <form class="d-flex ml-auto">
+      <a href="logout.php" class="btn btn-link">Logout</a>
+    </form>
+  </div>
+</nav>
+<!--msb: main sidebar-->
+<div class="msb" id="msb">
+		<nav class="navbar navbar-default" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<div class="brand-wrapper">
+					<!-- Brand -->
+					<div class="brand-name-wrapper">
+            <strong>Dashboard</strong>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- Main Menu -->
+			<div class="side-menu-container">
+				<ul class="nav navbar-nav">
+
+					<li id="home"><a href="index.php?page=home"></i>Home</a></li>
+					<li id="applications"><a href="index.php?page=applications"></i>My Assignment</a></li>
+          <li id="view"><a href="index.php?page=view"></i>Offer Letter</a></li>
+					<li id="joining_letter"><a href="index.php?page=joining_letter"></i>Joining Letter</a></li>
+          <li id="completion_letter"><a href="index.php?page=exit_form"></i>Exit Formalities</a></li>
+					<li id="about"><a href="index.php?page=about"></i>About</a></li>
+
+					<!-- Dropdown-->
+					<!-- <li class="panel panel-default" id="dropdown">
+						<a data-toggle="collapse" href="#dropdown-lvl1">
+							</i> Offer Letter
+						  <span class="caret"></span>
+            </a>
+						<!-- Dropdown level 1 --
+						<div id="dropdown-lvl1" class="panel-collapse collapse">
+							<div class="panel-body">
+								<ul class="nav navbar-nav">
+									<li><a href="#">Mail</a></li>
+									<li><a href="#">Calendar</a></li>
+									<li><a href="#">Ecommerce</a></li>
+									<li><a href="#">User</a></li>
+									<li><a href="#">Social</a></li>
+
+									<!-- Dropdown level 2 --
+									<li class="panel panel-default" id="dropdown">
+										<a data-toggle="collapse" href="#dropdown-lvl2">
+											<i class="glyphicon glyphicon-off"></i> Sub Level <span class="caret"></span>
+										</a>
+										<div id="dropdown-lvl2" class="panel-collapse collapse">
+											<div class="panel-body">
+												<ul class="nav navbar-nav">
+													<li><a href="#">Link</a></li>
+													<li><a href="#">Link</a></li>
+													<li><a href="#">Link</a></li>
+												</ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li> -->
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>  
+</div>
+<!--main content wrapper-->
+
        
         <?php 
         $page = isset($_GET['page']) ?$_GET['page'] : "home";
@@ -98,30 +181,22 @@
     </div>
   </div>
   <div id="preloader"></div>
-        <footer class="bg-light py-5">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="mt-0">Contact us</h2>
-                        <hr class="divider my-4" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                        <div><?php echo $_SESSION['setting_contact'] ?></div>
-                    </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="mailto:<?php echo $_SESSION['setting_email'] ?>"><?php echo $_SESSION['setting_email'] ?></a>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container"><div class="small text-center text-muted">Welcome - <?php echo $_SESSION['setting_name'] ?> | <a href="https://1sourcecodr.blogspot.com" target="_blank">1 Source Code</a></div></div>
-        </footer>
+  <br>
+ 
         
+        <script>
+            (function(){
+  $('#msbo').on('click', function(){
+    $('body').toggleClass('msb-x');
+  });
+}());
+
+const tab_active=<?php $page = isset($_GET['page']) ?$_GET['page'] : "home"; echo $page ?>
+
+console.log("here"+tab_active);
+      $(tab_active).toggleClass('tab-active');
+      
+         </script>
        <?php include('footer.php') ?>
     </body>
 

@@ -38,11 +38,11 @@
 							<tbody>
 								<?php 
 								$i = 1;
-								$plan = $conn->query("SELECT * FROM assignments order by id asc");
+								$plan = $conn->query("SELECT * FROM assignment order by id asc");
 								while($row=$plan->fetch_assoc()):
 									$trans = get_html_translation_table(HTML_ENTITIES,ENT_QUOTES);
 									unset($trans["\""], $trans["<"], $trans[">"], $trans["<h2"]);
-									$desc = strtr(html_entity_decode($row['description']),$trans);
+									$desc = strtr(html_entity_decode($row['assignment']),$trans);
 									$desc=str_replace(array("<li>","</li>"), array("",","), $desc);
 									// echo htmlentities(strip_tags($desc))
 								?>
@@ -89,7 +89,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height:150px;
+		max-height: :150px;
 	}
 </style>
 <script>

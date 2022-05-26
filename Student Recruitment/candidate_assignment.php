@@ -1,37 +1,64 @@
 <?php
 include('header.php');
-$id=$_GET['id'];
-echo $id;
-$conn= new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal' )or die("Could not connect to mysql".mysqli_error($con));
-$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id=$id ORDER BY RAND() LIMIT 1" )or die('Error231');
+session_start();
+$id=isset($_GET['id'])?$_GET['id']:'';
+$ud=isset($_SESSION['id'])?$_SESSION['id']:'';
+echo ($id.'--------');
+echo($ud);
+$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+$select_assignment=mysqli_query($conn,"SELECT assignment FROM `user` WHERE uid= '$ud' ");
+
+//$number=mysqli_fetch_row($select_assignment);
+//echo($number);
+
+ $assignment=NULL;
+	while($row=mysqli_fetch_array($select_assignment)){
+		$assignment=$row['assignment'];
+	}
+
+if(empty($assignment)){
+echo("hello");
+$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" ) or die('Error231');
 while($row=mysqli_fetch_array($a) )
-
 $assignment=$row['assignment'];
-	
-
-
+$update=mysqli_query($conn,"UPDATE user set assignment='$assignment' WHERE uid='$ud'")or die('Error231');
+}
 ?>
 
 <div class="container  ">
 <title>SpaceEce</title>
 
-<form id="sc" method="POST"> 
-<div class="col-md-4">
+
+	<form id="sc" method="POST"> 
+<!--<div class="col-md-4">
 				<label for="" class="control-label">Email</label>
 
 				<input type="email" class="form-control" name="email" required="required">
-			</div>
+			</div> 
+			--->
+
+
+
+
+
+			
+<input  name="assign" id="assign" value="
 <?php
+  
+  echo ($assignment);
+  echo 'Hello';
+	  
+  
+  ?>"  readonly>
+  
+<input type="hidden" name="sk" id="sk" value="<?php
+echo($position_id=$id); 
+?> " >
 
-echo ($assignment)
-	
-
-?>
-		
 <div  class="row form-group">
 			<div class="col-md-7">
 				<label for="" class="control-label"></label>
-				<textarea name="assignment" id="" cols="30" rows="3"  class="form-control"></textarea>
+				<textarea name="assignment" id="" cols="30" rows="3" required="required" class="form-control"></textarea>
 			</div>
 		</div>
 		
@@ -51,11 +78,11 @@ echo ($assignment)
           
         
 		</div>
-        <input type="submit" value="Save" class="btn btn-primary" >
-		
+        <input href="view.php" type="submit" value="Save" class="btn btn-primary" >
+		<!--<button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>-->
         
         </form>
-		<a href="view.php">Next</a>
+		<!--<a href="view.php">Next</a>--->
         <?php include('footer.php') ?>
 <script>
     function displayfname(input,_this) {
@@ -86,24 +113,29 @@ echo ($assignment)
 		//} else {
 		//	echo "Email sending failed...";
 		//}
-	$('#manage-assignment').submit(function(e){
+	$('#sc').submit(function(e){
 		e.preventDefault()
-		start_load()
+		//start_load()
 		$.ajax({
-			url:'ajax.php?action=save_assignment',
+			url:'admin/ajax.php?action=save_assignment',
 			data: new FormData($(this)[0]),
 		    cache: false,
 		    contentType: false,
 		    processData: false,
+                   
 		    type: 'POST',
 			error:err=>{
 				console.log(err)
 			},
 			success:function(resp){
+				alert('success')
+				window.location.href = "view.php";
 				if(resp == 1){
-					alert_toast('Assignment successfully submitted.','success')
+					//alert_toast('Assignment successfully submitted.','success')
 					setTimeout(function(){
-						location.reload()
+					//	resp(success),
+						
+
 					},1000)
 				}
 			}
@@ -113,4 +145,4 @@ echo ($assignment)
 })
 </script>
 
-</div>             
+</div>

@@ -1,49 +1,56 @@
 <?php
-//include('../header.php');
-session_start();
+include('./header.php');
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 include('db_connect.php');
 $id= $_SESSION['id'];
-$query = "SELECT * FROM documents WHERE user_id ='$id' ";
+echo("hello");
+echo($id);
+$query = "SELECT * FROM documents limit 1 ";
 $conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
-
+$isGeneratedOffer=false;
 $result = mysqli_query($conn , $query) or die (mysqli_error($conn));
+
+
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_array($result)) {
     $id = $row['id'];
-  echo('<b>Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a>');   
-    
- 
-  
+  // echo('<b>Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a>');   
+  $isGeneratedOffer=true;
   }
 }
+echo($isGeneratedOffer);
 ?>
 
-<form method="post" id="ss" enctype="multipart/form-data">
-<div class="row form-group" style="margin-left:100px">
-			<div class="input-group col-md-4 mb-3">
-				<div class="input-group-prepend">
-			    <h2>Please Upload valid ID proof here</h2>
-                <div class="custom-file">
-                    <br><br>
-			    <input type="file" class="custom-file-input" id="document"  name="documents" accept="application/msword,text/plain, application/pdf" required="required">
-			    <label class="custom-file-label" for="documents" require="require"></label><br><br>
-                
-                <button type="button"  class="btn btn-primary" id='submit' onclick="change()">Submit </button> </br>
+<div class="container" style="padding-top:3%">
+<div class="card">
+  <div class="card-header">
+    <div class="lead">Offer Letter</div>
+  </div>
+  <div class="card-body">
+  <form method="post" id="ss" enctype="multipart/form-data">
 
-                <div id="gh">
-                <h1>Download Offer letter</h1>
-             <b class="btn btn-primary">Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a></td> 
-             </div> 
-            </div>
-                
-            
-			</div>
+<!-- <h2>Please Upload valid ID proof here</h2> -->
+      <!-- <div class="custom-file"> -->
+          <!-- <br><br> -->
+ <!-- <h4>Upload your adhar card here</h4>         
+<input type="file" class="custom-file-input" id="document"  name="documents" accept="application/msword,text/plain, application/pdf" required="required">
+<label class="custom-file-label" for="documents" require="require"></label><br><br> -->
+      
+        <a href="./dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a>
+        
+
+      <div id="gh1">
+
+      </div>
+      <br>
+      <!-- <a class="btn btn-secondary" href="../index.php?home">Home</a> -->
 </form>
 
-<br>
-
-<button class="btn btn-primary" ><a href="view.php"></a> Home</button>
-
+  </div>
+</div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 //include('../footer.php');
@@ -60,23 +67,19 @@ $( document ).ready(function() {
 <script> function change() {
 
 var formData = new FormData();
-formData.append('file', $('#document')[0].files[0]);
- 
+// formData.append('file', $('#document')[0].files[0]);
+$('#submit').hide();  
  
 
 
-let file = $("#document")[0].files[0]; 
+// let file = $("#document")[0].files[0]; 
 // file.name
-alert(file.name);
+//alert(file.name);
 // code here CAN use carName
 
-
-
-
+//alert("Reaching here");
 $.ajax({
-      url:'ajax.php?action=save_documents',
-      
-      
+      url:'admin/ajax.php?action=save_documents',     
       data : formData,
       cache: false,
       contentType: false,
@@ -87,11 +90,28 @@ $.ajax({
       contentType: false,
       enctype: 'multipart/form-data',
       error:err=>{
-          alert(err)
+        // alert(err)
       },
       success:function(resp){
-          alert(resp);
-      }
+        $.ajax({
+			url:'dashboard/html-to-word-php.php',
+			
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    method: 'GET',
+			error:err=>{
+				console.log(err)
+			},
+			success:function(res){
+				alert(res)
+      
+				// $("#gh1").append('<h1>Download here</h1><b class="btn btn-primary">Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a>');
+          window.location.reload()
+			}
+		})
+          //alert(resp);
+  } 
   })
 }
 

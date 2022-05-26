@@ -9,8 +9,8 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-12">
-			<p><b>Postion :</b><h4><?php echo $position ?></h4></p>
-			<p><b>Availabilty :</b><h4><?php echo $availability ?></h4></p>
+			<p><b>Assignment:</b><h4><?php echo $assignment ?></h4></p>
+			<p><b>uploaded file :</b><h4><?php echo $file ?></h4></p>
 		</div>
 	</div>
 	<hr>

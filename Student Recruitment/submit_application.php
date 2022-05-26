@@ -16,13 +16,14 @@
 		</div>
 		<hr>
 		<div class="row form-group">
-			<div class="col-md-4">
-				<label for="" class="control-label">Last Name</label>
-				<input type="text" class="form-control" name="lastname"required="required">
-			</div>
+			
 			<div class="col-md-4">
 				<label for="" class="control-label">First Name</label>
 				<input type="text" class="form-control" name="firstname" required="required">
+			</div>
+			<div class="col-md-4">
+				<label for="" class="control-label">Last Name</label>
+				<input type="text" class="form-control" name="lastname"required="required">
 			</div>
 			<div class="col-md-4">
 				<label for="" class="control-label">Middle Name</label>
@@ -44,7 +45,7 @@
 			</div>
 			<div class="col-md-4">
 				<label for="" class="control-label">Contact</label>
-				<input type="text" class="form-control" name="contact" required="required">
+				<input type="tel" class="form-control" name="contact" id="contact" required="required" value="+91">
 			</div>
 		</div>
 		<div class="row form-group">
@@ -91,6 +92,7 @@
 </div>
 
 <script>
+	
 	function displayfname(input,_this) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -104,25 +106,27 @@
 }
 $(document).ready(function(){
 	$('#manage-application').submit(function(e){
-		//alert(new FormData($(this)[0]));
 		e.preventDefault()
 		//start_load()
+		
 		$.ajax({
 			url:'admin/ajax.php?action=save_application',
 			data: new FormData($(this)[0]),
 		    cache: false,
 		    contentType: false,
 		    processData: false,
-		   
+		    method: 'POST',
 		    type: 'POST',
 			error:err=>{
-				console.log(err)
+				console.log(err,'error')
 			},
 			success:function(resp){
-				//alert(resp);
+				console.log('response',resp);
 				if(resp == 1){
-					alert_toast('Application successfully submitted.','success')
-					window.location.href ="./candidate_assignment.php?id=<?php echo $_GET['id']  ?>";
+					alert('Application successfully submitted.')
+					var id= "<?php  echo $_GET['id']; ?>";
+					console.log(id);
+					window.location.href ="index.php?page=applications&id="+id;
 					setTimeout(function(){
 						location.reload()
 					},1000)
@@ -132,4 +136,9 @@ $(document).ready(function(){
 
 	})
 })
+
+var input = document.querySelector("#phone");
+window.intlTelInput(input,({
+      // options here
+}));
 </script>        

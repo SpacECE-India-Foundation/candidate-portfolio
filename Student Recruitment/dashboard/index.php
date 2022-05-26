@@ -1,7 +1,10 @@
 <html>
 <body>
 <?php include ('includes/connection.php'); ?>
-<?php include('includes/adminheader.php');  ?>
+<?php include('includes/adminheader.php');
+session_start();
+  ?>
+
 
 
  <div id="wrapper">
@@ -118,7 +121,8 @@ while ($row = mysqli_fetch_array($run_query)) {
                          
                         
                     <td><b>Click To Upload Documents and download offer letter</b> <br> <a href="admin/Documents.php" class="btn btn-primary" >Download here</br></a></td>
-                        <th><b>Prejoing process</b><br> <a href="admin/prejoing form.php" class="btn btn-primary" >Complete Prejoing procedure</br></a></th>
+                    
+                    <th><b>Prejoing process</b><br> <a href="admin/prejoing form.php" class="btn btn-primary" >Complete Prejoing procedure</br></a></th>
                         
                         
                     </tr>

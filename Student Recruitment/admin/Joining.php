@@ -28,7 +28,7 @@
 	
 	</h1>';
 
-	$htd->createDoc($html,'htmldoc',true);
+	$htd->createDoc($html,'joiningletter',true);
 	$myfile = fopen("offerletter/newfile.txt", "w") or die("Unable to open file!");
     $txt = $html;
     fwrite($myfile, $txt);
