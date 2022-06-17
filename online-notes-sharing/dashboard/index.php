@@ -1,12 +1,44 @@
   
 <?php include ('includes/connection.php'); ?>
 <?php include('includes/adminheader.php');  ?>
-
 <?php
-$_SESSION['role'] = 'admin';
+if(isset($_GET['del'])){
+
+
+    $note_del = mysqli_real_escape_string($conn, $_GET['del']);
+    $file_uploader = $_SESSION['username'];
+    $del_query = "DELETE FROM uploads WHERE file_id='$note_del'";
+    $run_del_query = mysqli_query($conn, $del_query) or die (mysqli_error($con));
+    if (mysqli_affected_rows($conn) > 0) {
+        echo "<script>alert('note deleted successfully');
+        window.location.href='index.php';</script>";
+    }
+    else {
+     echo "<script>alert('error occured.try again!');</script>";   
+    }
+
+}
+     if (isset($_GET['approve'])) {
+    $note_approve = mysqli_real_escape_string($conn,$_GET['approve']);
+    $approve_query = "UPDATE uploads SET status='approved' WHERE file_id='$note_approve'";
+    $run_approve_query = mysqli_query($conn, $approve_query) or die (mysqli_error($conn));
+    if (mysqli_affected_rows($conn) > 0) {
+        echo "<script>alert('note approved successfully');
+        window.location.href='index.php';</script>";
+    }
+    else {
+     echo "<script>alert('error occured.try again!');</script>";   
+    }
+    }
+?>
+<?php
 if (!isset ($_SESSION['role'])){
 header('location:../../user/login.php');
 }
+
+
+
+
 ?>
  <div id="wrapper">
        
