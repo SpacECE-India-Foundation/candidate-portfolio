@@ -6,7 +6,7 @@ include('includes/config.php');
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=2, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Student Result Management System</title>
@@ -41,7 +41,7 @@ include('includes/config.php');
                     <div class="col-lg-6">
                         <h2>Notice Board</h2>
                         <hr color="#000" />
-                        <marquee direction="up"  onmouseover="this.stop();" onmouseout="this.start();">
+                        <marquee direction="down"  onmouseover="this.stop();" onmouseout="this.start();">
                    <ul>
  <?php $sql = "SELECT * from tblnotice";
 $query = $dbh->prepare($sql);

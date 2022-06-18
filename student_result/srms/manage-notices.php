@@ -107,7 +107,7 @@ echo "<script>window.location.href ='manage-notices.php'</script>";
 
                                             <div class="panel-body p-20">
 
-                                                <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+                                                <table id="example" class="display table table-striped table-bordered" cellspacing="1" width="100%">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>

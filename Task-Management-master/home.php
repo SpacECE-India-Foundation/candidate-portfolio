@@ -2,7 +2,7 @@
 <?php
 $twhere ="";
 if($_SESSION['login_type'] != 1)
-  $twhere = "";
+  $twhere = "  ";
 ?>
 <!-- Info boxes -->
  <div class="col-12">

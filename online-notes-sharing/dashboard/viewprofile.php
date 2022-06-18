@@ -16,12 +16,12 @@ include ('includes/adminheader.php');
 <?php 
 if (isset($_GET['name'])) {
     $user = mysqli_real_escape_string($conn , $_GET['name']);
-    $query = "SELECT * FROM user WHERE uname= '$user' ";
+    $query = "SELECT * FROM users WHERE username= '$user' ";
     $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn)) ;
     if (mysqli_num_rows($run_query) > 0 ) {
     while ($row = mysqli_fetch_array($run_query)) {
 	$name = $row['name'];
-	$email = $row['uname'];
+	$email = $row['email'];
 	$course = $row['course'];
 	$role = $row['role'];
 	$bio = $row['about'];

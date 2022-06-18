@@ -12,7 +12,7 @@
             </div>
             
             <ul class="nav navbar-right top-nav">
-                <?php if($_SESSION['role'] !== 'admin') { ?> <li><a href="./uploadnote.php">UPLOAD</a></li> <?php } ?>
+                <?php  { ?> <li><a href="./uploadnote.php">UPLOAD</a></li> <?php } ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['name']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">

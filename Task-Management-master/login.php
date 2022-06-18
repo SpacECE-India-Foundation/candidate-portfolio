@@ -21,9 +21,11 @@ header("location:index.php?page=home");
 <?php include 'header.php' ?>
 <body class="hold-transition login-page bg-black">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="#" class="text-white"><b><?php echo $_SESSION['system']['name'] ?> - Admin</b></a>
+  
+<div class="login-logo">
+    <a href="#" class="text-white"><b><?php echo $_SESSION['system']['name'] ?><br> - Admin</br></b></a>
   </div>
+
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">

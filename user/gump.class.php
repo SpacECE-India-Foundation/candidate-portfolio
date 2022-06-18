@@ -490,7 +490,6 @@ class GUMP
      *
      * GUMP::set_field_names(array(
      *  "name" => "My Lovely Name",
-     *  "username" => "My Beloved Username",
      * ));
      *
      * @param array $array

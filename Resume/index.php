@@ -38,7 +38,6 @@ header('location:../user/login.php');
 						<a href="#information">
 							<div class="profile-image">
 								<!-- <img src="<?php //echo $personaldetails['image']; ?>" /> -->
-								<img title="Update Your profile pic Click here"  style="border-radius:50px" src="../images/image_1.jpg<?php echo $_SESSION['image'];?>" width="100" height="100" alt="not found"/>
 							</div>
 							<div class="profile-info">
 								<div class="profile-name"><?php echo strtoupper($_SESSION['name']); ?><br/><?php echo strtoupper($personaldetails['lname']); ?></div>

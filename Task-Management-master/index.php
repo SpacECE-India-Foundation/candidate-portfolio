@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start()?>
+<?php session_start() ?>
 <?php 
- ob_start();
 	if(!isset($_SESSION['login_id']))
-	    // header("Location:../user/login.php");
-      header('location:../user/login.php');
+	    header('location:../user/login.php');
     include 'db_connect.php';
     ob_start();
   if(!isset($_SESSION['system'])){
-   
+
     $system = $conn->query("SELECT * FROM system_settings")->fetch_array();
     foreach($system as $k => $v){
       $_SESSION['system'][$k] = $v;
