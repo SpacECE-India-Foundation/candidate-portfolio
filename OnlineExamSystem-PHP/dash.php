@@ -77,6 +77,7 @@ echo '<span class="pull-right top title1" ><span class="log1"><span class="glyph
     <li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a href="dash.php?q=3">Feedback</a></li>
     <li <?php if(@$_GET['q']==4) echo'class="active"'; ?>><a href="dash.php?q=4">Add Exams</a></li>
     <li <?php if(@$_GET['q']==5) echo'class="active"'; ?>><a href="dash.php?q=5">edit exam</a></li>
+    <li ><a href="../index.php">Candidate portal</a></li>
       </ul>
           </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

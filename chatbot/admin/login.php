@@ -17,7 +17,7 @@
 
       <form id="login-frm" action="" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="user" placeholder="Username">
+          <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="pass" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

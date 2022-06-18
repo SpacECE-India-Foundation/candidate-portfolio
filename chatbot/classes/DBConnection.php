@@ -4,10 +4,10 @@ if(!defined('DB_SERVER')){
 }
 class DBConnection{
 
-    private $host = DB_SERVER;
-    private $username = DB_USERNAME;
-    private $password = DB_PASSWORD;
-    private $database = DB_NAME;
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $database = "candidate_portal";
     
     public $conn;
     

@@ -18,7 +18,7 @@ else
 elseif($status == 0 && strtotime(date('Y-m-d')) > strtotime($end_date)):
 $status = 4;
 endif;
-$manager = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where id = $manager_id");
+$manager = $conn->query("SELECT *,concat(name) as name FROM user where uid = $manager_id");
 $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 ?>
 <div class="col-lg-12">
@@ -96,11 +96,11 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 					<ul class="users-list clearfix">
 						<?php 
 						if(!empty($user_ids)):
-							$members = $conn->query("SELECT *,concat(firstname,' ',lastname) as name FROM users where id in ($user_ids) order by concat(firstname,' ',lastname) asc");
+							$members = $conn->query("SELECT *,concat(name) as name FROM user where uid in ($user_ids) order by concat(name) asc");
 							while($row=$members->fetch_assoc()):
 						?>
 								<li>
-			                        <img src="assets/uploads/<?php echo $row['avatar'] ?>" alt="User Image">
+			                        <!-- <img src="assets/uploads/<?php echo $row['avatar'] ?>" alt="User Image"> -->
 			                        <a class="users-list-name" href="javascript:void(0)"><?php echo ucwords($row['name']) ?></a>
 			                        <!-- <span class="users-list-date">Today</span> -->
 		                    	</li>
@@ -200,7 +200,7 @@ $manager = $manager->num_rows > 0 ? $manager->fetch_array() : array();
 				</div>
 				<div class="card-body">
 					<?php 
-					$progress = $conn->query("SELECT p.*,concat(u.firstname,' ',u.lastname) as uname,u.avatar,t.task FROM user_productivity p inner join users u on u.id = p.user_id inner join task_list t on t.id = p.task_id where p.project_id = $id order by unix_timestamp(p.date_created) desc ");
+					$progress = $conn->query("SELECT p.*,concat(name) as uname,t.task FROM user_productivity p inner join user u on u.uid = p.user_id inner join task_list t on t.id = p.task_id where p.project_id = $id order by unix_timestamp(p.date_created) desc ");
 					while($row = $progress->fetch_assoc()):
 					?>
 						<div class="post">

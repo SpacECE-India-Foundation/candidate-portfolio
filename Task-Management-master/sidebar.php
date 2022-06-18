@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="dropdown">
      
    	<a href="./" class="brand-link">
@@ -84,29 +84,6 @@
               </li>
               <li class="nav-item">
                 <a href="./index.php?page=user_list" class="nav-link nav-user_list tree-item">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>List</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link nav-edit_user">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Department
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.php?page=new_department" class="nav-link nav-new_user tree-item">
-                  <i class="fas fa-angle-right nav-icon"></i>
-                  <p>Add Department</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index.php?page=department_list" class="nav-link nav-user_list tree-item">
                   <i class="fas fa-angle-right nav-icon"></i>
                   <p>List</p>
                 </a>

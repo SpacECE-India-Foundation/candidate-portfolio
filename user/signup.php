@@ -15,13 +15,11 @@ $gump = new GUMP();
 $_POST = $gump->sanitize($_POST); 
 
 $gump->validation_rules(array(
-  'username'    => 'required|alpha_numeric|max_len,20|min_len,4',
   'name'        => 'required|alpha_space|max_len,30|min_len,5',
   'email'       => 'required|valid_email',
   'password'    => 'required|max_len,50|min_len,6',
 ));
 $gump->filter_rules(array(
-  'username' => 'trim|sanitize_string',
   'name'     => 'trim|sanitize_string',
   'password' => 'trim',
   'email'    => 'trim|sanitize_email',
@@ -53,7 +51,7 @@ $checkemail = "SELECT * FROM user WHERE uname = '$email'";
 $result = mysqli_query($conn, $checkemail);
 if (mysqli_num_rows($result) > 0) {
   echo "<script>alert('Error Occured');</script>";
-}else{
+}else{ 
 if  (isset($_FILES['f'])){
          $name = $validated_data['name'];
       $email = $validated_data['email'];
@@ -114,8 +112,8 @@ if  (isset($_FILES['f'])){
           <p class="contact"><label for="email">Email</label></p> 
           <input id="email" name="email" placeholder="example@domain.com" required="" type="email" value="<?php if(isset($_POST['signup'])) { echo $_POST['email']; } ?>"> 
                 
-                <p class="contact"><label for="username">Create a username</label></p> 
-          <input id="username" name="username" placeholder="username" required="" tabindex="2" type="text" value="<?php if(isset($_POST['signup'])) { echo $_POST['username']; } ?>"> 
+                <p class="contact"><label for="username">Create a uname</label></p> 
+          <input id="username" name="uname" placeholder="username" required="" tabindex="2" type="text" value="<?php if(isset($_POST['signup'])) { echo $_POST['uname']; } ?>"> 
            
                 <p class="contact"><label for="password">Create a password</label></p> 
           <input type="password" id="password" name="password" required=""> 
