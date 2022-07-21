@@ -1,0 +1,1 @@
+"C:\xampp\php\php.exe" -f "C:\xampp\htdocs\candidate-portfolio-main\Online_notice_board\admin\send_notice_mail.php"

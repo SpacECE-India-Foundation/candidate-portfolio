@@ -1,0 +1,2 @@
+This is to notify the members that the Html code for the email has been successfully integrated with the program.
+The Notice Board module is now ready to be tested.
