@@ -1,6 +1,6 @@
 <?php
 //$conn = mysqli_connect("localhost","root","","candidate_portal" ) or die ("error" . mysqli_error($conn));
-$conn = mysqli_connect("localhost","root","","candidate_portal" ) or die ("error" . mysqli_error($conn));
+//$conn = mysqli_connect("localhost","root","","candidate_portal" ) or die ("error" . mysqli_error($conn));
 //$conn = new mysqli('localhost', 'root', '', 'candidate_portal');
 
 // Check connection
