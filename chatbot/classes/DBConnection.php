@@ -3,10 +3,10 @@ if(!defined('DB_SERVER')){
     require_once("../initialize.php");
 }
 class DBConnection{
-
-    private $host = "localhost";
-    private $username = "root";
-    private $password = "";
+   // $conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
+    private $host = "3.109.14.4";
+    private $username = "ostechnix";
+    private $password = "Password123#@!";
     private $database = "candidate_portal";
     
     public $conn;

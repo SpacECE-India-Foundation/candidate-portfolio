@@ -1,8 +1,10 @@
 <?php 
 // DB credentials.
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
+
+//$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
+define('DB_HOST','3.109.14.4');
+define('DB_USER','ostechnix');
+define('DB_PASS','Password123#@!');
 define('DB_NAME','candidate_portal');
 // Establish database connection.
 try
