@@ -33,7 +33,7 @@ if($_SESSION['name']!='oasis')
 
 <header>
 
-  <h1>Attendance Management System</h1>
+  <h1 style="background-color:#FFC107;">Attendance Management System</h1>
   <div class="navbar">
   <a href="index.php" style="text-decoration:none;">Home</a>
   <a href="students.php" style="text-decoration:none;">Students</a>
@@ -117,8 +117,7 @@ if($_SESSION['name']!='oasis')
 
      $sdate = $_POST['date'];
      $course = $_POST['course'];
-
-     $all_query = mysqli_query($conn,"select * from attendance where reports.stat_date='$sdate' and reports.course = '$course'");
+     $all_query = mysqli_query($conn,"select * from attendance where stat_date='$sdate' and course = '$course'");
 
     }
     if(isset($_POST['sr_date'])){
@@ -141,17 +140,22 @@ if($_SESSION['name']!='oasis')
     <?php
 
      $i=0;
-     while ($data = mysqli_fetch_array($all_query)) {
-
+     while ($data = mysqli_fetch_array($all_query)) { 
+      $query = mysqli_query($conn,"select st_name from students where st_id=".$data['stat_id']);
+      $st_name=mysqli_fetch_array($query);
+      $query1 = mysqli_query($conn,"select st_dept from students where st_id=".$data['stat_id']);
+      $st_dept=mysqli_fetch_array($query1);
+      $query2 = mysqli_query($conn,"select st_batch from students where st_id=".$data['stat_id']);
+      $st_batch=mysqli_fetch_array($query2);
        $i++;
 
      ?>
         <tbody>
            <tr>
-             <td><?php echo $data['st_id']; ?></td>
-             <td><?php echo $data['st_name']; ?></td>
-             <td><?php echo $data['st_dept']; ?></td>
-             <td><?php echo $data['st_batch']; ?></td>
+             <td><?php echo $data['stat_id']; ?></td>
+             <td><?php echo $st_name['st_name']; ?></td>
+             <td><?php echo $st_dept['st_dept']; ?></td>
+             <td><?php echo $st_batch['st_batch']; ?></td>
              <td><?php echo $data['stat_date']; ?></td>
              <td><?php echo $data['st_status']; ?></td>
            </tr>

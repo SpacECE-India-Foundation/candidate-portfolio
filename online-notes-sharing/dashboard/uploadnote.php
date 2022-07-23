@@ -1,9 +1,8 @@
 
 <?php include 'includes/connection.php';?>
 <?php include 'includes/adminheader.php';?>
-
-<?php 
-if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
+<?php
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
 
 header("location: index.php");
 }
@@ -76,7 +75,7 @@ echo "<script>alert('file size is not proper');</script>";
             $query = "INSERT INTO uploads(file_name, file_description, file_type, file_uploader, file_uploaded_to, file) VALUES ('$file_title' , '$file_description' , '$fileext' , '$file_uploader' , '$file_uploaded_to' , '$notefile')";
             $result = mysqli_query($conn , $query) or die(mysqli_error($conn));
             if (mysqli_affected_rows($conn) > 0) {
-                echo "<script> alert('file uploaded successfully.It will be published after admin approves it');
+                echo "<script> alert('file uploaded successfully.It will be published after Admin approves it');
                 window.location.href='notes.php';</script>";
             }
             else {

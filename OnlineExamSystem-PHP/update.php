@@ -1,6 +1,7 @@
 <?php
 include_once 'dbConnection.php';
 session_start();
+
 $email=$_SESSION['uname'];
 //delete feedback
 if(isset($_SESSION['key'])){
@@ -25,6 +26,8 @@ header("location:dash.php?q=1");
 if(isset($_SESSION['key'])){
 if(@$_GET['q']== 'rmquiz' && $_SESSION['key']=='sunny7785068889') {
 $eid=@$_GET['eid'];
+$query= mysqli_query($con,"SELECT total FROM `quiz` WHERE eid='$eid' ") or die('Error');
+$total = mysqli_fetch_array($query);
 $result = mysqli_query($con,"SELECT * FROM `questions1` WHERE eid='$eid' ") or die('Error');
 while($row = mysqli_fetch_array($result)) {
 	$qid = $row['qid'];
@@ -34,6 +37,8 @@ $r2 = mysqli_query($con,"DELETE FROM answer WHERE qid='$qid' ") or die('Error');
 $r3 = mysqli_query($con,"DELETE FROM questions1 WHERE eid='$eid' ") or die('Error');
 $r4 = mysqli_query($con,"DELETE FROM quiz WHERE eid='$eid' ") or die('Error');
 $r4 = mysqli_query($con,"DELETE FROM history WHERE eid='$eid' ") or die('Error');
+$actual_link = 'http://'.$_SERVER['HTTP_HOST'];
+$r5 = mysqli_query($con,"DELETE FROM assessment WHERE assessmentDescription='$actual_link/candidate-portfolio-main/OnlineExamSystem-PHP/account.php?q=quiz&step=2&eid=".$eid."&n=1&t=".$total['total']."' ") or die('Error');
 
 header("location:dash.php?q=0");
 }
@@ -51,8 +56,11 @@ $time = $_POST['time'];
 $tag = $_POST['tag'];
 $desc = $_POST['desc'];
 $department=$_POST['department'];
+$days=$_POST['days'];
 $id=uniqid();
-$q3=mysqli_query($con,"INSERT INTO `quiz` VALUES  ('$id','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW(),'$department')");
+$q3=mysqli_query($con,"INSERT INTO `quiz` VALUES  ('$id','$department','$name' , '$sahi' , '$wrong','$total','$time' ,'$desc','$tag', NOW())");
+$actual_link = 'http://'.$_SERVER['HTTP_HOST'];
+$q4=mysqli_query($con,"INSERT INTO `assessment` (subjectName,assessmentDescription,days,department,createDate) VALUES  ('$name' ,'$actual_link/candidate-portfolio-main/OnlineExamSystem-PHP/account.php?q=quiz&step=2&eid=".$id."&n=1&t=".$total."',$days,$department, NOW())");
 
 header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }

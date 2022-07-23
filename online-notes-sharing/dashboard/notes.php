@@ -40,7 +40,7 @@ header("location: index.php");
                         <th>Description</th>
                         <th>Type </th>
                         <th>Uploaded on</th>
-                        <th>Status</th>
+                      
                         <th>View</th>
                         <th>Delete</th>
                         
@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     $file_description = $row['file_description'];
     $file_type = $row['file_type'];
     $file_date = $row['file_uploaded_on'];
-    $file_status = $row['status'];
+ 
     $file = $row['file'];
 
     echo "<tr>";
@@ -68,7 +68,7 @@ while ($row = mysqli_fetch_array($run_query)) {
     echo "<td>$file_description</td>";
     echo "<td>$file_type</td>";
     echo "<td>$file_date</td>";
-    echo "<td>$file_status</td>";
+    
     echo "<td><a href='allfiles/$file' target='_blank' style='color:green'>View </a></td>";
     echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to delete this post?')\" href='?del=$file_id'><i class='fa fa-times' style='color: red;'></i>delete</a></td>";
 

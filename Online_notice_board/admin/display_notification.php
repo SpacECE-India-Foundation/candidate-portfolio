@@ -10,12 +10,7 @@
 <?php 
 $q=mysqli_query($conn,"select * from notice ");
 $rr=mysqli_num_rows($q);
-if(!$rr)
-{
-echo "<h2 style='color:red'>No any Notice found !!!</h2>";
-}
-else
-{
+
 ?>
 <h2 style="color:#00FFCC">All Notice</h2>
 
@@ -28,6 +23,7 @@ else
 		<th>Subject</th>
 		<th>Details</th>
 		<th>User</th>
+		<th>User Mail</th>
 		<th>Date</th>
 		<th>Delete</th>
 		<th>Update</th>
@@ -44,6 +40,7 @@ echo "<td>".$i."</td>";
 echo "<td>".$row['subject']."</td>";
 echo "<td>".$row['Description']."</td>";
 echo "<td>".$row['user']."</td>";
+echo "<td>".$row['user_mail']."</td>";
 echo "<td>".$row['Date']."</td>";
 
 ?>
@@ -59,4 +56,4 @@ $i++;
 		?>
 		
 </table>
-<?php }?>
+<?php ?>

@@ -69,7 +69,7 @@ if($_SESSION['name']!='oasis')
 
 <header>
 
-  <h1>Attendance Management System</h1>
+  <h1 style="background-color:#FFC107;">Attendance Management System</h1>
   <div class="navbar">
   <a href="index.php" style="text-decoration:none;">Home</a>
   <a href="students.php" style="text-decoration:none;">Students</a>
@@ -108,7 +108,7 @@ if($_SESSION['name']!='oasis')
                 <input type="text" name="whichbatch" id="input2" placeholder="Only 2020">
               </div>
                
-     <input type="submit" class="btn btn-danger col-md-2 col-md-offset-5" style="border-radius:0%" value="Search" name="batch" />
+     <input type="submit" class="btn btn-default col-md-2 col-md-offset-5" style="border-radius:0%" value="Search" name="batch" />
 
     </form>
 
@@ -182,7 +182,7 @@ if($_SESSION['name']!='oasis')
     </table>
 
     <center><br>
-    <input type="submit" class="btn btn-primary col-md-2 col-md-offset-10" value="Save!" name="att" />
+    <input type="submit" class="btn btn-success col-md-2 col-md-offset-10" value="Save!" name="att" />
   </center>
 
 </form>

@@ -47,6 +47,7 @@ include('connect.php');
 <html lang="en">
 <!-- head started -->
 <head>
+
 <title>Attendance Management System</title>
 <meta charset="UTF-8">
 
@@ -79,10 +80,9 @@ include('connect.php');
     <!-- Menus started-->
     <header>
 
-      <h1>Attendance Management System</h1>
+      <h1 style="background-color:#FFC107;">Attendance Management System</h1>
       <div class="navbar">
-      <a href="signup.php" style="text-decoration:none;">Create Users</a>
-      <a href="index.php" style="text-decoration:none;">Add Student/Teacher</a>
+      <a href="index.php"  style="text-decoration:none;">Add Student/Teacher</a>
       <a href="v-students.php" style="text-decoration:none;">View Students</a>
       <a href="v-teachers.php" style="text-decoration:none;">View Teachers</a>
       <a href="../logout.php" style="text-decoration:none;">Logout</a>

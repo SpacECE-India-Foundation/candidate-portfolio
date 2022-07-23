@@ -43,7 +43,7 @@ header('location:login.php');
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid"style="background-color:#FFC107">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -51,12 +51,12 @@ header('location:login.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Welcome Admin !</a>
+          <a class="navbar-brand" href="#"><font color="black" size="5ppx">Welcome Admin !</a></font>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
            
-            <li><a href="../user/logout.php">Logout</a></li>
+            <li><a href="../../user/logout.php"><font color="black" size="3ppx">Logout</a></li></font>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -67,9 +67,9 @@ header('location:login.php');
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar"style="background-color:#000000">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="index.php">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="index.php"style="background-color:#000000"><font color="white" size="5ppx">Dashboard <span class="sr-only">(current)</span></font></a></li>
 			<!-- find users' image if image not found then show dummy image -->
 			
 			
@@ -78,9 +78,10 @@ header('location:login.php');
 			
 			
 			
-			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
-            <li><a href="index.php?page=manage_users"><span class="glyphicon glyphicon-user"></span> Manage Users</a></li>
-			 <li><a href="index.php?page=notification"><span class="glyphicon glyphicon-envelope"></span> Mange  Notification</a></li>
+			<li><a href="index.php?page=update_password"style="background-color:#000000"><font color="white" size="3ppx"><span class="glyphicon glyphicon-user"></span> Update Password</a></font></li>
+            <li><a href="index.php?page=manage_users"style="background-color:#000000"><font color="white" size="3ppx"><span class="glyphicon glyphicon-user"></span> Manage Users</a></font></li>
+			 <li><a href="index.php?page=notification"style="background-color:#000000"><font color="white" size="3ppx"><span class="glyphicon glyphicon-envelope"></span> Mange  Notification</a></font></li>
+
 
           </ul>
          
@@ -125,6 +126,21 @@ header('location:login.php');
 			if($page=="add_notice")
 			{
 				include('add_notice.php');
+			
+			}
+      if($page=="send_mail_specific")
+			{
+				include('send_mail_specific.php');
+			
+			}
+      if($page=="certificate_mail")
+			{
+				include('certificate_mail.php');
+			
+			}
+      if($page=="send_notice_mail")
+			{
+				include('send_notice_mail.php');
 			
 			}
         

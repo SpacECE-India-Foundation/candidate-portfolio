@@ -16,12 +16,12 @@ include ('includes/adminheader.php');
 <?php 
 if (isset($_GET['name'])) {
     $user = mysqli_real_escape_string($conn , $_GET['name']);
-    $query = "SELECT * FROM users WHERE username= '$user' ";
+    $query = "SELECT * FROM user WHERE uname= '$user' ";
     $run_query = mysqli_query($conn, $query) or die(mysqli_error($conn)) ;
     if (mysqli_num_rows($run_query) > 0 ) {
     while ($row = mysqli_fetch_array($run_query)) {
 	$name = $row['name'];
-	$email = $row['email'];
+	$email = $row['uname'];
 	$course = $row['course'];
 	$role = $row['role'];
 	$bio = $row['about'];
@@ -50,9 +50,9 @@ else {
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
                 <div class="row">
-                    <div class="col-sm-6 col-md-4">
+                    <!-- <div class="col-sm-6 col-md-4">
                         <img src="profilepics/<?php echo $image; ?>" size=300x500 alt="" class="img-rounded img-responsive" />
-                    </div>
+                    </div> -->
                     <div class="col-sm-6 col-md-8">
                         <h4>
                            <?php echo $name; ?></h4>

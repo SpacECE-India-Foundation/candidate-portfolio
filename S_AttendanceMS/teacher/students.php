@@ -34,7 +34,7 @@ if($_SESSION['name']!='oasis')
 
 <header>
 
-  <h1>Attendance Management System</h1>
+  <h1 style="background-color:#FFC107;">Attendance Management System</h1>
   <div class="navbar">
   <a href="index.php" style="text-decoration:none;">Home</a>
   <a href="students.php" style="text-decoration:none;">Students</a>
@@ -58,7 +58,7 @@ if($_SESSION['name']!='oasis')
     <form method="post" action="">
       <label>Batch</label>
       <input type="text" name="sr_batch">
-      <input type="submit" name="sr_btn" class="btn btn-danger" style="border-radius:0%" value="Search" >
+      <input type="submit" name="sr_btn" class="btn btn-default" style="border-radius:0%" value="Search" >
     </form>
     <br>
     <table class="table table-stripped table-hover">

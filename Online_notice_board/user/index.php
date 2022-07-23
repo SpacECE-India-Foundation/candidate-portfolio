@@ -41,7 +41,7 @@ $users=mysqli_fetch_assoc($sql);
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid"style="background-color:#FFC107">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -49,13 +49,13 @@ $users=mysqli_fetch_assoc($sql);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hello <?php echo $users['name'];?></a>
+          <a class="navbar-brand" href="#"><font color="black" >Hello <?php echo $users['name'];?></font></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             
-            <li><a href="../admin/login.php">Admin</a></li>
-            <li><a href="../user/logout.php">Logout</a></li>
+            <li><a href="../admin/login.php"><font color="black"size="3ppx" >Admin</a></font></li>
+            <li><a href="../../user/logout.php"><font color="black" size="3ppx">Logout</a></font></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -66,9 +66,9 @@ $users=mysqli_fetch_assoc($sql);
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar"style="background-color:#000000">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="index.php">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="index.php"style="background-color:#000000"><font color="White" size="4ppx">Dashboard <span class="sr-only">(current)</span></font></a></li>
 			<!-- find users' image if image not found then show dummy image -->
 			
 			<!-- check users profile image -->
@@ -84,16 +84,16 @@ $users=mysqli_fetch_assoc($sql);
 			else
 			{
 			?>
-			<li><a href="index.php?page=update_profile_pic"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../../images/<?php echo $row['image'];?>" width="100" height="100" alt="not found"/></a></li>
+			<li><a href="index.php?page=update_profile_pic"><font color="Black" size="3ppx"><img title="Update Your profile pic Click here"  style="border-radius:50px" src="../../images/<?php echo $row['image'];?>" width="100" height="100" alt="not found"/></a></font></li>
 			<?php 
 			}
 			?>
 			
 			
 			
-			<li><a href="index.php?page=update_password"><span class="glyphicon glyphicon-user"></span> Update Password</a></li>
-            <li><a href="index.php?page=update_profile"><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
-			 <li><a href="index.php?page=notification"><span class="glyphicon glyphicon-envelope"></span> Notification</a></li>
+			<li><a href="index.php?page=update_password"style="background-color:#000000"><font color="white" size="3ppx"><span class="glyphicon glyphicon-user"></span> Update Password</a></font></li>
+            <li><a href="index.php?page=update_profile"style="background-color:#000000"><font color="white" size="3ppx"><span class="glyphicon glyphicon-user"></span> Update Profile</a></font></li>
+			 <li><a href="index.php?page=notification"style="background-color:#000000"><font color="white" size="3ppx"><span class="glyphicon glyphicon-envelope"></span> Notification</a></font></li>
             
           </ul>
          
@@ -101,6 +101,7 @@ $users=mysqli_fetch_assoc($sql);
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <!-- container-->
+          <h1 class="page-header">Dashboard</h1>
 		  <?php 
 		@$page=  $_GET['page'];
 		  if($page!="")
@@ -133,7 +134,7 @@ $users=mysqli_fetch_assoc($sql);
 		  <!-- container end-->
 		   
 		  
-		  <h1 class="page-header">Dashboard</h1>
+		  
 		  
 		  
 <?php } ?>

@@ -5,16 +5,16 @@ include ('includes/adminheader.php');
 
 ?>
 <?php
-if (isset($_SESSION['username'])) {
-	$username = $_SESSION['username'];
-	$query = "SELECT * FROM users WHERE username = '$username'" ; 
+if (isset($_SESSION['uname'])) {
+	$username = $_SESSION['uname'];
+	$query = "SELECT * FROM user WHERE uname = '$username'" ; 
 	$result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 	if (mysqli_num_rows($result) > 0 ) {
 		$row = mysqli_fetch_array($result);
-		$userid = $row['id'];
-		$usernm = $row['username'];
-		$userpassword = $row['password'];
-		$useremail = $row['email'];
+		$userid = $row['uid'];
+		// $usernm = $row['username'];
+		$userpassword = $row['upass'];
+		$useremail = $row['uname'];
 		$name = $row['name'];
 		$profilepic = $row['image'];
 		$bio = $row['about'];
@@ -42,7 +42,7 @@ echo "<script>alert('Image size is not proper');
         $imgext = strtolower(pathinfo($image, PATHINFO_EXTENSION) );
         $picture = rand(1000 , 1000000) .'.'.$imgext;
         if (move_uploaded_file($_FILES['image']['tmp_name'], $folder.$picture)) {
-        $queryupdate = "UPDATE users SET image = '$picture' WHERE id= '$userid' " ;
+        $queryupdate = "UPDATE user SET image = '$picture' WHERE uid= '$userid' " ;
         $result = mysqli_query($conn , $queryupdate) or die(mysqli_error($conn));
         if (mysqli_affected_rows($conn) > 0) {
         	echo "<script>alert('Profile Photo uploaded successfully');
@@ -69,17 +69,17 @@ $_POST = $gump->sanitize($_POST);
 
 
 $gump->validation_rules(array(
-	'name'   => 'required|alpha_space|max_len,30|min_len,2',
-	'email'       => 'required|valid_email',
+	'uname'   => 'required|alpha_space|max_len,30|min_len,2',
+	'uname'       => 'required|valid_email',
     'bio'    => 'max_len,150',
 	'currentpassword' => 'required|max_len,50|min_len,6',
 	'newpassword'    => 'max_len,50|min_len,6',
 ));
 $gump->filter_rules(array(
-	'name' => 'trim|sanitize_string',
+	'uname' => 'trim|sanitize_string',
 	'currentpassword' => 'trim',
 	'newpassword' => 'trim',
-	'email'    => 'trim|sanitize_email',
+	'uname'    => 'trim|sanitize_email',
 	'bio' => 'trim',
 	));
 $validated_data = $gump->run($_POST);
@@ -95,9 +95,9 @@ else if (!password_verify($validated_data['currentpassword'] ,  $userpassword))
 }
 else if (empty($_POST['newpassword'])) {
 	$name = $validated_data['name'];
-      $useremail = $validated_data['email'];
-      $userbio = $validated_data['bio'];
-      $updatequery1 = "UPDATE users SET name = '$name' , email='$useremail' , about='$userbio' WHERE id = '$userid' " ;
+      $useremail = $validated_data['uname'];
+      $userbio = $validated_data['about'];
+      $updatequery1 = "UPDATE user SET uname='$useremail' , about='$userbio' WHERE uid = '$userid' " ;
       $result2 = mysqli_query($conn , $updatequery1) or die(mysqli_error($conn));
 if (mysqli_affected_rows($conn) > 0) {
 	echo "<script>alert('PROFILE UPDATED SUCCESSFULLY');
@@ -113,12 +113,12 @@ else if (isset($_POST['newpassword']) &&  ($_POST['newpassword'] !== $_POST['con
 	
 }
 else {
-      $name = $validated_data['name'];
-      $useremail = $validated_data['email'];
-      $pass = $validated_data['newpassword'];
+       $name = $validated_data['uname'];
+      $useremail = $validated_data['uname'];
+      $pass = $validated_data['pass'];
       $userpassword = password_hash("$pass" , PASSWORD_DEFAULT);
 
-$updatequery = "UPDATE users SET password = '$userpassword', name='$name', email= '$useremail' WHERE id='$userid'";
+$updatequery = "UPDATE user SET password = '$userpassword', uname='$name', uname= '$useremail' WHERE uid='$userid'";
 $result1 = mysqli_query($conn , $updatequery) or die(mysqli_error($conn));
 if (mysqli_affected_rows($conn) > 0) {
 	echo "<script>alert('PROFILE UPDATED SUCCESSFULLY');
@@ -149,7 +149,7 @@ else {
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welcome to your Profile 
-                            <small><?php echo $_SESSION['name']; ?></small>
+                            <small><?php echo $_SESSION['username']; ?></small>
                         </h1>
 <form role="form" action="" method="POST" enctype="multipart/form-data">
 
@@ -171,23 +171,23 @@ else {
 
 <div class="form-group">
 		<label for="user_title">User Name</label>
-		<input type="text" name="username" class="form-control" value=" <?php echo $username; ?>" readonly>
+		<input type="text" name="uname" class="form-control" value=" <?php echo $username; ?>" readonly>
 	</div>
 
 
 
 	<div class="form-group">
 		<label for="user_author">Name</label>
-		<input type="text" name="name" class="form-control"  value="<?php echo $name; ?>" required>
+		<input type="text" name="uname" class="form-control"  value="<?php echo $name; ?>" required>
 	</div>
 
 	<div class="form-group">
 		<label for="user_tag">Email</label>
-		<input type="email" name="email" class="form-control"  value="<?php echo $useremail; ?>" required>
+		<input type="email" name="uname" class="form-control"  value="<?php echo $useremail; ?>" required>
 	</div>
 	<div class="form-group">
 		<label for="post_content">Bio</label>
-		<textarea  class="form-control" name="bio" id="" cols="30" rows="10"><?php  echo $bio;  ?>
+		<textarea  class="form-control" name="about" id="about" cols="30" rows="10"><?php  echo $bio;  ?>
 		</textarea>
 	</div>
 

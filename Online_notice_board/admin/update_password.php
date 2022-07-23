@@ -37,40 +37,46 @@ $err="<font color='red'>Wrong Old Password </font>";
 }
 
 ?>
-<h2>Update Password</h2>
+<h2 align="center">Update Password</h2>
 <form method="post">
-	
+<table class="table table-bordered">
+<Tr>
+<Td colspan="2" align="center">
 	<div class="row">
 		<div class="col-sm-4"></div>
-		<div class="col-sm-4"><?php echo @$err;?></div>
+		<div class="col-sm-4"><font size="4ppx"><?php echo @$err;?></div>
 	</div>
+	</Tr>
 	
-	
-	
+	<Tr>
 	<div class="row">
-		<div class="col-sm-4">Enter YOur Old</div>
-		<div class="col-sm-5">
-		<input type="password" name="op" class="form-control"/></div>
+	<td><div class="col-sm-4">Enter Your Old Password</div></td>
+	<div class="col-sm-5">
+		<td><input type="password" name="op" class="form-control"/></div></td>
 	</div>
-	
+	</Tr>
+	<Tr>
 	<div class="row">
-		<div class="col-sm-4">Enter YOur New Password</div>
-		<div class="col-sm-5">
-		<input type="password" name="np" class="form-control"/></div>
+	<td><div class="col-sm-4">Enter Your New Password</div></td>
+	<div class="col-sm-5">
+	<td>	<input type="password" name="np" class="form-control"/></div></td>
 	</div>
-	
+	</Tr>
+	<Tr>
 	<div class="row">
-		<div class="col-sm-4">Enter YOur Confirm Password</div>
+	<td><div class="col-sm-4">Confirm Your New Password</div></td>
 		<div class="col-sm-5">
-		<input type="password" name="cp" class="form-control"/></div>
+		<td><input type="password" name="cp" class="form-control"/></div></td>
 	</div>
 	<div class="row" style="margin-top:10px">
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8">
-		
-		
+		</Tr>
+		<Tr>
+		<Td colspan="2" align="center">
 		<input type="submit" value="Update Password" name="save" class="btn btn-success"/>
 		<input type="reset" class="btn btn-success"/>
 		</div>
 	</div>
+	</Tr>
 </form>	

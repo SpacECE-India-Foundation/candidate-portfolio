@@ -280,6 +280,15 @@ echo '
   </div>
 </div>
 
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-12 control-label" for="days"></label>  
+  <div class="col-md-12">
+  <textarea rows="1" cols="4" name="days" class="form-control" placeholder="Number Of Days"></textarea>  
+  </div>
+</div>
+
 <p class="contact"><label for="department">Department..</label></p>
 <select class="select-style gender" name="department" id="department">';
 

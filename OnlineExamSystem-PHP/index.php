@@ -37,7 +37,9 @@ var b = document.forms["form"]["cpassword"].value;if (a!=b){alert("Passwords mus
 <div class="col-lg-6">
 <span class="logo">Online Exam System</span></div>
 <div class="col-md-2 col-md-offset-4">
-<li class="nav-item"><a href="./account.php?q=1"class="nav-link">exam</a><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
+<li class="nav-item"><a href="./account.php?q=1"class="nav-link">exam</a>
+<li class="nav-item"><a href="./assessment.php?q=1"class="nav-link">Assessment</a>
+<li class="nav-item"><a href="../user/logout.php" class="nav-link" style="background-color:green"><b>Log out</b></a></li>
 
 <!-- <a href="#" class="pull-right btn sub1" style="border-radius:0%" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Login</b></span></a></div>
  

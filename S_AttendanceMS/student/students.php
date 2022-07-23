@@ -34,7 +34,7 @@ if($_SESSION['name']!='oasis')
 
 <header>
 
-  <h1>Attendance Management System</h1>
+  <h1 style="background-color:#FFC107;">Attendance Management System</h1>
   <div class="navbar">
   <a href="index.php" style="text-decoration:none;">Home</a>
   <a href="students.php" style="text-decoration:none;">Students</a>
