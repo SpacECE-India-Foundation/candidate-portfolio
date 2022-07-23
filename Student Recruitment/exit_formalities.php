@@ -1,10 +1,11 @@
 <?php
 //include('../header.php');
 // include('db_connect.php');
+$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
 $id= $_SESSION['id'];
     // echo("sakshi");
 $query = "SELECT `assignment` FROM `user` WHERE `uid`=".$id;
-$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+//$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
 
 $result1 = mysqli_query($conn , $query) or die (mysqli_error($conn));
 // print_r($result1);

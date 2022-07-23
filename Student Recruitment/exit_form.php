@@ -132,7 +132,7 @@ mail($rec,$sub1,$msg1,$hed);
 
 ?>
 <script>
-  window.location.href = ."./dashboard/completion.php";
+  window.location.href = "./dashboard/completion.php";
 </script>
 <?php 
 if (mysqli_num_rows($result) > 0) {
