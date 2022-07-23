@@ -44,7 +44,7 @@ if (mysqli_num_rows($result) > 0) {
       $_SESSION['SESS_MEMBER_ID']=$id;
       $_SESSION['SESS_FIRST_NAME']=$row['uname'];
 	    $_SESSION['SESS_LAST_NAME']=$row['name'];
- 
+      
       $_SESSION['login_type']=1;
       $_SESSION['login_id']=$id;
       $_SESSION['login_name']=$name;
