@@ -26,6 +26,7 @@ foreach($application as $k => $v){
 	    <p><b>Assignment</p>
 			<a href="download.php?id=<?php echo $_GET['id'] ?>" target="_blank"><?php echo $fname ?></a>
 		<br>	<br>
-		<a href="html-to-word-php.php" class="btn btn-primary" >Release offer letter</a>	
-	</div>
-</div>
+		<a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >Release offer letter</a>
+			
+			</div>
+		</div>

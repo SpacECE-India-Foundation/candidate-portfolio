@@ -5,8 +5,7 @@ $id=isset($_GET['id'])?$_GET['id']:'';
 $ud=isset($_SESSION['id'])?$_SESSION['id']:'';
 echo ($id.'--------');
 echo($ud);
-$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
-//$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
 $select_assignment=mysqli_query($conn,"SELECT assignment FROM `user` WHERE uid= '$ud' ");
 
 //$number=mysqli_fetch_row($select_assignment);

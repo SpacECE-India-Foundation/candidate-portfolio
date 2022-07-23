@@ -15,7 +15,6 @@
 								<button class="btn btn-sm btn-block btn-primary btn-sm col-md-2 float-right" type="button" id="new_assignments"><i class="fa fa-plus"></i> New Assignment</button>
 							</div>
 						</div>
-						
 					</div>
 					<div class="card-body">
 						<table class="table table-bordered table-hover">
@@ -89,7 +88,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height: :150px;
+		max-height:150px;
 	}
 </style>
 <script>

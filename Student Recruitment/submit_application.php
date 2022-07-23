@@ -5,6 +5,7 @@
 	foreach($qry as $k =>$v){
 		$$k = $v;
 	}
+	$position_id=$_GET['id'];
 ?>
 <div class="container-fluid">
 	<form id="manage-application">

@@ -1,4 +1,3 @@
-
 <style>
 </style>
 <nav id="sidebar" class='mx-lt-5 bg-dark' >
@@ -12,7 +11,9 @@
 				<?php if($_SESSION['login_type'] == 1): ?>
 				<a href="index.php?page=users" class="nav-item nav-users"><span class='icon-field'><i class="fa fa-users"></i></span> Users</a>
 				<a href="index.php?page=site_settings" class="nav-item nav-site_settings"><span class='icon-field'><i class="fa fa-cogs"></i></span> Settings</a>
-				<a href="index.php?page=assignments" class="nav-item nav-assignments"><span class='icon-field'><i class="fa fa-list-alt"></i></span> assignments</a>
+				<a href="index.php?page=assignments" class="nav-item nav-assignments"><span class='icon-field'><i class="fa fa-list-alt"></i></span> Assignments</a>
+				<a href="index.php?page=endandjoin" class="nav-item nav-endandjoin"><span class='icon-field'><i class="fa fa-cogs"></i></span> Join And End Date</a>
+				
 			<?php endif; ?>
 		</div>
 

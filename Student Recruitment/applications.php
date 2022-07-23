@@ -5,16 +5,15 @@ $id=isset($_GET['id'])?$_GET['id']:'';
 $ud=isset($_SESSION['id'])?$_SESSION['id']:'';
 // echo ($id.'--------');
 // echo($ud);
-$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
-//$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
 $select_assignment=mysqli_query($conn,"SELECT assignment FROM `user` WHERE uid= '$ud' ");
 
-//$number=mysqli_fetch_row($select_assignment);
+// $number=mysqli_fetch_row($select_assignment);
 //echo($number);
 $application=NULL;
 $assignment=NULL;
 $email= $_SESSION['email'];
-$query = "SELECT * FROM details WHERE email = '$email'";
+$query = "SELECT * FROM application WHERE email = '$email'";
 
 $result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 
@@ -22,6 +21,7 @@ if (mysqli_num_rows($result) > 0) {
     $application=true;
 	while($row=mysqli_fetch_array($select_assignment)){
 		 	$assignment=$row['assignment'];
+			// echo $assignment;
 		 }
 }
 
@@ -30,10 +30,11 @@ if (mysqli_num_rows($result) > 0) {
 	// }
 
 if(empty($assignment)){
-//echo("hello");
+// echo("hello");
 $a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" ) or die('Error231');
 while($row=mysqli_fetch_array($a) )
 $assignment=$row['assignment'];
+// echo $assignment;
 $update=mysqli_query($conn,"UPDATE user set assignment='$assignment' WHERE uid='$ud'")or die('Error231');
 }
 
@@ -45,7 +46,7 @@ $result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_array($result)) {
     $status = $row['assignment_status'];
-   // echo '----'.$status;
+//    echo '----'.$status;
   // echo('<b>Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >'.$email.'here</br></a>');   
   if($status=='complete')
     $isApplication=true;
@@ -73,24 +74,24 @@ if (mysqli_num_rows($result) > 0) {
     <div class="card-header">Submit Assignment</div>
     <div class="card-body">
     <?php
-    if($application|| $isApplication){
-     //echo("done");
-       // $conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
-      //$select_assignment=mysqli_query($conn,"SELECT assignment FROM `user` WHERE uid= '$ud' ");
-        //$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" ) or die('Error231');
-        //while($row=mysqli_fetch_array($a) )
-       //$assignment=$row['assignment'];
-       //$update=mysqli_query($conn,"UPDATE user set assignment='$assignment' WHERE uid='$ud'")or die('Error231');
+    if($isApplication){
+//      echo("done");
+//        $conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+//       $select_assignment=mysqli_query($conn,"SELECT assignment FROM `user` WHERE uid= '$ud' ");
+//         $a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" ) or die('Error231');
+//         while($row=mysqli_fetch_array($a) )
+//        $assignment=$row['assignment'];
+//        $update=mysqli_query($conn,"UPDATE user set assignment='$assignment' WHERE uid='$ud'")or die('Error231');
 
-		//$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" ) or die('Error231');
-        //while($row=mysqli_fetch_array($a) )
-        //$assignment=$row['assignment'];
-		//$update=mysqli_query($conn,"UPDATE user set assignment='$assignment' WHERE uid='$ud'")or die('Error231');
+// 		$a=mysqli_query($conn,"SELECT * FROM assignment WHERE position_id='$id' ORDER BY RAND() LIMIT 1" ) or die('Error231');
+//         while($row=mysqli_fetch_array($a) )
+//         $assignment=$row['assignment'];
+// 		$update=mysqli_query($conn,"UPDATE user set assignment='$assignment' WHERE uid='$ud'")or die('Error231');
 
-		//$isApplication=false;
-//$email=isset($_SESSION['email'])?$_SESSION['email']:'';
-//$query = "SELECT assignment_status FROM application WHERE email = '$email'";
-//$result= mysqli_query($conn , $query) or die (mysqli_error($conn));
+// 		$isApplication=false;
+// $email=isset($_SESSION['email'])?$_SESSION['email']:'';
+// $query = "SELECT assignment_status FROM application WHERE email = '$email'";
+// $result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 
 		?>
 		
@@ -108,13 +109,13 @@ if (mysqli_num_rows($result) > 0) {
     <input type="hidden" name="sk" id="sk" value="<?php echo($position_id=$id); ?> " >
     <div  class="row form-group">
 			<div class="col-md-7">
-				<label for="" class="control-label"></label>
-				<textarea name="assignment" id="" cols="30" rows="3" required="required" class="form-control"></textarea>
+				<!-- <label for="" class="control-label"></label> -->
+				<!-- <textarea name="assignment" id="" cols="30" rows="3"  class="form-control"></textarea> -->
 			</div>
 		</div>
-        <div style="padding:20px; padding-top:10px">
+        <!-- <div style="padding:20px; padding-top:10px">
             OR
-        </div>
+        </div> -->
         <div class="row form-group">
 			<div class="input-group col-md-4 mb-3">
                 <label class="btn btn-success" for="assignment">Upload Assignment</label>
@@ -182,7 +183,7 @@ if (mysqli_num_rows($result) > 0) {
 			success:function(resp){
 				alert('success')
 				window.location.href = "index.php?page=view";
-				if(resp == 1){
+				if(resp == 1){	
 					//alert_toast('Assignment successfully submitted.','success')
 					setTimeout(function(){
 					//	resp(success),

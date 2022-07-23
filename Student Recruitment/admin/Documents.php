@@ -5,8 +5,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include('db_connect.php');
 $id= $_SESSION['id'];
-echo("hello");
-echo($id);
+// echo("hello");
+// echo($id);
 $query = "SELECT * FROM documents limit 1 ";
 $conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
 $isGeneratedOffer=false;
@@ -15,12 +15,12 @@ $result = mysqli_query($conn , $query) or die (mysqli_error($conn));
 
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_array($result)) {
-    $id = $row['id'];
+    $id = $row['user_id'];
   // echo('<b>Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >Download here</br></a>');   
   $isGeneratedOffer=true;
   }
 }
-echo($isGeneratedOffer);
+// echo($isGeneratedOffer);
 ?>
 
 <div class="container" style="padding-top:3%">

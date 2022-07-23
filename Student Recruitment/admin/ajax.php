@@ -76,7 +76,6 @@ if($action == "save_application"){
 	$gender=$_POST['gender'];
 	$cover_letter=$_POST['cover_letter'];
 	$position_id=$_POST['position_id'];
-	
 	$save = $crud->save_application($lastname,$firstname,$middlename,$address,$contact,$email,$gender,$cover_letter,$position_id);
 	if($save)
 		echo $save;
@@ -93,7 +92,11 @@ if($action == "save_assignment"){
 	$fname=$_FILES['assignment']['tmp_name'];
 	$position_id=$_POST['sk'];
 	$save = $crud->save_assignment($assignment,$fname,$assignment_name,$position_id);
-	
+	if($save)
+		echo $save;
+}
+if($action == "delete_assignments"){
+	$save = $crud->delete_assignments();
 	if($save)
 		echo $save;
 }
@@ -104,5 +107,15 @@ if($action == "save_documents"){
 		echo $save;
 //echo "hello";
 }
+if($action == "save_joinandend"){
+	$save = $crud->save_joinandend();
+	if($save)
+		echo $save;
+}
 
-
+if($action == "save_assignments"){
+	$save = $crud->save_assignments();
+	if($save)
+		echo $save;
+//echo "hello";
+}

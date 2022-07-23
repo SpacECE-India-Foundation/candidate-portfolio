@@ -82,7 +82,7 @@
 					<li id="applications"><a href="index.php?page=applications"></i>My Assignment</a></li>
           <li id="view"><a href="index.php?page=view"></i>Offer Letter</a></li>
 					<li id="joining_letter"><a href="index.php?page=joining_letter"></i>Joining Letter</a></li>
-          <li id="completion_letter"><a href="index.php?page=exit_form"></i>Exit Formalities</a></li>
+          <li id="completion_letter"><a href="index.php?page=exit_formalities"></i>Exit Formalities</a></li>
 					<li id="about"><a href="index.php?page=about"></i>About</a></li>
 
 					<!-- Dropdown-->

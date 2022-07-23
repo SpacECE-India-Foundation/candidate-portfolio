@@ -62,20 +62,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $department = test_input($_POST["department"]);
   }
-  if (empty($_POST["suggestion"])) {
+  if (empty($_POST["comment"])) {
     $suggestion = "suggestion is required";
   } else {
-    $suggestion = test_input($_POST["suggestion"]);
+    $suggestion = test_input($_POST["comment"]);
   }
   if (empty($_POST["enddate"])) {
     $enddate = "enddate is required";
   } else {
     $enddate = test_input($_POST["enddate"]);
   }
-  if (empty($_POST["projecttitle"])) {
+  if (empty($_POST["title"])) {
     $projecttitle = "projecttitle is required";
   } else {
-    $projecttitle = test_input($_POST["projecttitle"]);
+    $projecttitle = test_input($_POST["title"]);
   }
   if (empty($_POST["experience"])) {
     $experience = "experience is required";
@@ -99,31 +99,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   
 
-  echo("hello");
+  // echo("hello");
 }
 
 
 // header('Location: downloadprejoin.php');
 
 
-$query="INSERT INTO `exit_form`(`Name`, `Email`, `Mobile no`, `Video`, `department`, `suggestion`, `project title`, `end date`, `start date`, `experience`,`guidance`,`culture`)  VALUES 
+$query="INSERT INTO `exit_form`(`Name_actual`, `Email`, `Mobile_no`, `Video`, `department`, `suggestion`, `project_title`, `end_date`, `start_date`, `experience`,`guidance`,`culture`)  VALUES 
 ('$name','$email','$mobile','$Video','$department','$suggestion','$projecttitle','$enddate','$startdate','$experience','$guidance','$culture')";
- echo $query;
+//  echo $query;
  $result = mysqli_query($conn , $query) or die (mysqli_error($conn)); 
  $vax=$_SESSION['name'];
 $query = "SELECT * FROM exit_form WHERE Name = '$vax'";
 
 $result = mysqli_query($conn , $query) or die (mysqli_error($conn));
+//the subject
+$sub = "Exit formalities completed";
+//recipient email here
+$rec = $_SESSION['uname'];
+//the message
+$msg = file_get_contents("Exit_Formalities.html");
+//send email
+$hed = 'MIME-Version: 1.0' . "\r\n";
+$hed .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+mail($rec,$sub,$msg,$hed);
+$sub1="COMPLETION LETTER";
+$msg1=file_get_contents("Completion_Letter.php");
+$hed = 'MIME-Version: 1.0' . "\r\n";
+$hed .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+mail($rec,$sub1,$msg1,$hed);
 
 ?>
 <script>
-  window.location.href = "./dashboard/completion.php";
+  window.location.href = ."./dashboard/completion.php";
 </script>
 <?php 
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_array($result)) {
     
-    $name = $row['name'];
+    $name = $row['Name_actual'];
     $email = $row['email'];
     $Video = $row['Video'];
     $department = $row['department'];
@@ -133,7 +148,7 @@ if (mysqli_num_rows($result) > 0) {
     $startdate = $row['startdate'];
     $experience=$row['experience'];
     $guidance=$row['guidance'];
-    $culture=$row['$culture'];
+    $culture=$row['culture'];
       // $_SESSION['id'] = $id;
       // $_SESSION['name'] = $name;
       // $_SESSION['email']= $email;
@@ -302,11 +317,11 @@ function test_input($data) {
     </div>
     <div class="form-group col-md-6">
       <label for="dob">Start Date:</label>
-      <input type="date" Name="date" class="form-control" id="dob">      
+      <input type="date" Name="startdate" class="form-control" id="dob">      
     </div>
     <div class="form-group col-md-6">
       <label for="dob">End Date:</label>
-      <input type="date" Name="date" class="form-control" id="dob">      
+      <input type="date" Name="enddate" class="form-control" id="dob">      
     </div>
   </div>
   <div class="form-row">

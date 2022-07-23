@@ -12,13 +12,17 @@ if(isset($_GET['id'])){
 	<form action="" id="manage-assignments">
 				<input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id']:'' ?>" class="form-control">
 		<div class="row form-group">
+		<b>Enter the same name as the Position you are trying to add assignment for.</b>				
 			<div class="col-md-8">
+
 				<label class="control-label">Position Name</label>
 				<input type="text" name="position" class="form-control" value="<?php echo isset($position) ? $position:'' ?>">
 			</div>
 		</div>
 		<div class="row form-group">
-			<div class="col-md-8">
+		<b>Enter the same Availability as the Position you are trying to add assignment for.</b>
+		<div class="col-md-8">
+
 				<label class="control-label">Availability</label>
 				<input type="number" name="availability" min='1' class="form-control text-right" value="<?php echo isset($availability) ? $availability:'' ?>">
 			</div>
@@ -35,6 +39,7 @@ if(isset($_GET['id'])){
 		<?php endif; ?>
 		<div class="row form-group">
 			<div class="col-md-12">
+				Enter the Assignment
 				<label class="control-label">Description</label>
 				<textarea name="description" class="text-jqte"><?php echo isset($description) ? $description : '' ?></textarea>
 			</div>

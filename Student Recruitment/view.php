@@ -13,8 +13,8 @@
 // include('db_connect.php');
 $id= $_SESSION['id'];
 $query = "SELECT `assignment` FROM `user` WHERE `uid`=".$id;
-$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
-//$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+
+$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
 
 $result1 = mysqli_query($conn , $query) or die (mysqli_error($conn));
 
@@ -26,14 +26,14 @@ $result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_array($result)) {
     $status = $row['assignment_status'];
-    echo '----'.$status;
+    //echo '----'.$status;
   // echo('<b>Download offer Letter</b> <br> <a href="../dashboard/html-to-word-php.php" class="btn btn-primary" >'.$email.'here</br></a>');   
   if($status=='complete')
     $isApplication=true;
   }
 }
 
-echo $isApplication;
+//echo $isApplication;
 if(!$isApplication){
 ?>
     <div class="container">

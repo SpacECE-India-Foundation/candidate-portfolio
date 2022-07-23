@@ -1,24 +1,25 @@
 <?php
 //include('../header.php');
 // include('db_connect.php');
-$conn = new mysqli('3.109.14.4', 'ostechnix', 'Password123#@!', 'candidate_portal');
 $id= $_SESSION['id'];
-echo("sakshi");
+    // echo("sakshi");
 $query = "SELECT `assignment` FROM `user` WHERE `uid`=".$id;
-//$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
+$conn= new mysqli('localhost','root','','candidate_portal')or die("Could not connect to mysql".mysqli_error($conn));
 
 $result1 = mysqli_query($conn , $query) or die (mysqli_error($conn));
-
+// print_r($result1);
 $email= $_SESSION['email'];
-$query = "SELECT * FROM exitform WHERE Email = '$email'";
-//echo $query;
+// echo $email;
+$query = "SELECT * FROM exit_form WHERE Email = '$email'";
+// echo $query;
 $result2 = mysqli_query($conn , $query) or die (mysqli_error($conn));
-
+// print_r( $result2);
 $isApplication=false;
 
 
 $email=isset($_SESSION['email'])?$_SESSION['email']:'';
 $query = "SELECT assignment_status FROM application WHERE email = '$email'";
+// echo $query;
 $result= mysqli_query($conn , $query) or die (mysqli_error($conn));
 
 if (mysqli_num_rows($result) > 0) {
@@ -30,7 +31,7 @@ if (mysqli_num_rows($result) > 0) {
     $isApplication=true;
   }
 }
-echo $isApplication;
+// echo $isApplication;
 if(!$isApplication){
 ?>
     <div class="container">
@@ -45,8 +46,10 @@ if(!$isApplication){
 </div>
 
 <?php
-}else if (mysqli_num_rows($result2) > 0) {
+}
+else if (mysqli_num_rows($result2) > 0) {
 ?>
+
 <div class="container">
     <div class="card">
         <div class="card-header">
@@ -60,7 +63,7 @@ if(!$isApplication){
 <?php
 
 }else if (mysqli_num_rows($result1) > 0  && mysqli_fetch_array($result1)['assignment']) {
-include('./admin/exit_form.php')
+include('./exit_form.php')
 ?>
 <!-- <div class="container">
     <div class="card">

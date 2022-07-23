@@ -39,6 +39,7 @@ if(isset($_GET['id'])){
 				<label class="control-label">Description</label>
 				<textarea name="description" class="text-jqte"><?php echo isset($description) ? $description : '' ?></textarea>
 			</div>
+			<b>Don't forget to add an assigment for the Vacancy</b>
 		</div>
 	</form>
 </div>
