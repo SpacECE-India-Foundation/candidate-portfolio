@@ -3,6 +3,11 @@
 <head>
 <?php
 session_start();
+if(isset($_SESSION)){
+  var_dump($_SESSION);
+  //header('location:../index.php');
+  exit();
+}
 include './includes/connection.php';
  ?>
 <?php include './includes/header.php';?>
